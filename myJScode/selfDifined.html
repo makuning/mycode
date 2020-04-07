@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己定义一个自定义函数来解决问题</title>
+</head>
+<body>
+    <p>函数作用：商店（餐馆）记账<br/>
+        比如，有个客人进店进行了消费，我规定他必须买3样东西，不规定买的这3样东西的个数，然后反馈给顾客发票<br/>
+        <button id="goon" style="width:150px;height:70px;font-size:40px;font-weight:bold;color:green">执行</button>
+    </p>
+    <script>
+        window.onload = init;
+        function init(){
+           expen("自热米饭",12,3,"康师傅方便面",3.5,6,"红牛维生素供能饮料",6,9);
+        }
+        function Invoice(goods1,price1,length1,goods2,price2,length2,goods3,price3,length3){
+            this.goods1 = goods1;
+            this.goods2 = goods2;
+            this.goods3 = goods3;
+            this.price1 = price1;
+            this.price2 = price2;
+            this.price3 = price3;
+            this.length1 = length1;
+            this.length2 = length2;
+            this.length3 = length3;
+            this.putout = function(){
+                document.write("<h2 style=\'text-align:center\'>购物清单</h2><br/>");
+                document.write("商品1：" + goods1 + "&nbsp单价：" + price1 + "元" + "&nbsp数量：" + length1 + "&nbsp价格：" + (price1 * length1) + "元<br/>");
+                document.write("商品2：" + goods2 + "&nbsp单价：" + price2 + "元" + "&nbsp数量：" + length2 + "&nbsp价格：" + (price2 * length2) + "元<br/>");
+                document.write("商品3：" + goods3 + "&nbsp单价：" + price3 + "元" + "&nbsp数量：" + length3 + "&nbsp价格：" + (price3 * length3) + "元<br/>");
+                document.write("总价：" + (price1 * length1 + price2 * length2 + price3 * length3));
+            }
+        }
+        function expen(goods1,price1,length1,goods2,price2,length2,goods3,price3,length3){
+            var expen1 = new Invoice(goods1,price1,length1,goods2,price2,length2,goods3,price3,length3);
+            var goon = document.getElementById("goon");
+            goon.ondblclick = expen1.putout;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周期刷新时间</title>
+    <script>
+        window.onload = init;
+
+        function init(){   
+            showtime();
+        }
+        
+        function showtime(){
+            // document.write("hahaha");
+            var nowTime = new Date();
+            var year = nowTime.getFullYear();
+            var month = nowTime.getMonth() + 1;
+            var date = nowTime.getDate();
+            var day = nowTime.getDay();
+            var hours = nowTime.getHours();
+            var mins = nowTime.getMinutes();
+            var secs = nowTime.getSeconds();
+            var remin = document.getElementById("remin");
+            var tds = document.getElementsByTagName("td");
+            var i;
+            var secsNum;
+
+            switch(day)
+            {
+                case 0:day = "日";break;
+                case 1:day = "一";break;
+                case 2:day = "二";break;
+                case 3:day = "三";break;
+                case 4:day = "四";break;
+                case 5:day = "五";break;
+                case 6:day = "六";break;
+            }
+            
+            switch(hours)
+            {
+                case 0:hours = "00";break;
+                case 1:hours = "01";break;
+                case 2:hours = "02";break;
+                case 3:hours = "03";break;
+                case 4:hours = "04";break;
+                case 5:hours = "05";break;
+                case 6:hours = "06";break;
+                case 7:hours = "07";break;
+                case 8:hours = "08";break;
+                case 9:hours = "09";break;
+                default:hours = hours;
+            }
+
+            switch(mins)
+            {
+                case 0:mins = "00";break;
+                case 1:mins = "01";break;
+                case 2:mins = "02";break;
+                case 3:mins = "03";break;
+                case 4:mins = "04";break;
+                case 5:mins = "05";break;
+                case 6:mins = "06";break;
+                case 7:mins = "07";break;
+                case 8:mins = "08";break;
+                case 9:mins = "09";break;
+                default:mins = mins;
+            }
+
+            switch(secs)
+            {
+                case 0:secs = "00";break;
+                case 1:secs = "01";break;
+                case 2:secs = "02";break;
+                case 3:secs = "03";break;
+                case 4:secs = "04";break;
+                case 5:secs = "05";break;
+                case 6:secs = "06";break;
+                case 7:secs = "07";break;
+                case 8:secs = "08";break;
+                case 9:secs = "09";break;
+                default:secs = secs;
+            }
+
+            remin.innerHTML = year + "年" + month + "月" + date + "日" + " " + "星期" + day + " " + hours + ":" + mins + ":" + secs;
+            
+            secsNum = Number(secs);
+            if(secsNum == 59)
+            {
+                for(i = 0;i < 60;i++)
+                {
+                    tds[i].style.background = "red";
+                }
+            }else{
+                tds[secsNum].style.background = "black";
+            }
+            
+            window.setTimeout(showtime,1000); 
+        }
+    </script>
+    <style>
+        td{
+            border:1px solid black;
+            width:20px;
+            height:10px;
+        }
+        table{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <span id="remin">2020年4月7日星期二AM 9:34:06</span>
+    <div>
+        <table cellspacing="0">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
