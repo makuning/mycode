@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实现川信官网幻灯片效果</title>
+    <style>
+        #imgs{
+            width:577px;
+            height:270px;
+        }
+        div{
+            text-align: center;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+
+    var cnt = 0;
+
+    function init(){
+        var points = document.getElementsByClassName("point");
+        points[0].onclick = pointClick;
+        points[1].onclick = pointClick;
+        points[2].onclick = pointClick;
+        points[3].onclick = pointClick;
+        points[4].onclick = pointClick;
+        autoPlay();
+    }
+
+    function autoPlay(){
+        var imgs = document.getElementById("imgs");
+        var points = document.getElementsByClassName("point");
+        var i;
+        cnt++;
+
+        for(i = 0;i < 5;i++)
+        {
+            points[i].src = "whitePoint.png";
+        }
+
+        switch(cnt % 5)
+        {
+            case 0:imgs.src = "image5.jfif";points[4].src = "blackPoint.png";break;
+            case 1:imgs.src = "image1.jfif";points[0].src = "blackPoint.png";break;
+            case 2:imgs.src = "image2.jfif";points[1].src = "blackPoint.png";break;
+            case 3:imgs.src = "image3.jfif";points[2].src = "blackPoint.png";break;
+            case 4:imgs.src = "image4.jfif";points[3].src = "blackPoint.png";break;
+        }
+
+        window.setTimeout(autoPlay,2500); 
+    }
+
+    function pointClick(){
+        var obj = event.srcElement ? event.srcElement : event.target;
+        var points = document.getElementsByClassName("point");
+        var imgs = document.getElementById("imgs");
+        var i;
+
+        if(obj === points[0])
+        {
+            imgs.src = "image1.jfif";
+            points[0].src = "blackPoint.png";
+            for(i = 0;i < 5;i++)
+            {
+                if(i == 0)
+                {
+                    continue;
+                }
+                points[i].src = "whitePoint.png";
+            }
+        }else   if(obj === points[1])
+                {
+                    imgs.src = "image2.jfif";
+                    points[1].src = "blackPoint.png";
+                    for(i = 0;i < 5;i++)
+                    {
+                        if(i == 1)
+                        {
+                            continue;
+                        }
+                        points[i].src = "whitePoint.png";
+                    }
+                }else   if(obj === points[2])
+                        {
+                            imgs.src = "image3.jfif";
+                            points[2].src = "blackPoint.png";
+                            for(i = 0;i < 5;i++)
+                            {
+                                if(i == 2)
+                                {
+                                    continue;
+                                }
+                                points[i].src = "whitePoint.png";
+                            }
+                        }else   if(obj === points[3])
+                                {
+                                    imgs.src = "image4.jfif";
+                                    points[3].src = "blackPoint.png";
+                                    for(i = 0;i < 5;i++)
+                                    {
+                                        if(i == 3)
+                                        {
+                                            continue;
+                                        }
+                                        points[i].src = "whitePoint.png";
+                                    }
+                                }else   if(obj === points[4])
+                                        {
+                                            imgs.src = "image5.jfif";
+                                            points[4].src = "blackPoint.png";
+                                            for(i = 0;i < 5;i++)
+                                            {
+                                                if(i == 4)
+                                                {
+                                                    continue;
+                                                }
+                                                points[i].src = "whitePoint.png";
+                                            }
+                                        }
+    }
+</script>
+<body>
+    <div>
+        <img src="image1.jfif" id="imgs"/>
+    </div>
+    <br/>
+    <div>
+        <img src="whitePoint.png" class="point"/>
+        <img src="whitePoint.png" class="point"/>
+        <img src="whitePoint.png" class="point"/>
+        <img src="whitePoint.png" class="point"/>
+        <img src="whitePoint.png" class="point"/>
+    </div>
+</body>
+</html>
