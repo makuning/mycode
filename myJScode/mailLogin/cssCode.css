@@ -1,0 +1,76 @@
+body{
+    height:980px;
+}
+#first{
+    padding-top:0px;
+    width:800px;
+    height:auto;
+    position: relative;
+    left:50%;
+    top:50%;
+    border-right:1px solid grey;
+    border-left:1px solid grey;
+    border-bottom:4px solid grey;
+    transform:translate(-50%,-50%);
+}
+h2{
+    color:rgb(82, 189, 82);
+    font-size:30px;
+    font-weight:400;
+}
+.cter{
+    text-align:center;
+}
+.margins{
+    margin-left:150px;
+    width:500px;
+}
+.tips{
+    color:gray;
+    font-size:11px;
+    position: relative;left:65px;
+}
+.a:link,.a:visited,.a:hover,.a:active{
+    font-size:12px;
+    color:black;
+    text-decoration:none;
+}
+.b:link,.b:visited,.b:hover,.b:active{
+    color:rgb(104, 216, 104);
+}
+#sbmitBton{
+    height:40px;
+    width:250px;
+    background-color:rgb(148, 233, 148);
+    border:none;
+    color:white;
+    font-size:17px;
+}
+.end{
+    color:grey;
+    font-size:10px;
+    text-align:center;
+}
+.h4Title{
+    position: relative;left:45px;
+}
+.textbox{
+    height:25px;
+    width:350px;
+}
+.textboxMail{
+    height:25px;
+    width:250px;
+}
+#serveClause{
+    font-size:13px;
+    position: relative;right:80px;
+}
+.verifyBton{
+    height:45px;
+    width:150px;
+    font-size:17px;
+    background-color: white;
+    border:none;
+    font-weight:400;
+}
