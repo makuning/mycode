@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册成功页面</title>
+    <link href="../css/cssCode2.css" rel="stylesheet" type="text/css"/>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    var talkBtn;
+    var talkText;
+
+    function init(){
+        talkBtn = document.getElementById("talkBtn");
+        talkText = document.getElementById("talkText");
+
+        talkBtn.onclick = talkBtnFunc;
+    }
+
+    //点击按钮出现我想说的话
+    function talkBtnFunc(){
+        talkText.innerHTML = "这是我马某人第一次写这么长的代码，算是一次成长吧，<br/>我要好好记录下这次写的代码，哈哈哈";
+        talkBtn.style.backgroundColor = "green";
+        talkBtn.style.color = "white";
+        talkBtn.value = "到站了哟";
+    }
+</script>
+<body>
+    <div>
+        <img style="position: relative;left:300px;" src="../image/tommail_logo.png"/><span style="float:right;position: relative;right:300px;"><a href="http://www.tom.com/" target="_black" class="a">TOM首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://mail.tom.com/webmail-static/help/tomcom/index.html" target="_black" class="a">帮助中心</a></span>
+    </div>
+    <div id="first">
+        <div>
+            <img src="../image/top_bg.gif" style="height:10px;width:800px;"/>
+        </div>
+        <div>
+            <h2 class="cter">恭喜您已注册成功！</h2>
+        </div>
+    </div>
+    <div class="cter">
+        <p id="talkText"></p>
+        <input id="talkBtn" type="submit" value="点击"/>
+    </div>
+    <div class="end">
+        <span>TOM集团 邮乐购物 合作伙伴 广告服务 加入TOM</span>
+        <p>Copyright 2019 TOM.COM Corporation,All Tights Reserved 雷霆万钧 版权声明及版权报复投诉指引</p>
+    </div>
+</body>
+</html>
