@@ -23,7 +23,7 @@ var verify;                     //用于查找验证按钮点击后的提示框
 var serveCheckbox;              //用于查找服务条款的阅读勾选按钮 
 
 var randomFlag;                 //标志变量，用于查看验证码是否验证正确
-var wxFlag;
+var wxFlag;                     //标志变量，用于看是否选择了微信验证 
 
 function init(){
     //给全局变量设定功能
@@ -48,7 +48,8 @@ function init(){
     verify = document.getElementById("verify");                 //用于查找验证按钮点击后的提示框
 
     serveCheckbox = document.getElementById("serveCheckbox");       //用于查找服务条款的阅读勾选按钮
-    randomFlag = 1;
+    randomFlag = 0;                                                 //标志变量，用于查看验证码是否验证正确
+    wxFlag = 0;                                                     //标志变量，用于看是否选择了微信验证
 
     mailNameText.onblur = mailNameFunc;                         //邮箱名输入框失去焦点发生的事件函数
     mailNameText.onfocus = mailNameFunc;                        //邮箱名输入框获取焦点发生的事件函数
@@ -77,8 +78,22 @@ var pswdDict = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
 var englishWordDict = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     //数字字典
 var numDict = "1234567890";
+    //电话号码前两位合法数字
+var start2PhoneNum = ["13","14","15","17","18","19"];
 
 //自定义函数
+    //判断一个元素串是否等于一个数组的某个元素
+function ifInArray(str,array){
+    var i;
+    for(i = 0;i < array.length;i++)
+    {
+        if(str == array[i])
+        {
+            return true;
+        }
+    }
+    return false;
+}
     //判断一个字符串是否在另一个字符串中,在返回true，不在返回false
 function ifStringIn(stringSmall,stringBig){
     var i;
@@ -189,6 +204,7 @@ function secPswdFunc(){
                 return true;
             }
 }
+
     //手机好输入框事件函数
 function phoneNumFunc(){
     hintColor(phoneNumHint,3);
@@ -197,12 +213,11 @@ function phoneNumFunc(){
     var telephoneArea = "";
     var area = "";
  
-
     if(str.length == 0)
     {
         phoneNumHint.innerText = "不能为空";
         return false;
-    }else   if(str.length != 11 || ifStringIn(str,numDict) == false)
+    }else   if(str.length != 11 || ifStringIn(str,numDict) == false || ifInArray(str.substring(0,2),start2PhoneNum) == false)
             {
                 phoneNumHint.innerText = "手机号输入有误";
                 return false;
@@ -431,8 +446,10 @@ function verifyBton2Func(){
     if(mailNameFunc() == true && pswdFunc() == true && secPswdFunc() == true && phoneNumFunc() == true)
     {
         verify.innerHTML = "<br/><br/><span id=\"randomHint\">请在输入栏中输入右侧验证码</span><br/><input type=\"text\" id=\"randomText\"/>" + randomStr + "<br/><br/><br/><input id=\"randomSubmit\" type=\"submit\" value=\"提交验证\" />";
+        randomFlag = -1;
     }else{
         verify.innerHTML = "<br/><br/><br/><span id=\"randomHintCant\">请填写注册信息<br/><br/>后生成验证码</span>";
+        randomFlag = -1;
         return false;
     }
 
@@ -471,6 +488,14 @@ function serveIfRead(){
 
     //注册按钮点击事件
 function sbmitBtonClickFunc(){
+    if(serveIfRead() == true && mailNameFunc() == true && pswdFunc() == true && secPswdFunc() == true && phoneNumFunc() == true && randomFlag == 1)
+    {
+        window.location.replace("succeed.html");
+    }else
+    if(serveIfRead() == true && mailNameFunc() == true && pswdFunc() == true && secPswdFunc() == true && phoneNumFunc() == true && wxFlag == 1)
+    {
+        window.location.replace("succeed.html");
+    }else
     if(mailNameFunc() == false)
     {
         alert("请填写邮箱号");
@@ -487,11 +512,10 @@ function sbmitBtonClickFunc(){
     {
         alert("请填写手机号码");
     }else
-    if(wxFlag == -1)
+    if(wxFlag == 0 && randomFlag == 0)
     {
         alert("请选择其中一种验证方式");
-    }
-    else
+    }else
     if(randomFlag == -1)
     {
         alert("验证码验证错误，请重新验证");
@@ -499,16 +523,7 @@ function sbmitBtonClickFunc(){
     if(serveIfRead() == false)
     {
         alert("请认真阅读“服务条款”并勾选“我已阅读”");
-    }else
-    if(serveIfRead() == true && mailNameFunc() == true && pswdFunc() == true && secPswdFunc() == true && phoneNumFunc() == true && randomFlag == 1)
-    {
-        window.location.replace("succeed.html");
-    }else
-    if(serveIfRead() == true && mailNameFunc() == true && pswdFunc() == true && secPswdFunc() == true && phoneNumFunc() == true && wxFlag == 1)
-    {
-        window.location.replace("succeed.html");
-    }else
-    {
+    }else{
         alert("未知错误！！！");
     }
     return false;
