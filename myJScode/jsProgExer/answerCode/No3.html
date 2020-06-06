@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js编程题第三题（这道题和第一题的编程思路很像，相似度90%）</title>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    var button;             //全局变量，用来找按钮
+
+    function init(){
+        button = document.getElementById("button");
+
+        button.onclick = countCircleArea;
+    }
+
+    function countCircleArea(){
+        var text = document.getElementById("text");     //很显然，这里是找我们的文本框
+        var num = text.value;                           //这里用一个变量来装用户输入的数字，当然这里可以在后面判断是数字后再装，这里写出来好看
+        var result;                                     //用来装我们运算结果的变量
+        var pai = 3.1445926;                            //给变量pai一个接近π的值
+
+        if(isNaN(Number(text.value)) == true || text.value.length == 0)//判断用户输入的是否为数字
+        {
+            window.alert("请输入数字");
+        }else{
+            result = num * num * pai;                   //计算部分
+            window.alert("您给的圆的半径为：" + num + "\n您得到的圆的面积为：" + result);//警示框出结果
+        }
+    }
+
+</script>
+<body>
+    <p>3.制作一个页面，放文本框和按钮，实现输入圆半径，计算圆面积并弹出计算结果。 </p>
+    <hr/>
+    <input type="text" id="text"/><br/>
+    <input type="submit" id="button"/>
+</body>
+</html>

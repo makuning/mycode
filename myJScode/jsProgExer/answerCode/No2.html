@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js编程题第二题</title>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+
+    function init(){
+        showtime();                                         //页面一打开就显示我的showtime函数运行结果
+    }
+
+    function showtime(){
+        var remin = document.getElementById("remin");       //找到装时间的span
+        var nowTime = new Date();                           //创建一个新的对象Date，获取当前系统的时间（这里我也不是很懂，我是这样理解的，这个Date对象是js里自带的时间对象，可以打开w3cschool看看这个Date对象）
+        var year = nowTime.getFullYear();                   //用一个变量来装我们新建时间对象的年（这个有括号的就是js时间对象里自带的获取年份的方法）
+        var month = nowTime.getMonth() + 1;                 //用一个变量来装我们新建时间对象的月份（这个有括号的就是js时间对象里自带的获取月份的方法，为什么要加一呢？
+                                                            //我没记错的话，好像只有几号和年份是可直接引用的（这个解释有点儿小问题），其他的都是从0开始计算
+                                                            //（虽然是从0开始计算，但是像时间：小时，分钟，秒就是需要从0开始，所以也是可以直接引用的））
+        var date = nowTime.getDate();                       //用一个变量来装是几号
+        var day = nowTime.getDay();                         //用一个变量来装星期几（这里就要注意了，因为从0起标，所以0表示星期日，因为一周的开始是星期日）
+        var hours = nowTime.getHours();                     //用一个变量来装小时
+        var mins = nowTime.getMinutes();                    //用一个变量来装分钟
+        var secs = nowTime.getSeconds();                    //用一个变量来装秒数
+        var whatM = "";                                     //用来装AM和PM，如果是上午则AM，下午则PM
+
+        //接下来就是比较繁琐的事情了，为了让我的时间显示得好看，我就要做接下来的工作，当然，如果你不需要这样，可以直接就输出，毕竟这只是为了美化
+        switch(day) //看的出来，这是美化我的星期
+        {
+            case 0:day = "日";break;
+            case 1:day = "一";break;
+            case 2:day = "二";break;
+            case 3:day = "三";break;
+            case 4:day = "四";break;
+            case 5:day = "五";break;
+            case 6:day = "六";break;
+        }
+
+        if(hours >= 0 && hours <= 12)   //对上午下午进行判断，上午AM下午PM，那么为什么在这里判断呢？（因为我马上就要对hours进行处理了）
+        {
+            whatM = "AM";
+        }else{
+            whatM = "PM";
+        }
+
+        //那么这里为什么连小时我都要美化呢？因为我想要小时为个位数时会有01，02这种格式，后面我都会这样（这是张俊晖老师希望我们能够做到的）
+        //这里和其他的case条件不一样，因为我设置了AM，PM所以就01-12就OK
+        switch(hours)
+        {
+            case 0:hours = "00";break;
+            case 1,13:hours = "01";break;
+            case 2,14:hours = "02";break;
+            case 3,15:hours = "03";break;
+            case 4,16:hours = "04";break;
+            case 5,17:hours = "05";break;
+            case 6,18:hours = "06";break;
+            case 7,19:hours = "07";break;
+            case 8,20:hours = "08";break;
+            case 9,21:hours = "09";break;
+            case 22:hours = "10";break;
+            case 23:hours = "11";break;
+        }
+
+        switch(mins)    //同上
+        {   
+            case 0:mins = "00";break;
+            case 1:mins = "01";break;
+            case 2:mins = "02";break;
+            case 3:mins = "03";break;
+            case 4:mins = "04";break;
+            case 5:mins = "05";break;
+            case 6:mins = "06";break;
+            case 7:mins = "07";break;
+            case 8:mins = "08";break;
+            case 9:mins = "09";break;
+        }
+
+        switch(secs)    //......
+        {
+            case 0:secs = "00";break;
+            case 1:secs = "01";break;
+            case 2:secs = "02";break;
+            case 3:secs = "03";break;
+            case 4:secs = "04";break;
+            case 5:secs = "05";break;
+            case 6:secs = "06";break;
+            case 7:secs = "07";break;
+            case 8:secs = "08";break;
+            case 9:secs = "09";break;
+        }
+
+        remin.innerHTML =  year + "年 " + month + "月" + date + "日 " +  "星期" + day + " " + hours + ":" + mins + ":" + secs + " " + whatM ; //对我装时间的span进行更改
+
+        window.setTimeout(showtime,1000);   //完成1000毫秒（一秒）后自己调用自己，也可使用setInterval,
+                                            //区别就是setTimeout只调用一次，而setInterval是无限调用，所以我把setTimeout放在函数里面自己调用自己实现无限调用的功能
+    }
+</script>
+<body>
+    <p>
+        2. 制作一个页面，JS编程动态显示当前系统的时间日期信息。<br/>
+        (这道题直接默写的话我还是不怎么会，翻了笔记，就当复习了，哈哈哈)
+    </p>
+    <hr/>
+    <span id="remin">2020年 6月5号 星期五 17：10：00 PM</span>        <!--初始化我的日期格式，当然，也可以不写内容-->
+</body>
+</html>

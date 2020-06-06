@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js编程题第一题</title>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    var text;                           //全局变量，用来查找文本框
+    var button;                         //全局变量，用来查找按钮
+
+    function init(){
+        text = document.getElementById("text");                             //给变量赋值，用来查找文本框
+        button = document.getElementById("button");                         //给变量赋值，用来查找按钮
+
+        button.onclick = function(){                                        //因为题目简单，我直接就把事件处理函数放在了初始化函数里
+            if(isNaN(Number(text.value)) == true || Number(text.value) % 1 != 0 || text.value.length == 0)//判断用户在文本框输入的是否为整数，不是则弹出提示框提醒，是则判断再提示是什么数
+            {
+                window.alert("请输入整数");
+            }else{
+                if(Number(text.value) % 2 == 0)
+                {
+                    window.alert("此数为偶数");
+                }else{
+                    window.alert("此数为奇数");
+                }
+            }
+        }
+    }
+</script>
+<body>
+    <p>
+        1.制作一个页面，页面上放一个文本框、一个按钮。按钮上显示的文本为’保存’。要求给按钮关<br/>
+        联点击事件，在事件中判断文本框里的值是偶数还是奇数，弹出窗口显示判断结果。
+    </p>
+    <hr/>
+    <input type="text" id="text"/><br/>
+    <input type="submit" value="保存" id="button"/>
+</body>
+</html>

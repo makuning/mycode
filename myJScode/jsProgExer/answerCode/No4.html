@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js编程题第四题</title>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+
+    var button;            //全局变量，找我的按钮
+
+    function init(){
+        button = document.getElementById("button");
+
+        button.onclick = sumNums;
+    }
+
+    function sumNums(){
+        var nums = document.getElementsByClassName("nums"); //找我的数字文本框，注意这里用的是classname，所以这个nums是个数组
+        var num1 = nums[0].value;                           //用一个变量装我第一个数字文本框的文本内容
+        var num2 = nums[1].value;                           //用一个变量装我第二个数字文本框的文本内容
+        //var num3 = nums[2].value;                           //用一个变量装我第三个数字文本框的文本内容(这个好像有点儿问题，在后面我引用这个改我的答案框内容的时候改不了)
+
+        if(num1.length == 0 || isNaN(Number(num1)) == true)
+        {
+            window.alert("第一个数字输入有误，请重新输入！");
+            nums[2].value = "";                             //为了在用户输入不正确的数字时对上一次的结果进行清除，以免用户误以为答案就是上一次的计算结果
+        }else   if(num2.length == 0 || isNaN(Number(num2)) == true)
+                {
+                    window.alert("第二个数字输入有误，请重新输入！");
+                    nums[2].value = "";                     //同上
+                }else{
+                    //num3 = Number(num1) + Number(num2);   //(这就是我上面定义num3变量的时候要用来引用的地方，当时没有效果，下面那样就可以，我也不是很清楚为什么)
+                    nums[2].value = Number(num1) + Number(num2);    //这里就是改答案框的内容，为什么要用到Number()呢？
+                                                                    //（因为这里我们获取用户输入的数字都是用的value属性获取的，value捕捉的信息都是字符串，所以需要用Number（）进行强制转换）
+                }
+    }
+</script>
+<body>
+    <p>
+        4. 编程实现如下图所示计算器功能，输入数字1和数字2进行求和输出结果。<br/>
+        （这道题依然和第一题第三题很像，我的思路都是差不多的）
+        <img src="../image/topic4.png"/>
+    </p>
+    <hr/>
+    请输入数字1<input type="text" class="nums"/><br/><br/>
+    请输入数字2<input type="text" class="nums"/><br/><br/>
+    <input type="submit" value="求和" id="button"/><br/><br/>
+    结果<input type="text" class="nums"/>
+</body>
+</html>

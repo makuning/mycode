@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js编程题第五题</title>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    var telText;             //全局变量，找用户输入telephoneNumber的文本框
+
+    function init(){
+        telText = document.getElementById("telText");     //给它赋值
+
+        telText.onblur = function(){                     //这里我就直接在初始化函数里直接写事件函数了
+            var telNum = telText.value;                 //用一个变量值装用户在文本框输入的内容
+            var telNumTrue = /^[0-9]*$/;                //这里用到了我们的正则表达式，与之前TOM邮箱的字典的方式比起来方便了很多
+
+            if(telNumTrue.test(telNum) != true)         //这里的判断条件用到了test方法，检测一个字符串是否匹配某个模式（详情查看w3cschool）
+            {
+                window.alert("请输入纯数字！");
+            }else{
+                if(telNum.length != 11)                 //这个判断电话号码的长度是题目要求，这个真的觉得太繁琐了
+                {
+                    if(telNum.length == 0)
+                    {
+                        window.alert("不能为空！");
+                    }else    if(telNum.length < 11)
+                            {
+                                window.alert("电话号码太短");   
+                            }
+                }else   if(telNum.length > 11)
+                        {
+                            window.alert("电话号码太长");
+                        }else{
+                            if(telNum.charAt(0) != 1)
+                            {
+                                window.alert("电话号码第一位必须为1");
+                            }else{
+                                window.alert("恭喜你！！！");
+                            }
+                        }
+            }
+           
+        }
+    }
+</script>
+<body>
+    <p>
+        5.编写JavaScript程序实现电话号码的验证功能。要求放置文本框和按钮，给按钮添加点击事件，用户输入电话号码完成离<br/>
+        开文本框时(事件onblur)进行验证：电话号码长度为11位，太短或太长给出相应提醒。电话号码第一位必须为数字1，不是则给出提醒。<br/>
+        (这里就联系到了我们之前学的TOM邮箱的编写了，而且这只是电话号码的判断，很少的一部分,不过这里我是真的没有get到按钮的作用)<br/>
+        （还有，这道题我写了很多的if嵌套，看着很绕，不舒服，当然，你可以根据自己的代码习惯来编写这道题目）
+    </p>
+    <hr/>
+    <input type="text" id="telText"/>
+    <input type="submit" value="没有用的按钮" id="button"/>
+</body>
+</html>
