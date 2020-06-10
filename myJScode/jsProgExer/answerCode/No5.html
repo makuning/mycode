@@ -7,41 +7,41 @@
 </head>
 <script type="text/javascript">
     window.onload = init;
-    var telText;             //全局变量，找用户输入telephoneNumber的文本框
+    var telText;
 
     function init(){
-        telText = document.getElementById("telText");     //给它赋值
+        telText = document.getElementById("telText");     //给它赋值找用户输入telephoneNumber的文本框    
+        telText.onblur = phoneFunc;
+    }
 
-        telText.onblur = function(){                     //这里我就直接在初始化函数里直接写事件函数了
-            var telNum = telText.value;                 //用一个变量值装用户在文本框输入的内容
-            var telNumTrue = /^[0-9]*$/;                //这里用到了我们的正则表达式，与之前TOM邮箱的字典的方式比起来方便了很多
+    function phoneFunc(){      
+        var telNum = telText.value;                 //用一个变量值装用户在文本框输入的内容
+        var telNumTrue = /^[0-9]*$/;                //这里用到了我们的正则表达式，与之前TOM邮箱的字典的方式比起来方便了很多
 
-            if(telNumTrue.test(telNum) != true)         //这里的判断条件用到了test方法，检测一个字符串是否匹配某个模式（详情查看w3cschool）
+        if(telNumTrue.test(telNum) != true)         //这里的判断条件用到了test方法，检测一个字符串是否匹配某个模式（详情查看w3cschool）
+        {
+            window.alert("请输入纯数字！");
+        }else{
+            if(telNum.length != 11)                 //这个判断电话号码的长度是题目要求，这个真的觉得太繁琐了
             {
-                window.alert("请输入纯数字！");
-            }else{
-                if(telNum.length != 11)                 //这个判断电话号码的长度是题目要求，这个真的觉得太繁琐了
+                if(telNum.length == 0)
                 {
-                    if(telNum.length == 0)
-                    {
-                        window.alert("不能为空！");
-                    }else    if(telNum.length < 11)
-                            {
-                                window.alert("电话号码太短");   
-                            }
-                }else   if(telNum.length > 11)
+                    window.alert("不能为空！");
+                }else    if(telNum.length < 11)
                         {
-                            window.alert("电话号码太长");
-                        }else{
-                            if(telNum.charAt(0) != 1)
-                            {
-                                window.alert("电话号码第一位必须为1");
-                            }else{
-                                window.alert("恭喜你！！！");
-                            }
+                            window.alert("电话号码太短");   
                         }
-            }
-           
+            }else   if(telNum.length > 11)
+                    {
+                        window.alert("电话号码太长");
+                    }else{
+                        if(telNum.charAt(0) != 1)
+                        {
+                            window.alert("电话号码第一位必须为1");
+                        }else{
+                            window.alert("恭喜你！！！");
+                        }
+                    }
         }
     }
 </script>
@@ -54,6 +54,6 @@
     </p>
     <hr/>
     <input type="text" id="telText"/>
-    <input type="submit" value="没有用的按钮" id="button"/>
+    <input type="submit" value="按钮" id="button" onclick="phoneFunc()"/><!--给标签设置click事件，连接处理函数-->
 </body>
 </html>
