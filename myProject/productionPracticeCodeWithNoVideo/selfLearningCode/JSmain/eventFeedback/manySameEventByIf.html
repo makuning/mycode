@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = init;
+
+        function init(){
+            var button1 = document.getElementById("button1");
+            var button2 = document.getElementById("button2");
+            var button3 = document.getElementById("button3");
+
+            button1.ondblclick = doubleClick;
+            button2.ondblclick = doubleClick;
+            button3.ondblclick = doubleClick;
+        }
+
+        function doubleClick(){
+            var remin = document.getElementById("remin");
+            var obj = event.srcElement ? event.srcElement : event.target;
+
+            if(obj === button1)
+            {
+                remin.innerHTML = "<p style=\"font-size:50px;color:red;font-weight:bold\">晖哥最帅 X 1</p>";
+            }else   if(obj === button2)
+                    {
+                        remin.innerHTML = "<p style=\"font-size:50px;color:green;font-weight:bold\">晖哥最帅 X 2</p>";
+                    }else   if(obj === button3)
+                            {
+                                remin.innerHTML = "<p style=\"font-size:50px;color:blue;font-weight:bold\">晖哥最帅 X 3</p>";
+                            }
+        }
+    </script>
+</head>
+<body>
+    <button id="button1">button one</button>
+    <button id="button2">button two</button>
+    <input  id="button3" type="button" value="button three"/><br/><br/><hr/>
+    <p id="remin">reminder</p>
+</body>
+</html>

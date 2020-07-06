@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主框架第二部分分支框架第二部分more图片点击跳转</title>
+    <style type="text/css">
+        body{
+            margin:0px;
+        }
+        .centerTag{
+            text-align:center;
+        }
+        #bigTitle{
+            font-size:40px;
+        }
+        .smallTitle{
+            font-size:20px;
+            font-weight:600;
+        }
+        .contents{
+            color:black;
+            font-size:17px;
+            font-weight: 500;
+        }
+        .time{
+            color:green;
+            font-size:15px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <h2 class="centerTag" id="bigTitle">更多公告</h2>
+        </div>
+        <div>
+            <h3 class="smallTitle">一、网站更新</h3>
+            <div class="contents">
+                <ul>
+                    <li>优化了登录页面，解决了页面在谷歌浏览器翻译成中文时，结构变化大的bug。<span class="time">[2020年7月2号]</span></li>
+                    <li>更新了txt文档，换成了html后缀。<span class="time">[2020年7月2号]</span></li>
+                    <li>更新了模仿TOM邮箱注册界面右上角的超链接，连接到自己的文件，更新了注册页面和登录页面的帮助文档。<span class="time">[2020年7月2号]</span></li>
+                    <li>更新了框架头和框架尾的div大小，以免在其他终端显示异常。<span class="time">[2020年7月2号]</span></li>
+                    <li>添加了游客登录延时跳转，建议玩一玩注册。<span class="time">[2020年7月2号]</span></li>
+                    <li>添加了登录页面，将网站上传到服务器114.55.147.24（由同学李文韬同志帮忙上传），新增了登录页面的帮助文档，新增了账号祖册功能，注册页面模仿TOM邮箱注册网站。<span class="time">[2020年7月1号]</span></li>
+                    <li>给各个视频部分添加了内容，收录到超链接，引用B站的视频。<span class="time">[2020年7月1号]</span></li>
+                    <li>给视频部分增添了内容，引用了哔哩哔哩网站的视频，添加了几个自己的视频。<span class="time">[2020年6月30号]</span></li>
+                    <li>给网站标题添加了点击切换到主页的事件，给部分内容添加了禁止用户选中，增加了能够被搜索到的内容。<span class="time">[2020年6月30号]</span></li>
+                    <li>实现了预定的主框架开头部分的文本框搜索功能，使用switch case精准搜索，结果显示在showArea框架。<span class="time">[2020年6月30号]</span></li>
+                    <li>预定给主框架开头部分的文本框添加搜索功能，预定为精准搜索，功能较为简陋。<span class="time">[2020年6月30号]</span></li>
+                    <li>新增了video文件夹，用来装主框架视频分类的视频离线，给各大类视频分配了一个超链接集合HTML，预定点击超链接后显示在showArea框架。<span class="time">[2020年6月30号]</span></li>
+                    <li>给主框架开头部分的视频分类按钮添加了鼠标移上去的事件，给按钮添加了鼠标点击事件，点击按钮后，主框架showArea部分根据点击不同的按钮切换不同的页面。<span class="time">[2020年6月30号]</span></li>
+                    <li>给通知部分添加了网站声明、网站介绍、个人博客、自我认识4个模块。<span class="time">[2020年6月28号]</span></li>
+                    <li>给分类按钮添加了功能，记录不同的HTML的代码，分为主要为HTML部分，主要为CSS部分，主要为JS部分，以及代码集合<span class="time">[2020年6月28号]。</span></li>
+                    <li>添加了通知公告的更多公告，也就是此页面，给通知公告部分的联系方式部分添加了js效果，给其他内容部分添加了js效果，给最后落款部分设置了内容，并添加了js效果连接到网站介绍TXT文档。<span class="time">[2020年6月28号]</span></li>
+                    <li>更新了将鼠标移动到框架一按钮就实现框架二内容切换的效果，并在新的框架添加了通知公告部分的内容，在第二个新的框架添加了其他内容的部分。<span class="time">[2020年6月27号]</span></li>
+                    <li>更新了移动小方块的移动逻辑，以及小方块的互动事件，添加了某个框架里的按钮被点击，另一个框架内容改变的效果。<span class="time">[2020年6月26号]</span></li>
+                    <li>将框架用另一个HTML文件的“iframe”标签装上，设定大小，并添加了一个移动小方块。<span class="time">[2020年6月25号]</span></li>
+                    <li>重新整理了网站的框架、结构，使各HTML页面的逻辑关系更加明确<span class="time">[2020年6月24号]</span></li>
+                    <li>添加了网站幻灯片效果。<span class="time">[2020年6月23号]</span></li>
+                    <li>此网站正式创建，创建了网站框架、结构已初步定型。<span class="time">[2020年6月22号]</span></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <h3 class="smallTitle">二、网站设定</h3>
+            <div class="contents">
+                <ul>
+                    <li>搜索框的文字判定是由swich case超级费手的方法写的。</li>
+                    <li>大部分内容都在showArea框架显示。</li>
+                    <li>网站大部分视频都是转载。</li>
+                    <li>最后落款部分装文字的div盒子大小：高度为40px，宽度为1503px。</li>
+                    <li>鼠标移动到移动方块上的提示信息大小：高度为20px，宽度为300px。</li>
+                    <li>移动方块的大小：高度为60px，宽度为300px。</li>
+                    <li>幻灯片的背景图大小：高度为460px，宽度为1150px。</li>
+                    <li>网站添加了iframe的高度为1200px。</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <h3 class="smallTitle">三、网站缺陷</h3>
+            <div class="contents">
+                <ul>
+                    <li>发现登录页面在谷歌翻译运行时，结构变化的bug。<span class="time">[2020年7月2号]</span></li>
+                    <li>今天在云上查看网站时，发现所有的txt文档都乱码了，待解决。<span class="time">[2020年7月2号]</span></li>
+                    <li>因为只有一个服务器IP，上传了此网站后，之前的个人博客就没有了，所有此网站的个人博客链接会链接到此网站的登录界面，待修改。<span class="time">[2020年7月2号]</span></li>
+                    <li>更新的游客登录延时跳转逻辑有些小问题，待优化。<span class="time">[2020年7月2号]</span></li>
+                    <li>登录页面简陋，没有实现真正的登录功能，注册功能也没有做到真正的注册。<span class="time">[2020年6月30号]</span></li>
+                    <li>装视频的html没有样式，较为简陋。<span class="time">[2020年6月30号]</span></li>
+                    <li>搜索框的搜索原理是用switch写的，笨办法，待优化。<span class="time">[2020年6月30号]</span></li>
+                    <li>搜索框的精准搜索对用户不友好，如果能连接数据库进行模糊查询就好了，待优化。<span class="time">[2020年6月30号]</span></li>
+                    <li>预定的主框架开头部分文本框精准搜索待优化。<span class="time">[2020年6月30号]</span></li>
+                    <li>主框架开头部分的按钮未能做到像四川信息职业技术学院官网的功能，待优化。<span class="time">[2020年6月30号]</span></li>
+                    <li>目前为止超链接的样式为默认，未设置CSS伪类，不美观。<span class="time">[2020年6月28号]</span></li>
+                    <li>通知部分新添加的4个模块内容还未完善。<span class="time">[2020年6月28号]</span></li>
+                    <li>分类按钮新添加的记录html，js，css学习文件的功能，记录的文件有中文命名。<span class="time">[2020年6月28号]</span></li>
+                    <li>目前为止只有模仿TOM邮箱注册的CSS代码和模仿TOM邮箱注册成功的CSS代码和马某个人主题网站登录页面的CSS代码以及幻灯片播放的CSS代码与HTML代码分离了。<span class="time">[2020年6月28号]</span></li>
+                    <li>目前为止只有幻灯片和模仿TOM邮箱注册的js代码与HTML代码分离了。<span class="time">[2020年6月28号]</span></li>
+                    <li>还未实现创建用户功能。<span class="time">[2020年6月28号]</span></li>
+                    <li>还未上传到云端。<span class="time">[2020年6月28号]</span></li>
+                    <li>还未实现网站头大分类和小分类。<span class="time">[2020年6月28号]</span></li>
+                    <li>所有CSS样式都未完善，网站不美观，所有图片和背景都是无意义内容。<span class="time">[2020年6月28号]</span></li>
+                    <li>所有效果都是在本人电脑Dell G3 3590 谷歌浏览器窗口最大化运行，没有做兼容，待优化。<span class="time">[2020年6月28号]</span></li>
+                    <li>此页面是在2020年6月28号创建，之前的日志都是凭借记忆书写，可能与实际稍有不符。<span class="time">[2020年6月28号]</span></li>
+                    <li>新添加的通知公告部分和其他部分内容都是死链接，还未完善。<span class="time">[2020年6月27号]</span></li>
+                    <li>框架一按钮被点击框架二的内容才改变，对用户不是很友好。<span class="time">[2020年6月26号]</span></li>
+                    <li>各框架大小设定未做到完美分配，移动小方块的移动逻辑稍显笨拙，待优化。<span class="time">[2020年6月25号]</span></li>
+                    <li>框架边框设置为默认边框，不是很美观，待优化。<span class="time">[2020年6月24号]</span></li>
+                    <li>幻灯片延迟2.5秒切换，无论用户是否点击切换，都是2.5秒刷新，待优化。<span class="time">[2020年6月23号]</span></li>
+                    <li>网站框架逻辑不是很合理，待优化。<span class="time">[2020年6月22号]</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

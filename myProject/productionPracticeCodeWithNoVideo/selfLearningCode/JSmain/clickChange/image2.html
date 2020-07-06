@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageSwitch</title>
+</head>
+<script>
+    window.onload = init;
+    var btn;
+    var img1,img2,img3,img4;
+    var cnt = 0;
+
+    function init(){
+        img1 = document.getElementById("img1");
+        img2 = document.getElementById("img2");
+        img3 = document.getElementById("img3");
+        img4 = document.getElementById("img4");
+        btn = document.getElementById("btn");
+
+        btn.onclick = switchImage;
+    }
+
+    function switchImage()
+    {
+        cnt++;
+
+        switch(cnt % 4)
+        {
+            case 0 :    img1.style.display = "block";
+                        img2.style.display = "none";
+                        img3.style.display = "none";
+                        img4.style.display = "none";
+                        break;
+            case 1 :    img1.style.display = "none";
+                        img2.style.display = "block";
+                        img3.style.display = "none";
+                        img4.style.display = "none";
+                        break;
+            case 2 :    img1.style.display = "none";
+                        img2.style.display = "none";
+                        img3.style.display = "block";
+                        img4.style.display = "none";
+                        break;
+            case 3 :    img1.style.display = "none";
+                        img2.style.display = "none";
+                        img3.style.display = "none";
+                        img4.style.display = "block";
+                        break;
+        }
+    }
+</script>
+<style>
+    #img1{
+        display: block;
+    }
+
+    #img2{
+        display: none;
+    }
+
+    #img3{
+        display: none;
+    }
+
+    #img4{
+        display: none;
+    }
+
+</style>
+<body>
+    <div>
+        <img id="img1" src="../images/1.jpg" width="200px" height="100px">
+        <img id="img2" src="../images/2.jpg" width="200px" height="100px">
+        <img id="img3" src="../images/3.jpg" width="200px" height="100px">
+        <img id="img4" src="../images/4.jpg" width="200px" height="100px">
+    </div>
+    <button id="btn">点击</button>
+</body>
+</html>

@@ -1,0 +1,18 @@
+body{
+    margin:0px;
+}
+#slideImgBg{
+    background-image: url("../../../../image/slideImg/blue.jpg");
+    height:460px;
+    width:1150px;
+    margin:0 auto;
+}
+#changeImgs{
+    height:50px;
+    width:150px;
+    margin:0 auto;
+    position:relative;
+    top:400px;
+    text-align:center;
+    user-select: none;
+}

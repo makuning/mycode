@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主框架（设置了框架大小）</title>
+    <style type="text/css">
+        body{
+            height:1200px;
+        }
+        #moveFrame{
+            height:60px;
+            width:300px;
+            background-color: pink;
+            position:fixed;
+            top:60px;
+            left:1000px;
+            text-align:center;
+            display:block;
+            user-select:none;
+        }
+        #moveFrameInfor{
+            height:20px;
+            width:300px;
+            background-color: plum;
+            text-align: center;
+            display:none;
+            opacity: 0.5;
+        }
+        #divForMoveFrameInfor{
+            height:20px;
+            width:300px;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    var moveTopCnt = 60;
+    var moveLeftCnt = 1000;
+    var moveTopFlag = 1;
+    var moveLeftFlag = 1;
+    var move = setInterval(moveFrameAutoFunc,30);
+    function init(){
+        var moveFrame = document.getElementById("moveFrame");
+        var moveFrameClose = document.getElementById("moveFrameClose");
+
+        moveFrame.ondblclick = moveFrameOndblclickFunc;
+        moveFrame.onmouseover = moveFrameOnmouseoverFunc;
+        moveFrame.onmouseout = moveFrameOnmouseoutFunc;
+        move;
+        moveFrameClose.onclick = moveFrameCloseOnclick;
+    }
+    function moveFrameAutoFunc(){
+        var moveFrame = document.getElementById("moveFrame");
+        
+        // if(Number(moveFrame.style.top.replace("px","")) < 700 && Number(moveFrame.style.top.replace("px","")) >= 0)
+        // {
+        //     moveFrame.style.top = moveTopCnt + "px";
+        //     moveTopCnt++;
+        // }else   if(Number(moveFrame.style.left.replace("px","")) < 1210 && Number(moveFrame.style.left.replace("px","")) >= 0)
+        //         {
+        //             moveFrame.style.left = moveLeftCnt + "px";
+        //             moveLeftCnt++;
+        //         }else   if(Number(moveFrame.style.top.replace("px","")) > 700)
+        //                 {
+        //                     moveFrame.style.top = moveTopCnt + "px";
+        //                     moveTopCnt--;
+        //                 }else   if(Number(moveFrame.style.left.replace("px","")) > 1210)
+        //                         {
+        //                             moveFrame.style.left = moveLeftCnt + "px";
+        //                             moveLeftCnt--;
+        //                         }
+        if(moveTopCnt <= 700 && moveTopCnt >= 0 && moveTopFlag == 0)
+        {
+            moveTopCnt++;
+            if(moveTopCnt == 700)
+            {
+                moveTopFlag = 1;
+            } 
+        }   
+        if(moveTopCnt <= 700 && moveTopCnt >= 0 && moveTopFlag == 1)
+        {
+            moveTopCnt--;
+            if(moveTopCnt == 0)
+            {
+                moveTopFlag = 0;
+            }
+        }   
+        
+        if(moveLeftCnt <= 1210 && moveLeftCnt >= 0 && moveLeftFlag == 0)
+        {
+            moveLeftCnt++;
+            if(moveLeftCnt == 1210)
+            {
+                moveLeftFlag = 1;
+            }  
+        }  
+        if(moveLeftCnt <= 1210 && moveLeftCnt >= 0 && moveLeftFlag == 1)
+        {
+            moveLeftCnt--;
+            if(moveLeftCnt == 0)
+            {
+                moveLeftFlag = 0;
+            }  
+        }  
+        
+        moveFrame.style.top = moveTopCnt + "px";
+        moveFrame.style.left = moveLeftCnt + "px";
+    }
+    function moveFrameOndblclickFunc(){
+        window.open("../../html/websiteContent/gotoOtherPage/WebIntroduce.html");
+    }
+    function moveFrameOnmouseoverFunc(){
+        var moveFrameInfor = document.getElementById("moveFrameInfor");
+        moveFrameInfor.style.display = "block";
+        clearInterval(move);
+    }
+    function moveFrameOnmouseoutFunc(){
+        move = setInterval(moveFrameAutoFunc,30);
+        var moveFrameInfor = document.getElementById("moveFrameInfor");
+        moveFrameInfor.style.display = "none";
+    }
+    function moveFrameCloseOnclick(){
+        var moveFrameClose = document.getElementById("moveFrameClose");
+        var moveFrame = document.getElementById("moveFrame");
+        moveFrame.style.display = "none";
+    }
+</script>
+<body>
+    <div id="moveFrame" title="双击跳转">
+        <div id="divForMoveFrameInfor">
+            <div id="moveFrameInfor">
+                <span>双击查看网站介绍</span>
+                <span><img id="moveFrameClose" src="../../image/buttonImage/close.jpg" style="height:20px;width:20px;float:right;"/></span>
+            </div>
+        </div>
+        <span>欢迎光临马某人的个人网站！！！</span>
+    </div>
+    <iframe src="mainFrame.html" style="height: 100%;width:100%;" id="ifra"></iframe>
+</body>
+</html>

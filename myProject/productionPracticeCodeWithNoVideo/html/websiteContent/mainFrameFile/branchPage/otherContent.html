@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主框架第二部分分支框架第三部分其他内容</title>
+    <style type="text/css">
+        body{
+            margin:0;
+        }
+        #contentDiv{
+            padding:5px;
+            height:280px;
+            width:130px;
+            margin-left: 2px;
+            text-align:center;
+        }
+        #content1{
+            height:80px;
+            width:70px;
+            position:relative;
+            left:15px;
+        }
+        #content2{
+            height:80px;
+            width:70px;
+            position:relative;
+            left:15px;
+            top:5px;
+        }
+        #content3{
+            height:80px;
+            width:70px;
+            position:relative;
+            left:15px;
+            top:10px;
+        }
+        .contents{
+            text-align:center;
+        }
+        #contentCenter{
+            height:270px;
+            width:100px;
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            background-color: rgb(31, 233, 226);
+            padding-top:15px;
+            user-select:none;
+        }
+        .contentImgs{
+            height:60px;
+            width:60px;
+        }
+        .contentImgsInfors{
+            font-size:13px;
+            font-weight:100;
+            font-style:italic;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    function init(){
+        var contentImgs = document.getElementsByClassName("contentImgs");
+        var contentImgsInfors = document.getElementsByClassName("contentImgsInfors");
+
+        contentImgs[0].onmouseover = contentImgsInforsColorOnmouseoverFunc;
+        contentImgs[1].onmouseover = contentImgsInforsColorOnmouseoverFunc;
+        contentImgs[2].onmouseover = contentImgsInforsColorOnmouseoverFunc;
+
+        contentImgsInfors[0].onmouseover = contentImgsInforsColorOnmouseoverFunc;
+        contentImgsInfors[1].onmouseover = contentImgsInforsColorOnmouseoverFunc;
+        contentImgsInfors[2].onmouseover = contentImgsInforsColorOnmouseoverFunc;
+
+        contentImgs[0].onmouseout = contentImgsInforsColorOnmouseoutFunc;
+        contentImgs[1].onmouseout = contentImgsInforsColorOnmouseoutFunc;
+        contentImgs[2].onmouseout = contentImgsInforsColorOnmouseoutFunc;
+
+        contentImgsInfors[0].onmouseout = contentImgsInforsColorOnmouseoutFunc;
+        contentImgsInfors[1].onmouseout = contentImgsInforsColorOnmouseoutFunc;
+        contentImgsInfors[2].onmouseout = contentImgsInforsColorOnmouseoutFunc;
+
+        contentImgs[0].onclick = contentOnclickFunc;
+        contentImgs[1].onclick = contentOnclickFunc;
+        contentImgs[2].onclick = contentOnclickFunc;
+
+        contentImgsInfors[0].onclick = contentOnclickFunc;
+        contentImgsInfors[1].onclick = contentOnclickFunc;
+        contentImgsInfors[2].onclick = contentOnclickFunc;
+    }
+    function contentImgsInforsColorOnmouseoverFunc(){
+        var contentImgs = document.getElementsByClassName("contentImgs");
+        var contentImgsInfors = document.getElementsByClassName("contentImgsInfors");
+        var obj = event.srcElement ? event.srcElement : event.target;
+        
+        switch(obj)
+        {
+            case contentImgs[0]:
+                contentImgsInfors[0].style.color = "red";
+                break;
+            case contentImgs[1]:
+                contentImgsInfors[1].style.color = "red";
+                break;
+            case contentImgs[2]:
+                contentImgsInfors[2].style.color = "red";
+                break;
+            case contentImgsInfors[0]:
+                contentImgsInfors[0].style.color = "red";
+                break;
+            case contentImgsInfors[1]:
+                contentImgsInfors[1].style.color = "red";
+                break;
+            case contentImgsInfors[2]:
+                contentImgsInfors[2].style.color = "red";
+                break;
+        }
+    }
+    function contentImgsInforsColorOnmouseoutFunc(){
+        var contentImgs = document.getElementsByClassName("contentImgs");
+        var contentImgsInfors = document.getElementsByClassName("contentImgsInfors");
+        var obj = event.srcElement ? event.srcElement : event.target;
+        
+        switch(obj)
+        {
+            case contentImgs[0]:
+                contentImgsInfors[0].style.color = "black";
+                break;
+            case contentImgs[1]:
+                contentImgsInfors[1].style.color = "black";
+                break;
+            case contentImgs[2]:
+                contentImgsInfors[2].style.color = "black";
+                break;
+            case contentImgsInfors[0]:
+                contentImgsInfors[0].style.color = "black";
+                break;
+            case contentImgsInfors[1]:
+                contentImgsInfors[1].style.color = "black";
+                break;
+            case contentImgsInfors[2]:
+                contentImgsInfors[2].style.color = "black";
+                break;
+        }
+    }
+    function contentOnclickFunc(){
+        var contentImgs = document.getElementsByClassName("contentImgs");
+        var contentImgsInfors = document.getElementsByClassName("contentImgsInfors");
+        var obj = event.srcElement ? event.srcElement : event.target;
+        
+        switch(obj)
+        {
+            case contentImgs[0]:
+                window.open("http://114.55.147.24/");
+                break;
+                case contentImgs[1]:
+            window.open("http://www.bilibili.com");
+                break;
+                case contentImgs[2]:
+            window.open("http://www.scitc.com.cn");
+                break;
+                case contentImgsInfors[0]:
+            window.open("http://114.55.147.24/");
+                break;
+                case contentImgsInfors[1]:
+            window.open("http://www.bilibili.com");
+                break;
+                case contentImgsInfors[2]:
+            window.open("http://www.scitc.com.cn");
+                break;
+        }
+    }
+</script>
+<body>
+    <div id="contentDiv">
+        <div id="contentCenter">
+            <div id="content1" class="contents">
+                <img src="../../../../image/explainImage/myWebIco.jpg" title="点击查看我的站点" class="contentImgs"/>
+                <span class="contentImgsInfors">我的站点</span>
+            </div>
+            <div id="content2" class="contents">
+                <img src="../../../../image/explainImage/bilibiliIco.jfif" title="点击查看我的最爱网站" class="contentImgs"/>
+                <span class="contentImgsInfors">最爱网站</span>
+            </div>
+            <div id="content3" class="contents">
+                <img src="../../../../image/explainImage/scitcIco.jpg" title="点击查看我的学校官网" class="contentImgs"/>
+                <span class="contentImgsInfors">学校官网</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

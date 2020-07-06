@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主框架第二部分，分支框架第一部分分类按钮</title>
+    <style type="text/css">
+        .btns{
+            height:40px;
+            width:100px;
+            border:none;
+            outline: none;
+            font-size:18px;
+            font-weight:400;
+            color:grey;
+            background-color: white;
+        }
+        #initializeBtn{
+            border-bottom: 5px solid rgb(241, 85, 13);
+        }
+        #content{
+            position: relative;
+            top:8px;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    function init(){
+        var more = document.getElementById("more");
+        var btns = document.getElementsByClassName("btns");
+
+        btns[0].onmouseover = btnsOnmouseover;
+        btns[1].onmouseover = btnsOnmouseover;
+        btns[2].onmouseover = btnsOnmouseover;
+        btns[3].onmouseover = btnsOnmouseover;
+        
+        btns[0].onclick = btnsOnclickFunc;
+        btns[1].onclick = btnsOnclickFunc;
+        btns[2].onclick = btnsOnclickFunc;
+        btns[3].onclick = btnsOnclickFunc;
+
+        more.onclick = moreOnclick;
+    }
+    function moreOnclick(){
+        window.open("../../gotoOtherPage/classifyBtnMoreGoto.html","showArea");
+    }
+    function btnsOnmouseover(){
+        var btns = document.getElementsByClassName("btns");
+        var obj = event.srcElement ? event.srcElement : event.target;
+        var i;
+
+        if(obj == btns[0])
+        {
+            btns[0].style.borderBottom = '5px solid rgb(241, 85, 13)';
+            for(i = 0;i < 4;i++)
+            {
+                if(i == 0)
+                {
+                    continue;
+                }
+                btns[i].style.borderBottom = 'none';
+                window.open("../../classifyBtnsGoto/btn1.html","classifyBtnGoto");
+            }
+        }else   if(obj == btns[1])
+                {
+                    btns[1].style.borderBottom = '5px solid rgb(241, 85, 13)';
+                    for(i = 0;i < 4;i++)
+                    {
+                        if(i == 1)
+                        {
+                            continue;
+                        }
+                        btns[i].style.borderBottom = 'none';
+                        window.open("../../classifyBtnsGoto/btn2.html","classifyBtnGoto");
+                    }
+                }else   if(obj == btns[2])
+                        {
+                            btns[2].style.borderBottom = '5px solid rgb(241, 85, 13)';
+                            for(i = 0;i < 4;i++)
+                            {
+                                if(i == 2)
+                                {
+                                    continue;
+                                }
+                                btns[i].style.borderBottom = 'none';
+                                window.open("../../classifyBtnsGoto/btn3.html","classifyBtnGoto");
+                            }
+                        }else   if(obj == btns[3])
+                                {
+                                    btns[3].style.borderBottom = '5px solid rgb(241, 85, 13)';
+                                    for(i = 0;i < 4;i++)
+                                    {
+                                        if(i == 3)
+                                        {
+                                            continue;
+                                        }
+                                        btns[i].style.borderBottom = 'none';
+                                        window.open("../../classifyBtnsGoto/btn4.html","classifyBtnGoto");
+                                    }
+                                }
+    }
+    function btnsOnclickFunc(){
+        var btns = document.getElementsByClassName("btns");
+        var obj = event.srcElement ? event.srcElement : event.target;
+        
+        switch(obj)
+        {
+            case btns[0]:
+            window.open("../../classifyBtnsGoto/btn1.html","showArea");break;
+            case btns[1]:
+            window.open("../../classifyBtnsGoto/btn2.html","showArea");break;
+            case btns[2]:
+            window.open("../../classifyBtnsGoto/btn3.html","showArea");break;
+            case btns[3]:
+            window.open("../../classifyBtnsGoto/btn4.html","showArea");break;
+        }
+    }
+</script>
+<body>
+    <div id="content">
+        <input type="submit" value="HTML main" class="btns" id="initializeBtn"/>
+        <input type="submit" value="CSS main" class="btns"/>
+        <input type="submit" value="JS main" class="btns"/>
+        <input type="submit" value="mixture" class="btns"/>
+        <img src="../../../../image/buttonImage/more.jpg" style="float:right;width:40px;height:30px;" title="查看更多" id="more"/>
+    </div> 
+</body>
+</html>

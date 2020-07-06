@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主框架第二部分分支框架第二部分内容</title>
+    <style type="text/css">
+        #title{
+            font-size:18px;
+            color:grey;
+            font-weight:400;
+            user-select: none;
+        }
+        #informContent{
+            text-align:left;
+            color:grey;
+            border:1px solid;
+            width:350px;
+            height:120px;
+        }
+        .inforEvents{
+            font-size:14px;
+            font-weight:200;
+        }
+        #contactWayDiv{
+            border:1px solid;
+            width:350px;
+            height:100px;
+        }
+        #contactWayTitle{
+            font-size: 16px;
+            font-weight: 400;
+            color:gray;
+            margin-left: 10px;
+        }
+        .icos{
+            height:40px;
+            width:50px;
+            user-select:none;
+        }
+        #qqInfor{
+            border:1px solid;
+            width:100px;
+            height:137px;
+            position:fixed;
+            top:80px;
+            left:0px;
+            display: none;
+        }
+        #WeChatInfor{
+            border:1px solid;
+            width:100px;
+            height:100px;
+            position:fixed;
+            top:120px;
+            left:80px;
+            display: none;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    function init(){
+        var more = document.getElementById("more");
+        var icos = document.getElementsByClassName("icos");
+
+        icos[0].onmouseover = icosOnmouseoverFunc;
+        icos[1].onmouseover = icosOnmouseoverFunc;
+
+        icos[0].onmouseout = icosOnmouseoutFunc;
+        icos[1].onmouseout = icosOnmouseoutFunc;
+        
+        icos[0].onclick = icosOnclickFunc;
+        icos[1].onclick = icosOnclickFunc;
+        icos[2].onclick = icosOnclickFunc;
+        icos[3].onclick = icosOnclickFunc;
+
+        more.onclick = moreOnclick;
+    }
+    function moreOnclick(){
+        window.open("../../gotoOtherPage/informContentMoreGoto.html","showArea");
+    }
+    function icosOnmouseoverFunc(){
+        var icos = document.getElementsByClassName("icos");
+        var qqInfor = document.getElementById("qqInfor");
+        var WeChatInfor = document.getElementById("WeChatInfor");
+        var obj = event.srcElement ? event.srcElement : event.target;
+
+        if(obj == icos[0])
+        {
+            qqInfor.style.display = "block";
+        }else   if(obj == icos[1])
+                {
+                    WeChatInfor.style.display = "block";
+                }
+    }
+    function icosOnmouseoutFunc(){
+        var icos = document.getElementsByClassName("icos");
+        var qqInfor = document.getElementById("qqInfor");
+        var WeChatInfor = document.getElementById("WeChatInfor");
+        var obj = event.srcElement ? event.srcElement : event.target;
+
+        if(obj == icos[0])
+        {
+            qqInfor.style.display = "none";
+        }else   if(obj == icos[1])
+                {
+                    WeChatInfor.style.display = "none";
+                }
+    }
+    function icosOnclickFunc(){
+        var icos = document.getElementsByClassName("icos");
+        var qqInfor = document.getElementById("qqInfor");
+        var WeChatInfor = document.getElementById("WeChatInfor");
+        var obj = event.srcElement ? event.srcElement : event.target;
+
+        if(obj == icos[0])
+        {
+            window.open("http://114.55.147.24/");
+        }else   if(obj == icos[1])
+                {
+                    window.open("http://114.55.147.24/");
+                }else   if(obj == icos[2])
+                        {
+                            window.open("http://114.55.147.24/");
+                        }else   if(obj == icos[3])
+                                {
+                                    window.open("http://scitc.com.cn");
+                                }
+    }
+</script>
+<body>
+    <div id="head">
+        <br/>
+        <span id="title">通知公告</span>
+        <img src="../../../../image/buttonImage/more.jpg" style="float:right;width:40px;height:30px;" title="查看更多" id="more"/>
+        <br/>
+        <hr/>
+    </div>
+    <div id="informContent">
+        <ul>
+            <li><a href="../../../../else/WebStatement.html" target="_blank" class="inforEvents">网站声明</a></li>
+            <li><a href="../../gotoOtherPage/WebIntroduce.html" target="_blank" class="inforEvents">网站介绍</a></li>
+            <li><a href="http://114.55.147.24/" target="_blank" class="inforEvents">个人网站</a></li>
+            <li><a href="../../gotoOtherPage/selfKnowledge.html" target="_blank" class="inforEvents">自我认识</a></li>
+        </ul>
+    </div>
+    <div id="contactWayDiv">
+        <span id="contactWayTitle">联系方式：</span>
+        <br/><br/>
+        <div>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span><img src="../../../../image/explainImage/qqIco.jfif" class="icos"/></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span><img src="../../../../image/explainImage/WeChatIco.jpg" class="icos"/></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span><img src="../../../../image/explainImage/telephoneIco.jpg" class="icos" title="19960796404"/></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span><img src="../../../../image/explainImage/schoolIco.jfif" class="icos" title="四川信息职业技术学院"/></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </div>
+    </div>
+    <div id="qqInfor">
+        <img src="../../../../image/explainImage/MakunQQ.jpg" style="width:100px;height:137px;"/>
+    </div>
+    <div id="WeChatInfor">
+        <img src="../../../../image/explainImage/makunWX.jpg" style="width:100px;height:100px;"/>
+    </div>
+</body>
+</html>

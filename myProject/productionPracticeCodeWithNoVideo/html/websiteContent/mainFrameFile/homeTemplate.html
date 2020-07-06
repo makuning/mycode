@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主框架标题头模板</title>
+    <style type="text/css">
+        body{
+            margin:0px;
+        }
+        #title1{
+            height:110px;
+            background-color: greenyellow;
+        }
+        #title2{
+            height:80px;
+            background-color: yellowgreen;
+        }
+        #content{
+            height:47px;
+            background-color: yellow;
+            text-align: center;
+        }
+        .btns{
+            height:32px;
+            width:85px;
+            border:none;
+            outline: none;
+            background-color: white;
+            font-size:17px;
+            font-style:oblique;
+            border-left: 2px solid black;
+            border-right: 2px solid black;
+        }
+        #pullDowns{
+            position:relative;
+            top:13px;
+        }
+        #WebTitle{
+            font-size: 50px;
+            font-weight:800;
+            user-select:none;
+        }
+        #title2{
+            text-align: center;
+        }
+        #studyClassify{
+            width:90px;
+            height:85px;
+            position:fixed;
+            top:115px;
+            left:160px;
+            display: none;
+        }
+        #scienceClassify{
+            width:90px;
+            height:85px;
+            position:fixed;
+            top:115px;
+            left:266px;
+            display: none;
+        }
+        #gameClassify{
+            width:90px;
+            height:85px;
+            position:fixed;
+            top:115px;
+            left:377px;
+            display: none;
+        }
+        #demonClassify{
+            width:90px;
+            height:85px;
+            position:fixed;
+            top:115px;
+            left:485px;
+            display: none;
+        }
+        #lifeClassify{
+            width:90px;
+            height:85px;
+            position:fixed;
+            top:115px;
+            left:595px;
+            display: none;
+        }
+        #filmsClassify{
+            width:90px;
+            height:85px;
+            position:fixed;
+            top:115px;
+            left:702px;
+            display: none;
+        }
+        #cateClassify{
+            width:90px;
+            height:85px;
+            position:fixed;
+            top:115px;
+            left:810px;
+            display: none;
+        }
+        .videoClassify{
+            text-align:center;
+        }
+        .classifyCenter{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            border:1px solid;
+            background-color: grey;
+        }
+        .classifyValues{
+            border:1px solid;
+            height:20px;
+            width:80px;
+            user-select: none;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    function init(){
+        var btns = document.getElementsByClassName("btns");
+        var classifyCenter = document.getElementsByClassName("classifyCenter");
+        var searchBtn = document.getElementById("searchBtn");
+        var searchText = document.getElementById("searchText");
+        var selfVideoValue = document.getElementById("selfVideoValue");
+        var selfVideoSelect = document.getElementById("selfVideoSelect");
+        var WebTitle = document.getElementById("WebTitle");
+
+        btns[0].onmouseover = btnsOnmouseoverFunc;
+        btns[1].onmouseover = btnsOnmouseoverFunc;
+        btns[2].onmouseover = btnsOnmouseoverFunc;
+        btns[3].onmouseover = btnsOnmouseoverFunc;
+        btns[4].onmouseover = btnsOnmouseoverFunc;
+        btns[5].onmouseover = btnsOnmouseoverFunc;
+        btns[6].onmouseover = btnsOnmouseoverFunc;
+
+        btns[0].onmouseout = btnsOnmouseoutFunc;
+        btns[1].onmouseout = btnsOnmouseoutFunc;
+        btns[2].onmouseout = btnsOnmouseoutFunc;
+        btns[3].onmouseout = btnsOnmouseoutFunc;
+        btns[4].onmouseout = btnsOnmouseoutFunc;
+        btns[5].onmouseout = btnsOnmouseoutFunc;
+        btns[6].onmouseout = btnsOnmouseoutFunc;
+
+        btns[0].onclick = btnsOnclickFunc;
+        btns[1].onclick = btnsOnclickFunc;
+        btns[2].onclick = btnsOnclickFunc;
+        btns[3].onclick = btnsOnclickFunc;
+        btns[4].onclick = btnsOnclickFunc;
+        btns[5].onclick = btnsOnclickFunc;
+        btns[6].onclick = btnsOnclickFunc;
+
+        searchText.onfocus = searchTextOnfocusFunc;
+        searchBtn.onclick = searchBtnOnclickFunc;
+
+        selfVideoValue.onclick = selfVideoValueOnclickFunc;
+
+        selfVideoSelect.onclick = selfVideoSelectOnclickFunc;
+
+        WebTitle.onclick = WebTitleOnclickFunc;
+    }
+    function btnsOnmouseoverFunc(){
+        var obj = event.srcElement ? event.srcElement : event.target;
+        var btns = document.getElementsByClassName("btns");
+        var studyClassify = document.getElementById("studyClassify");
+        var scienceClassify = document.getElementById("scienceClassify");
+        var gameClassify = document.getElementById("gameClassify");
+        var demonClassify = document.getElementById("demonClassify");
+        var lifeClassify = document.getElementById("lifeClassify");
+        var filmsClassify = document.getElementById("filmsClassify");
+        var cateClassify = document.getElementById("cateClassify");
+
+        switch(obj)
+        {
+            case btns[0]:
+            studyClassify.style.display = "initial";
+            break;
+            case btns[1]:
+            scienceClassify.style.display = "initial";;
+            break;
+            case btns[2]:
+            gameClassify.style.display = "initial";;
+            break;
+            case btns[3]:
+            demonClassify.style.display = "initial";;
+            break;
+            case btns[4]:
+            lifeClassify.style.display = "initial";;
+            break;
+            case btns[5]:
+            filmsClassify.style.display = "initial";;
+            break;
+            case btns[6]:
+            cateClassify.style.display = "initial";;
+            break;
+        }
+    }
+    function btnsOnmouseoutFunc(){
+        var obj = event.srcElement ? event.srcElement : event.target;
+        var btns = document.getElementsByClassName("btns");
+        var studyClassify = document.getElementById("studyClassify");
+        var scienceClassify = document.getElementById("scienceClassify");
+        var gameClassify = document.getElementById("gameClassify");
+        var demonClassify = document.getElementById("demonClassify");
+        var lifeClassify = document.getElementById("lifeClassify");
+        var filmsClassify = document.getElementById("filmsClassify");
+        var cateClassify = document.getElementById("cateClassify");
+
+        switch(obj)
+        {
+            case btns[0]:
+            studyClassify.style.display = "none";
+            break;
+            case btns[1]:
+            scienceClassify.style.display = "none";;
+            break;
+            case btns[2]:
+            gameClassify.style.display = "none";;
+            break;
+            case btns[3]:
+            demonClassify.style.display = "none";;
+            break;
+            case btns[4]:
+            lifeClassify.style.display = "none";;
+            break;
+            case btns[5]:
+            filmsClassify.style.display = "none";;
+            break;
+            case btns[6]:
+            cateClassify.style.display = "none";;
+            break;
+        }
+    }
+    function btnsOnclickFunc(){
+        var obj = event.srcElement ? event.srcElement : event.target;
+        var btns = document.getElementsByClassName("btns");
+
+        switch(obj){
+            case btns[0]:
+            window.open("../homeTemplateClassifyGoto/studyClassifyContent.html","showArea");
+            break;
+            case btns[1]:
+            window.open("../homeTemplateClassifyGoto/scienceClassifyContent.html","showArea");
+            break;
+            case btns[2]:
+            window.open("../homeTemplateClassifyGoto/gameClassifyContent.html","showArea");
+            break;
+            case btns[3]:
+            window.open("../homeTemplateClassifyGoto/demonClassifyContent.html","showArea");
+            break;
+            case btns[4]:
+            window.open("../homeTemplateClassifyGoto/lifeClassifyContent.html","showArea");
+            break;
+            case btns[5]:
+            window.open("../homeTemplateClassifyGoto/filmsClassifyContent.html","showArea");
+            break;
+            case btns[6]:
+            window.open("../homeTemplateClassifyGoto/cateClassifyContent.html","showArea");
+            break;
+        }
+    }
+    function searchTextOnfocusFunc(){
+        var searchText = document.getElementById("searchText");
+        searchText.value = "";
+    }
+    function searchBtnOnclickFunc(){
+        var searchText = document.getElementById("searchText");
+        switch(searchText.value)
+        {
+            case "主页":case "还原":
+            window.open("showPage.html","showArea");
+            break;
+            case "学习视频":case "学习":
+            window.open("../homeTemplateClassifyGoto/studyClassifyContent.html","showArea");
+            break;
+            case "科技视频":case "科技":
+            window.open("../homeTemplateClassifyGoto/scienceClassifyContent.html","showArea");
+            break;
+            case "游戏视频":case "游戏":
+            window.open("../homeTemplateClassifyGoto/gameClassifyContent.html","showArea");
+            break;
+            case "鬼畜视频":case "鬼畜":
+            window.open("../homeTemplateClassifyGoto/demonClassifyContent.html","showArea");
+            break;
+            case "生活视频":case "生活":
+            window.open("../homeTemplateClassifyGoto/lifeClassifyContent.html","showArea");
+            break;
+            case "影视视频":case "影视":
+            window.open("../homeTemplateClassifyGoto/filmsClassifyContent.html","showArea");
+            break;
+            case "美食视频":case "美食":
+            window.open("../homeTemplateClassifyGoto/cateClassifyContent.html","showArea");
+            break;
+            case "HTMLmain":case "HTML代码为主":case "HTML代码":case "html代码":case "HTML":case "html":
+            window.open("../classifyBtnsGoto/btn1.html","showArea");
+            break;
+            case "CSSmain":case "CSS代码为主":case "CSS代码":case "css代码":case "css":case "CSS":
+            window.open("../classifyBtnsGoto/btn2.html","showArea");
+            break;
+            case "JSmain":case "JS代码为主":case "JS代码":case "JavaScript代码":case "javascript代码":case "JavaScript":
+            window.open("../classifyBtnsGoto/btn3.html","showArea");
+            break;
+            case "mixture":case "混合代码":case "组合代码":
+            window.open("../classifyBtnsGoto/btn4.html","showArea");
+            break;
+            case "幻灯片":case "轮播图":
+            window.open("branchPage/slideShow.html","showArea");
+            break;
+            case "生活趣事":
+            window.open("../homeTemplateClassifyGoto/selfVideosContent/lifeFunny.html","showArea");
+            break;
+            case "校园趣事":case "学校趣事":
+            window.open("../homeTemplateClassifyGoto/selfVideosContent/schoolFunny.html","showArea");
+            break;
+            case "屏幕录制":case "录屏":
+            window.open("../homeTemplateClassifyGoto/selfVideosContent/screenCapture.html","showArea");
+            break;
+            case "抖音下载":case "抖音视频":
+            window.open("../homeTemplateClassifyGoto/selfVideosContent/TikTokDownload.html","showArea");
+            break;
+            case "个人视频":case "个人小视频":
+            window.open("../homeTemplateClassifyGoto/selfVideosContentFrame/selfVideoContentFrame.html","showArea");
+            break;
+            case "通知公告":case "通知":case "公告":
+            window.open("../gotoOtherPage/informContentMoreGoto.html","showArea");
+            break;
+            case "代码合集":case "所有代码":case "代码集合":
+            window.open("../gotoOtherPage/classifyBtnMoreGoto.html","showArea");
+            break;
+            case "网站声明":case "声明":case "本站声明":case "此站声明":
+            window.open("../../../else/WebStatement.html","showArea");
+            break;
+            case "自我认识":case "自我认知":case "自省":case "自我总结":
+            window.open("../gotoOtherPage/selfKnowledge.html","showArea");
+            break;
+            case "学校官网":case "四川信息职业技术学院":case "川信官网":case "川信":case "作者学校":
+            alert("学校官网不能在框架内打开！！！");
+            window.open("http://www.scitc.com.cn");
+            break;
+            case "网站介绍":case "介绍":case "本站介绍":case "此站介绍":
+            window.open("../gotoOtherPage/WebIntroduce.html","showArea");
+            break;
+            case "":
+            window.open("","showArea");
+            break;
+            case "百度":case "度娘":
+            window.open("http://www.baidu.com","showArea");
+            break;
+            case "4399":case "4399小游戏":case "游戏":case "小游戏":case "4399游戏":
+            window.open("http://www.4399.com","showArea");
+            break;
+            case "哔哩哔哩":case "bilibili":case "B站":case "小电视":case "小破站":
+            window.open("http://www.bilibili.com","showArea");
+            break;
+            case "个人博客":case "博客":case "作者":case "网站作者":
+            window.open("http://114.55.147.24/","showArea");
+            break;
+            case "廖雪峰":case "廖雪峰的官方网站":case "廖雪峰网站":
+            window.open("https://www.liaoxuefeng.com/","showArea");
+            break;
+            case "编程狮":case "w3c":case "w3cschool":
+            window.open("http://www.w3cschool.cn","showArea");
+            break;
+            case "":
+            window.open("","showArea");
+            break;
+            case "输入信息，点击搜索进行搜索":
+            alert("请输入内容进行搜索");
+            break;
+            default:alert("未查询到内容");
+        }
+    }
+    function selfVideoValueOnclickFunc(){
+        window.open("../homeTemplateClassifyGoto/selfVideosContentFrame/selfVideoContentFrame.html","showArea");
+    }
+    function selfVideoSelectOnclickFunc(){
+        var selfVideoSelect = document.getElementById("selfVideoSelect");
+        var optionIndex = selfVideoSelect.selectedIndex;
+
+        switch(optionIndex)
+        {
+            case 1:
+            window.open("../homeTemplateClassifyGoto/selfVideosContent/lifeFunny.html","showArea");
+            break;
+            case 2:
+            window.open("../homeTemplateClassifyGoto/selfVideosContent/schoolFunny.html","showArea");
+            break;
+            case 3:
+            window.open("../homeTemplateClassifyGoto/selfVideosContent/screenCapture.html","showArea");
+            break;
+            case 4:
+            window.open("../homeTemplateClassifyGoto/selfVideosContent/TikTokDownload.html","showArea");
+            break;
+        }
+        setTimeout(selfVideoSelectOptionRestore,10000);
+    }
+    function selfVideoSelectOptionRestore(){
+        var selfVideoSelect = document.getElementById("selfVideoSelect");
+        selfVideoSelect.selectedIndex = 0;
+    }
+    function WebTitleOnclickFunc(){
+        window.open("showPage.html","showArea");
+    }
+</script>
+<body>
+    <div id="title1"></div>
+    <div id="title2">
+        <div id="title2Text">
+            <span id="WebTitle" title="点击回到主页">马某人的个人主题网站</span>
+        </div>
+    </div>
+    <div id="content">
+        <div id="pullDowns">
+            <input type="submit" value="学习视频" title="点击查看学习视频" class="btns"/><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input type="submit" value="科技视频" title="点击查看科技视频" class="btns"/><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input type="submit" value="游戏视频" title="点击查看游戏视频" class="btns"/><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input type="submit" value="鬼畜视频" title="点击查看鬼畜视频" class="btns"/><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input type="submit" value="生活视频" title="点击查看生活视频" class="btns"/><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input type="submit" value="影视视频" title="点击查看影视视频" class="btns"/><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input type="submit" value="美食视频" title="点击查看美食视频" class="btns"/><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <input type="text" value="输入信息，点击搜索进行搜索" id="searchText" style="height:15px;width:150px;font-size: 5px;font-weight: 200;"/>
+            <input type="submit" value="搜索" id="searchBtn" style="height:20px;width:35px;font-size: 10px;font-weight: 500;"/><span>&nbsp;&nbsp;</span>
+            <span style="user-select: none;" title="点击查看个人视频" id="selfVideoValue">个人视频：</span>
+            <select style="height:32px;width:120px;font-size:18px;font-style:oblique;" id="selfVideoSelect">
+                <option selected="selected">==请选择==</option>
+                <option>生活趣事</option>
+                <option>校园趣事</option>
+                <option>屏幕录制</option>
+                <option>抖音下载</option>
+            </select>
+        </div>
+    </div>
+    <div id="studyClassify" class="videoClassify">
+        <div class="classifyCenter">
+            <div class="classifyValues">学校获取</div>
+            <div class="classifyValues">自己寻找</div>
+            <div class="classifyValues">其他途径</div>
+        </div>
+    </div>
+    <div id="scienceClassify" class="videoClassify">
+        <div class="classifyCenter">
+            <div class="classifyValues">关于手机</div>
+            <div class="classifyValues">关于电脑</div>
+            <div class="classifyValues">关于其他</div>
+        </div>
+    </div>
+    <div id="gameClassify" class="videoClassify">
+        <div class="classifyCenter">
+            <div class="classifyValues">主机游戏</div>
+            <div class="classifyValues">联机游戏</div>
+            <div class="classifyValues">自玩录制</div>
+        </div>
+    </div>
+    <div id="demonClassify" class="videoClassify">
+        <div class="classifyCenter">
+            <div class="classifyValues">B站鬼畜</div>
+            <div class="classifyValues">其他获取</div>
+        </div>
+    </div>
+    <div id="lifeClassify" class="videoClassify">
+        <div class="classifyCenter">
+            <div class="classifyValues">生活实用</div>
+            <div class="classifyValues">生活搞笑</div>
+        </div>
+    </div>
+    <div id="filmsClassify" class="videoClassify">
+        <div class="classifyCenter">
+            <div class="classifyValues">电影</div>
+            <div class="classifyValues">电视剧</div>
+        </div>
+    </div>
+    <div id="cateClassify" class="videoClassify">
+        <div class="classifyCenter">
+            <div class="classifyValues">美食制作</div>
+            <div class="classifyValues">美食介绍</div>
+        </div>
+    </div>
+</body>
+</html>

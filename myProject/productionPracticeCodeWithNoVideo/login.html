@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="大专生" content="生产实习">
+    <title>登录界面</title>
+    <style type="text/css">
+        body{
+            background-color: rgb(116, 208, 253);
+        }
+        #title{
+            text-align:center;
+        }
+        #titleValue{
+            font-size:60px;
+            user-select: none;
+        }
+        #big{
+            border:1px solid;
+            height:400px;
+            width:450px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            background-color: rgb(108, 177, 220);
+        }
+        #formDiv{
+            height:310px;
+            width:400px;
+            text-align:center;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+        }
+        #sign{
+            font-size:13px;
+            font-weight:500;
+            color:green;
+            user-select: none;
+        }
+        .btns{
+            font-size:16px;
+            font-weight:500;
+            font-style: oblique;
+            background-color: rgb(34, 179, 241);
+            height:35px;
+            width:220px;
+        }
+        .inform{
+            font-size:20px;
+            font-weight:600;
+            user-select: none;
+        }
+        .text{
+            height:22px;
+            width:170px;
+            color:grey;
+            font-weight:200;
+        }
+        #wrongInfor{
+            color:red;
+            font-size:15px;
+            font-weight:600;
+            user-select: none;
+        }
+        #questionMark{
+            height:12px;width:12px;user-select: none;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    var text0 = 0;
+    var text1 = 0;
+    var cnt = 10;
+
+    function init(){
+        var sign = document.getElementById("sign");
+        var text = document.getElementsByClassName("text");
+        var submitBtn = document.getElementById("submitBtn");
+
+        sign.onclick = signOnclickFunc;
+        text[0].onfocus = textOnfocusFunc;
+        text[0].onblur = textOnblurFunc;
+        text[1].onblur = textOnblurFunc;
+        submitBtn.onclick = submitBtnOnclickFunc;
+    }
+
+    function signOnclickFunc(){
+        window.open("html/registrationPage.html");
+    }
+    function questionMarkOnclickFunc(){
+        window.open("else/loginHelp.html");
+    }
+    function textOnfocusFunc(){
+        var text = document.getElementsByClassName("text");
+
+        if(text[0].value == "请输入用户名")
+        {
+            text[0].value = "";
+        }
+    }
+    function textOnblurFunc(){
+        var text = document.getElementsByClassName("text");
+        var wrongInfor = document.getElementById("wrongInfor");
+        var obj = event.srcElement ? event.srcElement : EventTarget;
+
+        switch(obj)
+        {
+            case text[0]:
+            if(text[0].value.length == 0)
+            {
+                wrongInfor.innerHTML = "请输入用户名！";
+                text0 = 0;
+            }else   if(text[0].value.length < 6)
+                    {
+                        wrongInfor.innerHTML = "用户名长度须大于6！";
+                        text0 = 0;
+                    }else   if(text[0].value.length > 18)
+                            {
+                                wrongInfor.innerHTML = "用户名长度必须小于18！";
+                                text0 = 0;
+                            }else{
+                                wrongInfor.innerHTML = "";
+                                text0 = 1;
+                            }
+            break;
+            case text[1]:
+            if(text[1].value.length == 0)
+            {
+                wrongInfor.innerHTML = "请输入密码！";
+                text1 = 0;
+            }else   if(text[1].value < 6)
+                    {
+                        wrongInfor.innerHTML = "密码长度必须大于6！";
+                        text1 = 0;
+                    }else{
+                        wrongInfor.innerHTML = "";
+                        text1 = 1;
+                    }
+            break;
+        }
+    }
+    function submitBtnOnclickFunc(){
+        var text = document.getElementsByClassName("text");
+        var wrongInfor = document.getElementById("wrongInfor");
+        
+        if(text0 == 1 && text1 == 1)
+        {
+            window.location.replace("html/websiteContent/mainFrameIframe.html");
+        }else{
+            wrongInfor.innerHTML = "将用户名和密码填写后才能点击提交进入！";
+        }
+    }
+    function guestLoginOnclickFunc(){
+        var wrongInfor = document.getElementById("wrongInfor");
+        wrongInfor.style.color = "green";
+        wrongInfor.innerHTML = cnt + "秒后进入，可以试试点击下方绿字注册账号哦~";
+        cnt--;
+        setTimeout(guestLoginOnclickFunc,1000);
+        setTimeout(guestLoginGoFunc,10000);
+    }
+    function guestLoginGoFunc(){
+        window.location.replace("html/websiteContent/mainFrameIframe.html");
+    }
+</script>
+<body>
+    <div id="title">
+        <h1 title="登录成功即可进入哦~" id="titleValue">欢迎光临马某人的个人网站</h1>
+    </div>
+    <div id="big">
+        <div id="formDiv">
+            <span title="请输入用户名" id="userName" class="inform">用户名：</span><input type="text" value="请输入用户名" class="text"/><br/><br/>
+            <span title="请输入密码" id="password" class="inform">密&nbsp;&nbsp; 码：</span><input type="password" class="text"/><br/>
+            <span id="wrongInfor"></span><br/><br/>
+            <div><input type="reset" value="重置信息" class="btns"/><br/><br/></div>
+            <div><input type="submit" value="提交登录" id="submitBtn" class="btns"/><br/><br/></div>
+            <div><input type="submit" value="游客登录" class="btns" onclick="guestLoginOnclickFunc()"/><br/><br/></div>
+            <span id="sign" title="点击注册">没有账号？点此注册</span><span style="float:right;"><img src="image/buttonImage/questionMark.jpg" title="遇到问题？点此解答" id="questionMark" onclick="questionMarkOnclickFunc()"/></span>
+        </div>
+    </div>
+</body>
+</html>

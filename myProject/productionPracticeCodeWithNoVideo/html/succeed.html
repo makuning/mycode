@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册成功页面</title>
+    <link href="../css/cssCode2.css" rel="stylesheet" type="text/css"/>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    function init(){
+        var btn = document.getElementById("btn");
+
+        btn.onclick = btnOnclickFunc;
+    }
+    function btnOnclickFunc(){
+       window.location.replace("../login.html");
+    }
+</script>
+<body>
+    <div>
+        <img style="position: relative;left:300px;height:50px;width:168px;" src="../image/TOMImg/selfSignTop.png"/><span style="float:right;position: relative;right:300px;"><a href="http://www.tom.com/" target="_black" class="a">TOM首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://mail.tom.com/webmail-static/help/tomcom/index.html" target="_black" class="a">帮助中心</a></span>
+    </div>
+    <div id="first">
+        <div>
+            <img src="../image/TOMImg/top_bg.gif" style="height:10px;width:800px;"/>
+        </div>
+        <div>
+            <h2 class="cter">恭喜您已注册成功！</h2>
+        </div>
+    </div>
+    <div class="cter">
+        <input id="btn" type="submit" value="点击转到登录页面"/>
+    </div>
+    <div class="end">
+        <span>马某人集团</span>
+        <p>Copyright 2020 马某.COM Corporation,All Tights Reserved 雷霆万钧 版权声明及版权报复投诉指引</p>
+    </div>
+</body>
+</html>

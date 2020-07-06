@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主框架第三部分（落款）</title>
+    <style type="text/css">
+        body{
+            margin:0;
+        }
+        #valuePart{
+            background-color: cadetblue;
+            height:40px;
+            text-align: center;
+            user-select: none;
+        }
+        #textContent{
+            font-size: 15px;
+            font-weight:200;
+        }
+        #headPortrait{
+            height:60px;
+            width:60px;
+            user-select: none;
+        }
+        #imgPart{
+            height:70px;
+        }
+        #imgCenter{
+            height:60px;
+            width:60px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    function init(){
+        var headPortrait = document.getElementById("headPortrait");
+
+        headPortrait.onclick = headPortraitOnclickFunc;
+    }
+    function headPortraitOnclickFunc(){
+        window.open("../../../else/WebIntroduce.html");
+    }
+</script>
+<body>
+    <div id="valuePart">
+        <span id="textContent">学校：四川信息职业技术学院 系部：信息工程系 专业：软件技术 班级：软件技术2019级1班 网站制作人：马昆</span>
+    </div>
+    <div id="imgPart">
+        <div id="imgCenter">
+            <img src="../../../image/userImage/MaKunHeadPortrait.jpg" title="点击查看网站介绍" id="headPortrait"/>
+        </div>
+    </div>
+</body>
+</html>

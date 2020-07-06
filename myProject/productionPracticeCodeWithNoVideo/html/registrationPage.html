@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模仿Tom邮箱注册，网址：http://mail.tom.com/webmail/register/index.action</title>
+    <script type="text/javascript" src="../js/jsCode.js"></script>
+    <link href="../css/cssCode.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div>
+        <img style="position: relative;left:300px;height:50px;width:168px;" src="../image/TOMImg/selfSignTop.png"/><span style="float:right;position: relative;right:300px;"><a href="../html/websiteContent/gotoOtherPage/WebIntroduce.html" target="_black" class="a">马某人网站介绍</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../else/loginHelp.html" target="_black" class="a">帮助中心</a></span>
+    </div>
+    <div id="first">
+        <div>
+            <img src="../image/TOMImg/top_bg.gif" style="height:10px;width:800px;"/>
+        </div>
+        <div>
+            <h2 class="cter">欢迎注册账号！</h2>
+            <form>
+                <h4 class="h4Title"><img src="../image/TOMImg/top_bg.gif" style="width:3px;height:25px;"/>&nbsp;&nbsp;&nbsp;填写注册信息</h4><br/>
+                <div class="margins">
+                    用  户  名&nbsp;&nbsp;&nbsp;&nbsp;<input id="mailNameText" class="textboxMail" type="text"/>&nbsp;&nbsp;<span class="hintImg"></span><div id="mailNameHint" class="hint"></div>
+                    <p class="tips">6-18个字符，可用字母、数字、减号、点、下划线、需以字母开头</p>
+                </div>
+                <div class="margins">
+                    密 &nbsp;&nbsp;&nbsp;&nbsp; 码  &nbsp;&nbsp;<input id="pswdText" class="textbox" type="password"/>&nbsp;&nbsp;<span class="hintImg"></span><div id="pswdHint" class="hint"></div>
+                    <p class="tips">6-18个字符，"字母 + 数字"的组合，区分大小写</p>
+                </div>
+                <div class="margins">
+                    确认密码&nbsp;&nbsp;<input id="secPswdText" class="textbox" type="password"/>&nbsp;&nbsp;<span class="hintImg"></span><div id="secPswdHint" class="hint"></div>
+                    <p class="tips">请再次填写密码</p>
+                </div>
+                <div class="margins">
+                    手机号码&nbsp;&nbsp;<input id="phoneNumText" class="textbox" type="text"/>&nbsp;&nbsp;<span class="hintImg"></span><div id="phoneNumHint" class="hint"></div>
+                    <p class="tips">找回密码或认证时使用，请填写真实有效的手机号</p>
+                </div>
+                    <h4 class="h4Title"><img src="image/TOMImg/top_bg.gif" style="width:3px;height:25px;"/>&nbsp;&nbsp;&nbsp;选择验证方式</h4><br/>
+                <div class="cter">
+                    <input tupe="button" value="微信验证" id="verifyBton1"/><input type="button" value="随机验证" id="verifyBton2"/>
+                    <div class="cter">
+                        <div id="verifyImgHint1"></div><div id="verifyImgHint2"></div>
+                    </div>
+                </div>
+                <div class="cter" id="verifyDiv">
+                    <span id="verify">
+                        <p style="font-size:15px;color:grey;">请使用微信<img src="../image/TOMImg/wx_icon.png"/>扫描二维码验证</p>
+                        <img style="height:150px;width:150px;" src="../image/TOMImg/code_icon.png"/>
+                    </span>
+                </div>
+                <br/>
+                <div class="cter">
+                    <span id="serveClause"><input id="serveCheckbox" type="checkbox"/>我已阅读并接受“<a class="b" href="../else/serveClause.html" target="_blank">服务条款</a>”</span>
+                </div>
+                <br/>
+                <div class="cter">
+                    <input type="submit" value="注册" id="sbmitBton"/>
+                </div>
+                <br/><br/>
+            </form>
+        </div>
+    </div>
+    <div class="end">
+        <span>马某人集团</span>
+        <p>Copyright 2020 马某.COM Corporation,All Tights Reserved 雷霆万钧 版权声明及版权报复投诉指引</p>
+    </div>
+</body>
+</html>

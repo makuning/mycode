@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人视频分类超链接部分</title>
+    <style type="text/css">
+        body{
+            margin:0px;
+        }
+        #big{
+            width:90px;
+            height:400px;
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            user-select: none;
+        }
+        .classifyDiv{
+            width:90px;
+            height:30px;
+            background-color: gray;
+            text-align: center;
+        }
+        #big2{
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+        }
+        .classifyValue{
+            font-size:20px;
+            font-weight:600;
+        }
+    </style>
+</head>
+<body>
+    <div id="big">
+        <h3 style="text-align: center;font-size:22px;">个人视频</h3>
+        <div id="big2">
+            <br/><br/>
+            <div id="lifeFunnyDiv" class="classifyDiv">
+                <span class="classifyValue" title="点击在右侧查看"><a href="../selfVideosContent/lifeFunny.html" target="selfVideoContentShow">生活趣事</a></span>
+            </div><br/>
+            <div id="schoolFunnyDiv" class="classifyDiv">
+                <span class="classifyValue" title="点击在右侧查看"><a href="../selfVideosContent/schoolFunny.html" target="selfVideoContentShow">校园趣事</a></span>
+            </div><br/>
+            <div id="screenCaptureDiv" class="classifyDiv">
+                <span class="classifyValue" title="点击在右侧查看"><a href="../selfVideosContent/screenCapture.html" target="selfVideoContentShow">屏幕录制</a></span>
+            </div><br/>
+            <div id="TikTokDownloadDiv" class="classifyDiv">
+                <span class="classifyValue" title="点击在右侧查看"><a href="../selfVideosContent/TikTokDownload.html" target="selfVideoContentShow">抖音下载</a></span>
+            </div><br/>
+        </div>
+    </div>
+</body>
+</html>
