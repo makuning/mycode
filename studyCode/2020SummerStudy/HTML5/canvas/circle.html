@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用canvas画圆</title>
+</head>
+    <script type="text/javascript">
+        window.onload = init;
+        function init(){
+            var myCanvas = document.getElementById("myCanvas");
+            var ctx = myCanvas.getContext("2d");
+
+            ctx.beginPath();
+            ctx.arc(95,50,40,0,2*Math.PI);
+            ctx.stroke();
+        }
+    </script> 
+<body>
+    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;"></canvas>
+</body>
+</html>

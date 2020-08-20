@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用canvas绘画渐变色图案</title>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    function init(){
+        var myCanvas = document.getElementById("myCanvas");
+        var ctx = myCanvas.getContext("2d");
+
+        // Create gradient
+        var grd=ctx.createLinearGradient(0,0,200,0);
+        grd.addColorStop(0,"red");
+        grd.addColorStop(1,"white");
+
+        // Fill with gradient
+        ctx.fillStyle=grd;
+        ctx.fillRect(10,10,150,80);
+
+        var myCanvas2 = document.getElementById("myCanvas2");
+        var ctx2 = myCanvas2.getContext("2d");
+
+        // Create gradient
+        var grd2 = ctx2.createRadialGradient(75,50,5,90,60,100);
+        grd2.addColorStop(0,"red");
+        grd2.addColorStop(1,"white");
+
+        // Fill with gradient
+        ctx2.fillStyle=grd;
+        ctx2.fillRect(10,10,150,80);
+    }
+</script>
+<body>
+    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;"></canvas>
+    <canvas id="myCanvas2" width="200" height="100" style="border:1px solid #d3d3d3;"></canvas>
+</body>
+</html>

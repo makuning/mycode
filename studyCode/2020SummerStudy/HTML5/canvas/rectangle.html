@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5-canvas演示</title>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    function init(){
+        var myCanvas = document.getElementById("myCanvas");
+        var ctx = myCanvas.getContext("2d");
+        var inform = document.getElementById("inform");
+
+        inform.style.color = "red";
+        ctx.fillStyle="#FF0000";
+        ctx.fillRect(0,0,150,75);
+    }
+</script>
+<body>
+    <span id="inform">这是我的canvas演示</span><br/>
+    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>使用canvas展示图片</title>
+</head>
+<script type="text/javascript">
+    window.onload = init;
+    function init(){
+        var myCanvas = document.getElementById("myCanvas");
+        var ctx = myCanvas.getContext("2d");
+        var img = document.getElementById("scream");
+
+        ctx.drawImage(img,10,10);
+    }
+</script>
+<body>
+    <p>直接使用img标签:</p>
+    <img id="scream" src="../../Images/beautifulShanghai.jpg" style="height:250px;width:200px;">
+    <p>使用此canvas画布:</p>
+    <canvas id="myCanvas" width="250" height="300" style="border:1px solid #d3d3d3;"></canvas>
+</body>
+</html>
