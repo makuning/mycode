@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三次课</title>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <p>这是一个<b>粗体</b>文本</p><input type="text"/><br/>
+    <button>text()</button><button>html()</button><input type="button" value="val操作"/>
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("button:first").click(function(){
+                $("p").text("HelloWorld!");
+            })
+            $("button:last").click(function(){
+                $("p").html("<b>HelloWorld</b>");
+            })
+            $("input[type='button']").click(function(){
+                $("input[type='text']").val("hello world");
+                alert($("input[type='text']").val());
+            })
+        })
+    </script>
+    
+</body>
+</html>

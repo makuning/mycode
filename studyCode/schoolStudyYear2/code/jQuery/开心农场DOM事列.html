@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1.min.js"></script> 
+</head>
+<style>
+    #bg{background-image:url(images/plowland.jpg) ;
+    width: 466px;
+    height: 276px;
+    }
+    #seed{
+        position: absolute;
+        top:226px;
+        left:30px;
+        cursor: pointer;
+    }
+    #grow{
+        position: absolute;
+        top:226px;
+        left:116px;
+        cursor: pointer;
+    }
+    #bloom{
+        position: absolute;
+        top:226px;
+        left:202px;
+        cursor: pointer;
+    }
+    #fruit{
+        position: absolute;
+        top:226px;
+        left:288px;
+        cursor: pointer;
+    }
+    #harvest{
+        position: absolute;
+        top:226px;
+        left:374px;
+        cursor: pointer;
+    }
+    #temp{
+        position: absolute;
+        top: 85px;
+        left:202px;
+
+    }
+</style>
+<body>
+    <div id="bg">
+        <img id = "seed" src="images/btn_seed.png"/>
+        <img id = "grow" src="images/btn_grow.png"/>
+        <img id = "bloom" src="images/btn_bloom.png"/>
+        <img id = "fruit" src="images/btn_fruit.png"/>
+        <img id = "harvest" src="images/btn_harvest.png"/>
+        <img id="temp"/>
+    </div>
+    <script>
+        $(function () {
+            $("#seed").click(function () {
+                $("#temp").attr("src", "images/seed.png")
+            })
+            $("#grow").click(function () {
+                $("#temp").attr(
+                    "src", "images/grow.png"
+                );
+            });
+            $("#bloom").click(function () {
+                $("#temp").attr(
+                    "src", "images/bloom.png"
+                );
+            });
+            $("#fruit").click(function () {
+                $("#temp").attr(
+                    "src", "images/fruit.png"
+                );
+            });
+            $("#harvest").click(function () {
+                $("#temp").attr("src", "");
+            });
+        });
+
+    </script>
+</body>
+</html>

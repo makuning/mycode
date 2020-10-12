@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery类选择器</title>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <h1>一、基本选择器</h1>
+    <p id="idOne">id为idOne的元素</p>
+    <div>
+        <span>这是div1</span>
+    </div>
+    <div>
+        <span>这是div2</span>
+    </div>
+    <span class="clsTwo">
+        class为clsTwo1
+    </span>
+    <span class="clsTwo">
+        class为clsTwo2
+    </span>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#idOne").css("backgroundColor","blue");
+            $("div").css("backgroundColor","yellow").css("color","green");
+            $(".clsTwo").css("color","red");
+            $("#idOne,.clsTwo").css("font-size","50px").css("font-weight","900");
+        });
+    </script>
+
+
+    <h1>二、层次选择器</h1>
+    <div>
+        <p>文字文字11</p>
+        <span>
+            <p>文字文字22</p>
+        </span>
+    </div>
+    <p>文字文字33</p>
+    <p>文字文字44</p>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        //    $("div p").css("backgroundColor","blue");     //后代选择器
+        //    $("div>p").css("backgroundColor","blue");     //子选择器
+        //    $("div+p").css("backgroundColor","blue");     //next选择器
+           $("div~p").css("backgroundColor","blue");        //nextAll选择器
+        });
+    </script>
+
+
+    <h1>三、简单过滤选择器</h1>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //选取标题标签
+            $(":header").css("backgroundColor","green").css("height","40px").css("width","30%");
+            //选取第一个first，第二个last
+            $("p:last").css("font-size","30px");
+            //eq=相等，eq(1)标签起始标为1的元素（从0起标）；lt=小于;gt=大于
+            $("p:lt(0)").css("backgroundColor","blue");
+            //even偶数，odd奇数，从0起标
+            $("p:lt(0)");
+            //not去掉符合条件的标签
+            $("div:not(#idOne)");
+        })
+    </script>
+</body>
+</html>

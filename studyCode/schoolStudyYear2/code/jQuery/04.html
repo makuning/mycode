@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    	<meta charset="UTF-8">
+    	<title></title>
+        <script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+        <style>
+            #big{
+                background-color: red;
+                height:200px;
+                width:200px;
+            }
+            #mid{
+                background-color: yellow;
+                height:150px;
+                width:150px;
+            }
+            #small{
+                background-color: green;
+                height:100px;
+                width:100px;
+            }
+        </style>
+</head>
+<body>
+    <div id="big">
+        <div id="mid">
+            <div id="small"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+		$(document).ready(function(){
+            $("#big").click(function(){
+                alert("big");
+            });
+            $("#mid").click(function(){
+                alert("mid");
+            });
+            $("#small").click(function(){
+                alert("small");
+                //event.stopPropagation();//1、阻止冒泡
+                //event.preventDefault();//2、阻止默认行为
+                return false;//3、阻止冒泡和默认行为
+            });
+		});
+	</script>
+</body>
+</html>

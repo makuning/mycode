@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    	<meta charset="UTF-8">
+    	<title></title>
+    	<script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+	<button>事件绑定</button>
+    	<script type="text/javascript">
+		$(document).ready(function(){
+			//第一种
+			$("button").click(function(){
+				alert("Hello World!");
+			});
+			//第二种
+			$("button").on("click",function(){
+				alert("22222");
+			});
+			//第三种，body里的button标签
+			$("body").on("click","button",function(){
+				alert("33333");
+			});
+			//第四种	多个事件执行同一个方法（event.type：事件类型）（event:：事件对象）
+			$("button").on("mouseenter mouseleave",function(){
+				console.log("444444");
+				console.log(event);
+				console.log(event.type);
+			});
+			//第五种 多个事件多个方法
+			$("button").on({
+				mouseenter:function(){
+					console.log("enter");
+				},
+				mouseleave:function(){
+					console.log("leave");
+				}
+			});
+			//第六种 传递数据
+			$("button").on("click",{a:"hello"},function(event){
+				alert(event.data.a);
+			});
+		});
+	</script>
+</body>
+</html>

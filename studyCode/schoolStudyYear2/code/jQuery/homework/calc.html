@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+    <title></title>
+</head>
+<body>
+    <h6>制作一个页面，命名为calc.html，实现输入圆半径，计算圆面积并弹出计算结果。（文本框输入半径，点击按钮计算）</h6>
+    <hr/>
+    <span id="infor">请输入圆半径点击计算</span>
+    <input type="text" id="numInput"/><button id="goOn">计算圆面积</button>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#goOn").click(function(){
+                var num = Number($("#numInput").val());
+                var PI = 3.1415926;
+                var rusult = num * num * PI * 2;
+                alert("圆的面积为" + rusult);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三次课</title>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <!-- <div style="background-color: yellow;">
+        <h1>123456789</h1>
+    </div>
+    <input type="button" value="插入子节点"/>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("[value *= '插入']").click(function(){
+                var $newNode = $("<h2>这是新节点</h2>");
+                $("div").before($newNode);
+                //$newNode.appendTo($("div"));//与上同
+            })
+        })
+    </script> -->
+
+    <h3>这是一个h3标签</h3>
+    <div style="background-color: yellow;">
+        <h1>这是一个h1标签</h1>
+        <h2>这是一个h2标签</h2>
+    </div>
+    <button>删除节点</button>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(":button").click(function(){
+                var $node = $("div").detach();
+                $("h3").before($node);
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+    <title></title>
+</head>
+<body>
+    <h6>编程实现计算器功能，输入数字1和数字2进行求和输出结果，文件保存为sum.html</h6>
+    <hr/>
+    <span>请输入数字1</span><input type="text" id="num1"/><br/>
+    <span>请输入数字2</span><input type="text" id="num2"/><br/>
+    <button id="goOn">求和</button><br/>
+    <span>结果：</span><input type="text" id="sum"/>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#goOn").click(function(){
+                var num1 = Number($("#num1").val());
+                var num2 = Number($("#num2").val());
+                var result = num1 + num2;
+                $("#sum").val(result);
+            });
+        });
+    </script>
+</body>
+</html>

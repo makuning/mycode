@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>进度条DEMO</title>
+</head>
+<body>
+    <div>
+        <progress id="prog" value="20" min="0" max="100"></progress>
+        <span id="progInfor"></span>
+    </div>
+    <div>
+        <button id="startBtn">开始</button>
+        <button id="stopBtn">结束</button>
+    </div>
+    <script type="text/javascript">
+        window.onload = init;
+        var progFlag = 0;
+        
+        function init(){
+            var startBtn = document.getElementById("startBtn");
+            var stopBtn = document.getElementById("stopBtn");
+            var prog = document.getElementById("prog");
+            var progInfor = document.getElementById("progInfor");
+            prog.value = 0;
+            progInfor.innerHTML = "当前进度为" + 0 + "%";
+
+            startBtn.onclick = ;
+        };
+        function goOnFunc(){
+            var prog = document.getElementById("prog");
+            var progInfor = document.getElementById("progInfor");
+            if(progFlag == 100)
+            {
+                return;
+            }
+            progFlag++;
+
+            prog.value = progFlag;
+            progInfor.innerHTML = "当前进度为" + progInfor + "%";
+        }
+    </script>
+</body>
+</html>

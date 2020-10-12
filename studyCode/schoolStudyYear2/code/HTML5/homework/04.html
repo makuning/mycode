@@ -1,0 +1,22 @@
+<!DOCTYPE heml>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>按钮关联事件</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <button id="btn1">btn1</button>
+    <button id="btn2">btn2</button>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                alert("按钮1");
+            });
+            $("#btn2").click(function(){
+                alert("按钮2");
+            });
+        });
+    </script>
+</body>
+</html>

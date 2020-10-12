@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    	<meta charset="UTF-8">
+    	<title></title>
+    	<script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+	<button id="btn1">hello</button>
+	<button id="btn2">trigger hello</button>
+    	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#btn1").click(function(event,a,b){
+				alert(a + b);
+			});
+			$("#btn2").click(function(){
+				$("#btn1").trigger("click",["abc","123"]);
+				//触发第一个按钮的点击事件，给函数传值
+			});
+		});
+	</script>
+</body>
+</html>

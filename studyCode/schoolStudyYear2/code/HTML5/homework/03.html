@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>progress</title>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = init;
+    function init(){
+        document.getElementById("infor").innerHTML = "0%";
+        document.getElementById("prog").value = "0";
+
+        document.getElementById("btnStart").onclick = btnStartOnclickFunc;
+        document.getElementById("btnStop").onclick = btnStopOnclickFunc;
+    }
+
+    function btnStartOnclickFunc(){
+        document.getElementById("btnStop").disabled = false;
+        document.getElementById("btnStart").disabled = true;
+
+        timer = setInterval(function(){
+            var prog = Number(document.getElementById("prog").value);
+            if(prog == 100)
+            {
+                return;
+            }
+
+            prog++;
+            document.getElementById("prog").value = prog;
+            document.getElementById("infor").innerHTML = prog.toString() + "%";
+        },200);
+    }
+    function btnStopOnclickFunc(){
+        clearInterval(timer);
+        document.getElementById("btnStop").disabled = true;
+        document.getElementById("btnStart").disabled = false;
+    }
+</script>
+    <button id="btnStart">开始</button>
+    <button id="btnStop">结束</button>
+    <div>
+        当前的进度为：<span id="infor">0%</span>
+        <progress value="0" min="0" max="100" id="prog"></progress>
+    </div>
+</body>
+</html>

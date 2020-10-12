@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:500px;
+            height:300px;
+            border:1px solid darkgoldenrod;
+
+            /*div水平，垂直居中*/
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+
+            /*内容居中*/
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = init;
+    function init(){
+        document.getElementById("progress1Infor").innerHTML = "0%";
+        document.getElementById("progress1").value = "0";
+
+        document.getElementById("btnStart").onclick = btnStartOnclickFunc;
+        document.getElementById("btnStop").onclick = btnStopOnclickFunc;
+    }
+
+    function btnStartOnclickFunc(){
+        document.getElementById("btnStart").disabled = true;
+        document.getElementById("btnStop").disabled = false;
+        timer = setInterval(function(){
+        let progressFlag = Number(document.getElementById("progress1").value);
+
+        if(progressFlag == 100){
+            return;
+        }
+
+            progressFlag++;
+            document.getElementById("progress1").value = progressFlag;
+            document.getElementById("progress1Infor").innerHTML = progressFlag.toString() + "%";
+        },500)
+    }
+    function btnStopOnclickFunc(){
+        clearInterval(timer);
+        document.getElementById("btnStop").disabled = true;
+        document.getElementById("btnStart").disabled = false;
+    }
+</script>
+    <button id="btnStart">开始</button>
+    <button id="btnStop">结束</button>
+    <div>
+        当前进度：<span id="progress1Infor">10%</span>
+        <progress max="100" value="10" min="0" id="progress1"></progress>
+    </div>
+</body>
+</html>

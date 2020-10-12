@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第五次课</title>
+    <script type="text/javascript"></script>
+</head> 
+<body>
+    <form><!--novalidate设置不验证-->
+        <lable for="name">姓名</lable><input name="name" id="name" type="text" autocomplete="on" required pattern="([/u4e00-/u9fa5]){2,4}"/><br/>
+        <lable for="sex">性别</lable><input name="sex" id="sex" type="text"/><br/>
+        <lable for="sstudentCodeex">学号</lable><input name="studentCode" id="studentCode" type="text" pattern="1[0-9]{7}|20[0-9]{6}"/><br/>
+        <input type="submit" value="提交"/>
+    </form>
+  
+    <script type="text/javascript">
+    </script>
+</body>
+</html>

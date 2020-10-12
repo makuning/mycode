@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery firstDemo</title>
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <h1 id="title">Hello</h1>
+    <script type="text/javascript">
+        // $(document).ready(function(){            //jQuery加载
+        //     alert("FUCK!!!");
+        // });
+        // $(function(){
+        //     alert("HelloWorld!!!");
+        // });
+
+        // var title = document.getElementById("title");
+        // title.style.color = "red";
+        $(document).ready(function(){
+            $("#title").css("color","blue");//DOM对象转jQuery对象
+            var $x = $("#title");           //jQuery对象转DOM对象
+            var x = $x[0];//$x.get(0)       //或者get(0)
+            x.style.color = "yellow";
+        })
+    </script>
+</body>
+</html>

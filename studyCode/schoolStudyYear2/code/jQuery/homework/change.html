@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+    <style>
+        #bg{
+            height:500px;
+            width:500px;
+            background-color: white;
+            border:1px solid;
+        }
+    </style>
+</head>
+<body>
+    <h6>制作一个页面，命名为change.html，实现div换色，鼠标放上去div变红色，鼠标移开div恢复白色</h6>
+    <hr/>
+    <div id="bg"></div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#bg").on({
+                mouseenter:function(){
+                    $("#bg").css("background-color","red");
+                },
+                mouseleave:function(){
+                    $("#bg").css("background-color","white");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

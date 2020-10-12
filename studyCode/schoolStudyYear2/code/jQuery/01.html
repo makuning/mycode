@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击标题显示相关内容</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style type="text/css">
+        *{
+            padding:0px;
+            margin:0px;
+        }
+        ul{
+            list-style:none;
+        }
+        li{
+            width:100px;
+            height:40px;
+            float:left;
+            border:1px solid red;
+            background-color:lightgray;
+            color:white;
+            text-align:center;
+            line-height:40px;
+            cursor:pointer;
+        }
+        #big{
+            width:306px;
+            height:42px;
+        }
+        .content{
+            width:306px;
+            height:150px;
+            border:1px solid blue;
+            display: none;
+        }
+        .on{
+            display: block;
+        }
+        .item_on{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div id="big">
+        <ul>
+            <li>最新</li>
+            <li class="item_on">热门</li>
+            <li>新闻</li>
+        </ul>
+    </div>
+    <br/>
+    <div class="content">11111111</div>
+    <div class="content on">22222222</div>
+    <div class="content">33333333</div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //给li添加点击事件
+            $("li").click(function(){
+                //当前的li变为蓝色，其他的恢复灰色
+                $(this).addClass("item_on").siblings().removeClass("item_on");
+                //将所有的div隐藏，将对应的div显示出来
+                var n = $(this).index();
+                $(".content").hide().eq(n).show();
+            });
+        });
+        //hide()或者show()
+    </script>
+</body>
+</html>

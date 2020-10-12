@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>农场</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style type="text/css">
+
+        #big{
+            height:552px;
+            width:932px;
+            background-image: url('../images/plowland.jpg');
+            background-size: 100% 100%;
+            /* background-repeat: repeat; */
+            margin:0 auto;
+            user-select: none;
+        }
+        #soSmallInner{
+            color:red;
+            font-weight:800;
+            font-size:30px;
+        }
+        .btnImgs{
+            height:112px;
+            width:112px;
+            cursor: pointer;
+        }
+        #btnSeed{
+            position: relative;
+            top:440px;
+        }
+        #btnGrow{
+            position: relative;
+            top:440px;
+        }
+        #btnBloom{
+            position: relative;
+            top:440px;
+
+        }
+        #btnFruit{
+            position: relative;
+            top:440px;
+        }
+        #btnHarvest{
+            position: relative;
+            top:440px;
+        }
+        #temp{
+            position: relative;
+            left:282px;
+            display: none;
+            height:300px;
+            width:300px;
+        }
+    </style>
+</head>
+<body>
+    <span id="soSmallInner"></span>
+    <div id="big">
+        <img id="btnSeed" class="btnImgs" src="../images/btn_seed.png" alt="播种"/>
+        <img id="btnGrow" class="btnImgs" src="../images/btn_grow.png" alt="生长"/>
+        <img id="btnBloom" class="btnImgs" src="../images/btn_bloom.png" alt="开花"/>
+        <img id="btnFruit" class="btnImgs" src="../images/btn_fruit.png" alt="结果"/>
+        <img id="btnHarvest" class="btnImgs" src="../images/btn_harvest.png" alt="收获"/>
+        <img id="temp"/>
+    </div>
+    <script type="text/javascript">
+        window.onload = init;
+        window.onresize = winChange;
+
+
+        function winChange(){
+            imgsSize();
+        }
+        function init(){
+            imgBtnsLocation();
+            $("#btnSeed").click(function () {
+                $("#temp").attr("src", "../images/seed.png");
+                $("#temp").css("display","block");
+            })
+            $("#btnGrow").click(function () {
+                $("#temp").attr("src", "../images/grow.png");
+                $("#temp").css("display","block");
+            });
+            $("#btnBloom").click(function () {
+                $("#temp").attr("src", "../images/bloom.png");
+                $("#temp").css("display","block");
+            });
+            $("#btnFruit").click(function () {
+                $("#temp").attr("src", "../images/fruit.png");
+                $("#temp").css("display","block");
+            });
+            $("#btnHarvest").click(function () {
+                $("#temp").attr("src", "");
+                $("#temp").css("display","none");
+            });
+        }
+        
+        function imgsSize(){
+            var winW = window.outerWidth;
+            var winH = window.outerHeight;
+
+            if(winW < 230){
+                $("#big").hide();
+                $("#soSmallInner").text("您的窗口大小太小了！");
+            }else{
+                $("#big").show();
+                $("#soSmallInner").text("");
+            }
+        }
+        
+        function imgBtnsLocation(){
+            var LeftAdd = 62;
+
+            $("#btnSeed").css("left",LeftAdd +"px");
+            $("#btnGrow").css("left",LeftAdd * 2 + "px");
+            $("#btnBloom").css("left",LeftAdd * 3 + "px");
+            $("#btnFruit").css("left",LeftAdd * 4 + "px");
+            $("#btnHarvest").css("left",LeftAdd * 5 + "px");
+        }
+    </script>
+</body>
+</html>

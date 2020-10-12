@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按钮操作图片</title>
+    <script type="text/javascript" src="../jquery-3.5.1.min.js"></script>
+    <style type="text/css">
+        .checkInfor{
+            font-weight:600;
+        }
+        img{
+            height:200px;
+            width:250px;
+        }
+        #hobbyInfor{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="all">
+        <div>
+            <h1>选择你的爱好</h1>
+        </div>
+        <div>
+            <input type="checkbox" value="唱歌"/><span class="checkInfor">唱歌</span>
+            <input type="checkbox" value="跳舞"/><span class="checkInfor">跳舞</span>
+            <input type="checkbox" value="听歌"/><span class="checkInfor">听歌</span>
+            <input type="checkbox" value="看电影"/><span class="checkInfor">看电影</span><br/>
+            <button value="显示图片路径">显示图片路径</button><br/>
+            <button value="显示爱好">显示爱好</button><span id="hobbyInfor"></span><br/>
+            <button value="改变图片">改变图片</button><br/>
+            <button value="增加图片">增加图片</button><br/>
+            <button value="删除图片">删除图片</button><br/>
+        </div>
+        <div>
+            <img id="fruits" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1600664922479&di=660db06bd75cdd4b832272a3dd719c64&imgtype=0&src=http%3A%2F%2Fimgs.bzw315.com%2FUploadFiles%2Fimage%2F20150310%2F20150310144710_9045.jpg" alt="这是一张图片"/>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var imgChangeFlag = 1;
+
+            $("[value*='路径']").click(function(){
+                alert($("#fruits").prop("src"));
+            });
+
+            $("[value*='爱好']").click(function(){
+                var str = "";
+                $("[type='checkbox']:checked").each(function(){
+                    str = str + $(this).val() + "；";
+                });
+                $("#hobbyInfor").text("您选择的爱好有：" + str);
+            });
+
+            $("[value*='改变']").click(function(){
+                if(imgChangeFlag == 4){
+                    imgChangeFlag = 0;
+                }
+
+                if(imgChangeFlag == 0){
+                    //同时设置多个值，用大括号阔起来，并且每段用“，”隔开
+                    $("#fruits").attr({
+                        "src":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1600664922479&di=660db06bd75cdd4b832272a3dd719c64&imgtype=0&src=http%3A%2F%2Fimgs.bzw315.com%2FUploadFiles%2Fimage%2F20150310%2F20150310144710_9045.jpg",
+                        "alt":"这是第一张图片"
+                    });
+         
+                    imgChangeFlag++;
+                }else   
+                if(imgChangeFlag == 1){
+                    //同时设置多个值，用大括号阔起来，并且每段用“，”隔开
+                    $("#fruits").attr({
+                        "src":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1022860950,3160975177&fm=26&gp=0.jpg",
+                        "alt":"这是第二张图片"
+                    });
+                    
+                    imgChangeFlag++;
+                }else   
+                if(imgChangeFlag == 2){
+                    //同时设置多个值，用大括号阔起来，并且每段用“，”隔开
+                    $("#fruits").attr({
+                        "src":"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=201504602,2415406019&fm=26&gp=0.jpg",
+                        "alt":"这是第三张图片"
+                    });
+                    
+                    imgChangeFlag++;
+                }else   
+                if(imgChangeFlag == 3){
+                    //同时设置多个值，用大括号阔起来，并且每段用“，”隔开
+                    $("#fruits").attr({
+                        "src":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1600669650522&di=108524594936b3038f2b3b1ce744a260&imgtype=0&src=http%3A%2F%2Fpic32.nipic.com%2F20130816%2F8952533_165406191000_2.jpg",
+                        "alt":"这是第四张图片"
+                    });
+                    
+                    imgChangeFlag++;
+                }
+            });
+
+            $("[value*='增加']").click(function(){
+                $("#fruits").before($("<img src='https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1022860950,3160975177&fm=26&gp=0.jpg' class='addImgs'/>"));
+            });
+
+            $("[value*='删除']").click(function(){
+                $(".addImgs:eq(0)").remove();
+            });
+        })
+    </script>
+</body>
+</html>
