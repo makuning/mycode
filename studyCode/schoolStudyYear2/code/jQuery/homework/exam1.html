@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>第一次考试简答题</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            $("#big").css({
+                "width":"500px",
+                "border":"1px solid black",
+                "position": "absolute",
+                "left": "50%",
+                "transform": "translateX(-50%)",
+            });
+            $("#webTitle").css({
+                "text-align":"center"
+            });
+            $(".news").css({
+                "width":"490px",
+                "border":"1px solid black",
+                "margin":"0px auto",
+                "position":"relative"
+            });
+            $(".contents").css({
+                "font-size":"20px",
+                "font-weight":"500",
+                "color":"blue"
+            });
+            $(".newsDlesBtn").css({
+                "height":"30px",
+                "width":"70px",
+                "position":"absolute",
+                "bottom":"0px",
+                "right":"0px"
+            });
+            $("#ifDle").css({
+                "width":"350px",
+                "height":"200px",
+                "border":"1px solid black",
+                "position":"absolute",
+                "top":"80px",
+                "left":"75px",
+                "display":"none"
+            });
+            $("#ifDleTitle").css({
+                "font-size":"30px",
+                "font-weight":"900",
+                "color":"white"
+            });
+            $("#ifDleTop").css({
+                "width":"350px",
+                "height":"50px",
+                "background-color":"pink",
+                "position":"relative"
+            });
+            $("#ifDleTop > img").css({
+                "height":"35px",
+                "width":"35px",
+                "position":"absolute",
+                "top":"0px",
+                "right":"0px"
+            });
+            $("#ifDleBottom").css({
+                "width":"350px",
+                "height":"150px",
+                "background-color":"white"
+            });
+            $("#ifDleBottom > img").css({
+                "height":"50px",
+                "width":"50px"
+            });
+            $("#ifDleSure").css({
+                "font-size":"20px",
+                "font-weight":"400"
+            });
+            $("#ifDleBtnPst").css({
+                "position":"absolute",
+                "bottom":"10px",
+                "left":"30px"
+            });
+            $(".ifDleBtnS").css({
+                "height":"40px",
+                "width":"90px",
+                "border":"2px solid black"
+            });
+            $(".serialNums").text($(this).index(".serialNums") + 1 + "、");
+        });
+    </script>
+    <div id="big">
+        <h1 id="webTitle">本站公告</h1>
+        <div class="news">
+            <span class="serialNums"></span>
+            <br/>
+            <span class="contents">中秋节放假通知！</span>
+            <span><br/><br/><br/><br/><br/></span>
+            <button class="newsDlesBtn">删除</button>
+        </div>
+        <div class="news">
+            <span class="serialNums"></span>
+            <br/>
+            <span class="contents">国庆节放假通知！</span>
+            <span><br/><br/><br/><br/><br/></span>
+            <button class="newsDlesBtn">删除</button>
+        </div>
+        <div class="news">
+            <span class="serialNums"></span>
+            <br/>
+            <span class="contents">中秋节放假通知！</span>
+            <span><br/><br/><br/><br/><br/></span>
+            <button class="newsDlesBtn">删除</button>
+        </div>
+        <div class="news">
+            <span class="serialNums"></span>
+            <br/>
+            <span class="contents">寒假放假通知！</span>
+            <span><br/><br/><br/><br/><br/></span>
+            <button class="newsDlesBtn">删除</button>
+        </div>
+        <div class="news">
+            <span class="serialNums"></span>
+            <br/>
+            <span class="contents">暑假放假通知！</span>
+            <span><br/><br/><br/><br/><br/></span>
+            <button class="newsDlesBtn">删除</button>
+        </div>
+        <div class="news">
+            <span class="serialNums"></span>
+            <br/>
+            <span class="contents">端午节放假通知！</span>
+            <span><br/><br/><br/><br/><br/></span>
+            <button class="newsDlesBtn">删除</button>
+        </div>
+        <div class="news">
+            <span class="serialNums"></span>
+            <br/>
+            <span class="contents">我复额粉色服谁发黑色会返我打和服谁付灰色腹黑书带坏我和第五大回核复核</span>
+            <span><br/><br/><br/><br/><br/></span>
+            <button class="newsDlesBtn">删除</button>
+        </div>
+        <div class="news">
+            <span class="serialNums"></span>
+            <br/>
+            <span class="contents">教师节放假通知！</span>
+            <span><br/><br/><br/><br/><br/></span>
+            <button class="newsDlesBtn">删除</button>
+        </div>
+        <div class="news">
+            <span class="serialNums"></span>
+            <br/>
+            <span class="contents">教师节放假通知！</span>
+            <span><br/><br/><br/><br/><br/></span>
+            <button class="newsDlesBtn">删除</button>
+        </div>
+        <div class="news">
+            <span class="serialNums"></span>
+            <br/>
+            <span class="contents">教师节放假通知！</span>
+            <span><br/><br/><br/><br/><br/></span>
+            <button class="newsDlesBtn">删除</button>
+        </div>
+        <div class="news">
+            <span class="serialNums"></span>
+            <br/>
+            <span class="contents">教师节放假通知！</span>
+            <span><br/><br/><br/><br/><br/></span>
+            <button class="newsDlesBtn">删除</button>
+        </div>
+        <div id="ifDle">
+            <div id="ifDleTop">
+                <span><br/><br/><br/><br/><br/></span>
+                <span id="ifDleTitle">删除提示</span>
+                <img id="ifDleDelImg" src="../images/examBtnImgs/del.png"/>
+            </div>
+            <div id="ifDleBottom">
+                <span>&nbsp;&nbsp;</span>
+                <img id="ifDleWarningImg" src="../images/examBtnImgs/warning.png"/>
+                <span id="ifDleSure">您确定要删除这条记录吗？</span><br/>
+                <div id="ifDleBtnPst">
+                    <button class="ifDleBtnS">确定</button>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <button class="ifDleBtnS">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var index;
+        $(".newsDlesBtn").click(function(){
+            index = $(this).index(".newsDlesBtn");
+            $("#ifDle").css({
+                "display":"block"
+            });
+            
+        });
+
+        $(".ifDleBtnS:first").click(function(){
+            $("#ifDle").css({
+                "display":"none"
+            });
+            $(".news:eq(" + index + ")").remove();
+        });
+        
+        $(".ifDleBtnS:last").click(function(){
+            $("#ifDle").css({
+                "display":"none"
+            });
+        });
+        $("#ifDleTop > img").click(function(){
+            $("#ifDle").css({
+                "display":"none"
+            });
+        });
+    </script>
+</body>
+</html>
