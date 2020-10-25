@@ -1,5 +1,3 @@
-# 哔哩哔哩动力节点Java详讲
-
 ## Java 注释
 
 >```java
@@ -63,4 +61,111 @@
 > **注意：**
 >
 >1. 先写类，类中放方法（必须放main主方法），方法中放 Java语句
+
+## Java代码实例
+
+> **数组冒泡排序**
+>
+> 使用了方法，形式参数，实际参数的方式来解题
+>
+> ```java
+> /*
+>     练习数组的冒泡排序
+> */
+> public class Example8 {
+>     public static void main(String[] args){
+>         int [] nums = {115,1151,84,848,846,89,1,58,87,17,35,65,18,98,78};
+>         
+>         Calculate.rankSToB(nums);
+>     }
+> }
+> 
+> class Calculate{
+>     public static void rankSToB(int[] nums){
+>         int temp = 0;
+> 
+>         for(int i = 0;i < nums.length;i++){
+>             System.out.print(nums[i] + "\t");
+>         }
+>         for(int i = 0;i < nums.length - 1;i++){
+>             for(int j = 0;j < nums.length - i - 1;j++){
+>                 if(nums[j] > nums[j+1]){
+>                     temp = nums[j];
+>                     nums[j] = nums[j+1];
+>                     nums[j+1] = temp;
+>                 }
+>             }
+>         }
+>         System.out.println();
+>         for(int i = 0;i < nums.length;i++){
+>             System.out.print(nums[i] + "\t");
+>         }
+>     }
+> }
+> ```
+>
+> **求一个数组中的最大值**
+>
+> 使用一个变量来与数组中的每个数作比较，不断更新变量的值为大的那个，最后返回变量的值
+>
+> ```java
+> public class Example7{
+>     public static void main(String[] args){
+>         int[] nums = {1,5,5,8,7,1,8,7,15,8,1,5,78,7,1,7,8,4,1,84,87,8,48,4,87,8,84,8,48,7,8,84,5,5,8,7,87,8,8,88,8,8888,888};
+>         
+>         System.out.println("下面有一组数：");
+>         for(int i = 0;i < nums.length;i++){
+>             System.out.print(nums[i] + "\t");
+>         }
+>         int max = Calculate2.getMaxNum(nums);
+>         System.out.println();
+>         System.out.print("最大的数为：" + max);
+>     }
+> }
+> class Calculate2{
+>     public static int getMaxNum(int[] nums){
+>         int maxNum = nums[0];
+> 
+>         for(int i = 1;i < nums.length;i++){
+>             if(maxNum < nums[i]){
+>                 maxNum = nums[i];
+>             }
+>         }
+>         
+>         return maxNum;
+>     }
+> }
+> ```
+>
+> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
