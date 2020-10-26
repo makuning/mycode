@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body{
+            user-select: none;
+        }
+        #container{
+            width:800px;
+            margin:0 auto;
+            padding-top:20px;
+        }
+        #container h1{
+            text-align:center;
+        }
+        #box{
+            width:610px;
+            height:610px;
+            display:flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            align-items: baseline;
+            border:1px solid darkgoldenrod;
+            margin:0 auto;
+            padding-top:1px;
+        }
+        #box div{
+            width:200px;
+            height:200px;
+            border:1px solid darkgoldenrod;
+            text-align: center;
+            line-height: 200px;
+            background-color:darkkhaki;
+            color:darkslateblue;
+            font-size:40px;
+        }
+    </style>
+    <script type="text/javascript">
+        // window.addEventListener("load",function(){
+        //     let divs = document.getElementById("box").getElementsByTagName("div");
+        //     for(let div of divs){
+        //         div.draggable = true;
+        //         div.ondragstart = dragStart;
+        //         div.ondragover = dragOver;
+        //         div.ondrop = drop;
+        //     }
+        // });
+
+        window.onload = init;
+
+        function init(){
+            var divs = document.getElementById("box").getElementsByTagName("div");
+            for(var div of divs){
+                div.draggable = true;
+                div.ondragstart = dragStart;
+                div.ondragover = dragOver;
+                div.ondrop = drop;
+            }
+        }
+
+        var dragDiv = null;
+        
+        function dragStart(){
+            dragDiv = event.target;
+        }
+
+        function drop(){
+            var dropId = event.target.innerText;
+            event.target.innerText = dragDiv.innerText;
+            dragDiv.innerText = dropId;
+        }
+
+        function dragOver(){
+            event.preventDefault();
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h1>拖放</h1>
+        <div id="box">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+    </div>
+</body>
+</html>

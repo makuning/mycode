@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body{
+            user-select:none;
+        }
+        #big{
+            background-color:rgb(236, 236, 236);
+            height:auto;
+            width:170px;
+            margin:0 auto;
+            display:flex;
+            flex-direction:column;
+            flex-wrap:wrap;
+            align-content:center;
+        }
+        ul{
+            list-style:none;
+        }
+        li{
+            height:30px;
+            width:150px;
+            position:relative;
+            right:35px;
+            bottom:15px;
+            text-align:center;
+            line-height:30px;
+            margin:2px;
+            background-color:rgb(231, 220, 231);
+        }
+        .ttls{
+            height:35px;
+            width:160px;
+            text-align:center;
+            line-height:35px;
+            background-color:rgb(124, 198, 241);
+            margin-bottom:2px;
+        }
+        .contents{
+            height:140px;
+            width:160px;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            $(".ttls:eq(0)").css("margin-top","10px");
+            
+            $(".ttls:eq(0)").click(function(){
+                if($(".contents:eq(0)").is(":animated") == false){
+                    $(".contents:eq(0)").toggle(1000);
+                }
+            });
+
+            $(".ttls:eq(1)").click(function(){
+                if($(".contents:eq(1)").is(":animated") == false){
+                    $(".contents:eq(1)").toggle(1000);
+                }
+            });
+
+            $(".ttls:eq(2)").click(function(){
+                if($(".contents:eq(2)").is(":animated") == false){
+                    $(".contents:eq(2)").toggle(1000);
+                }
+            });
+
+            $(".contents li").click(function(){
+                var value = event.target.innerText;
+                alert(value);
+            });
+        });
+    </script>
+    <div id="big">
+        <div class="ttls">
+            <span>项目1</span>
+        </div>
+        <div class="contents">
+            <ul>
+                <li>子项目1</li>
+                <li>子项目2</li>
+                <li>子项目3</li>
+                <li>子项目4</li>
+            </ul>
+        </div>
+        <div class="ttls">
+            <span>项目2</span>
+        </div>
+        <div class="contents">
+            <ul>
+                <li>子项目1</li>
+                <li>子项目2</li>
+                <li>子项目3</li>
+                <li>子项目4</li>
+            </ul>
+        </div>
+        <div class="ttls">
+            <span>项目3</span>
+        </div>
+        <div class="contents">
+            <ul>
+                <li>子项目1</li>
+                <li>子项目2</li>
+                <li>子项目3</li>
+                <li>子项目4</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
