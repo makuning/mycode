@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        body{
+            user-select: none;
+        }
+        #first{
+            border:2px solid green;
+            height:40px;
+            width:200px;
+            background-color:pink;
+            position:relative;
+        }
+        #second{
+            border:1px solid black;
+            height:150px;
+            width:200px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+        });
+    </script>
+    <div id="first">
+        <span>折叠菜单</span>
+    </div>
+    <div id="second">
+        <span>菜单内容</span>
+    </div>
+    <script type="text/javascript">
+        var flag = 0;
+        $("#first").click(function(){
+            if(flag == 0){
+                // $("#second").show("fast");
+                $("#second").slideDown("slow");
+                $(this).animate({"left":"300px","top":"+=10px"},"slow");
+                flag = 1;
+            }else{
+                $("#second").slideUp("slow");
+                $(this).animate({"left":"0px"},"slow");
+                flag = 0;
+            }
+            // $("#second").toggle(5000);
+        });
+    </script>
+</body>
+</html>
