@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script></script>
+</head>
+<body>
+    <h1>画图</h1>
+    <canvas id="myCanvas" width="800" height="400"style="border:1px solid #000000;"></canvas>
+    <button id="btn1" onclick="btn1Click()">填充矩形</button>
+    <button id="btn2" onclick="btn2Click()">画直线</button>
+    <script>
+        function btn1Click(){
+            var canvas = document.getElementById("myCanvas");
+            var context = canvas.getContext("2d");
+            context.fillStyle="#FF0000";
+            context.fillRect(0,0,150,75);
+        }
+        function btn2Click(){
+            var canvas = document.getElementById("myCanvas");
+            var context = canvas.getContext("2d");
+            context.moveTo(0,0);
+            context.lineTo(200,100);
+            context.stroke();
+        }
+    </script>
+</body>
+</html>
