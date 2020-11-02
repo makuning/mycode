@@ -39,6 +39,7 @@
             line-height:35px;
             background-color:rgb(124, 198, 241);
             margin-bottom:2px;
+            cursor:pointer;
         }
         .contents{
             height:140px;
@@ -72,7 +73,9 @@
 
             $(".contents li").click(function(){
                 var value = event.target.innerText;
-                alert(value);
+                if($(".contents li").is(":animated") == false){
+                    alert(value);
+                }
             });
         });
     </script>

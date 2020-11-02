@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>第一个ECharts实例</title>
+    <script src="echarts.js"></script>
+    <style>
+        #main{
+            width:800px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        //初始化ECharts，获取dom容器的ID
+        var myChart = echarts.init(document.getElementById('main'));
+ 
+        // 指定图表的配置项和数据
+        var option = {
+            // 标题
+            title: {
+                text: '手机使用情况'
+            },
+            // 工具提示
+            // 提示框组件
+            tooltip: {},
+            // 图例
+            legend: {
+                //设置图例排列
+                vorient:'vertical',
+                // data:['销量']
+                data:[
+                    "邮件营销",
+                    "联盟广告",
+                    "视频广告",
+                    "搜索引擎",
+                    "直接访问",
+                    "1",
+                    "2",
+                    "3",
+                    "4"
+                ]
+            },
+            // // x轴
+            // xAxis: {
+            //     data: ["皮鞋","皮衣","皮裤","鳄鱼皮鞋","高跟鞋","袜子"]
+            // },
+            // // y轴
+            // yAxis: {},
+            // 系列
+            series: [{
+                name: '访问来源',
+                // bar是柱状图
+                // pie是饼图
+                // line是折线图
+                // funnel是漏斗图
+                type: 'pie',
+                // 
+                radius:'50%',
+                //
+                center:['50%','60%'],
+                // //roseType蓝丁格尔图
+                // roseType:'';
+                // 图上的标签
+                lable:{
+                    normal:{
+                        show:true,
+                        // 半径模式，inside在扇区里面
+                        position:'outside',
+                        // 算数百分比
+                        formatter:"{b}:{c}({d}%)",
+                    }
+                },
+                // 数据
+                data: [
+                    {value:120,name:'邮件营销'},
+                    {value:310,name:'联盟广告'},
+                    {value:234,name:'视频广告'},
+                    {value:135,name:'搜索引擎'},
+                    {value:1548,name:'直接访问'},
+                    {value:400,name:'1'},
+                    {value:500,name:'2'},
+                    {value:1200,name:'3'},
+                    {value:900,name:'4'}
+                ]
+            }]
+        };
+ 
+        // 使用刚指定的配置项和数据显示图表。
+        // 绑定
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

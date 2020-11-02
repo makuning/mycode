@@ -9,8 +9,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class UserRegister extends JFrame{
+public class UserRegister extends JFrame implements ActionListener{
 	private JPanel mainPanel;//面板
 	private JLabel lblNo,lblName,lblSex,lblAge,lblCls,lblHobby,lblNote;//标签
 	private JTextField txtNo,txtName,txtAge;//单行文本框
@@ -49,6 +51,8 @@ public class UserRegister extends JFrame{
 		
 		btnReg=new JButton("注册");
 		btnExit=new JButton("退出");
+		
+	 	
 		//设置控件的位置和大小
 		lblNo.setBounds(30,30,60,25);
 		txtNo.setBounds(90,30,250,25);
@@ -95,11 +99,35 @@ public class UserRegister extends JFrame{
 		mainPanel.add(cboNetwork);
 		mainPanel.add(btnExit);
 		mainPanel.add(btnReg);
+
+		//设置退出按钮功能
+		this.btnExitFunc(btnExit);
+		//设置注册按钮功能
+		this.btnRegFunc(btnReg);
+
 		//设置窗口的属性
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 	}
+	//给退出按钮绑定事件的方法
+	public void btnExitFunc(JButton btnExit){
+		btnExit.addActionListener(this);
+	}
+	//给注册按钮绑定事件的方法
+	public void btnRegFunc(JButton btnReg){
+		btnReg.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("注册按钮被点击了");
+				
+			}
+		});
+	}
+	//退出按钮绑定的事件
+	public void actionPerformed(ActionEvent arg0) {
+        System.exit(0);
+	}
+	
 	public static void main(String[] args) {
 		new UserRegister();
 	}

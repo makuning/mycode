@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        body{
+            user-select: none;
+        }
+        #canvasDiv{
+            width:900px;
+            border:1px solid red;
+        }
+        #canvasArea{
+            height:500px;
+            width:600px;
+            border:1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <h6>在页面放置一个画布和若干个按钮，每个按钮点击之后实现各自不同的功能如：画直线，画圆，填充矩形，清空画布，图片保存等等。录视频上传。</h6>
+    <div id="canvasDiv">
+        <canvas id="canvasArea"></canvas>
+        <img src="images/canvas01.jpg" id="img"/>
+    </div>
+    <div>
+        <button>画直线</button>
+        <button>画圆</button>
+        <button>填充矩形</button>
+        <button>图片移植</button>
+        <button>保存画布</button>
+        <button>清空画布</button>
+    </div>
+
+    <script>
+
+        $(document).ready(function(){
+            var canvasArea = document.getElementById("canvasArea");
+            var canvasCtx = canvasArea.getContext("2d");
+
+            $("button").click(function(){
+                btnIndex = $("button").index(this);
+                switch(btnIndex){
+                    case 0:
+                        canvasCtx.moveTo(0,0);
+                        canvasCtx.lineTo(200,100);
+                        canvasCtx.stroke();
+                    break;
+                    case 1:
+                        canvasCtx.beginPath();
+                        canvasCtx.arc(95,50,40,0,2*Math.PI);
+                        canvasCtx.stroke();
+                    break;
+                    case 2:
+                        canvasCtx.fillStyle="#FF0000";
+                        canvasCtx.fillRect(0,0,150,75);
+                    break;
+                    case 3:
+                        var img=document.getElementById("img");
+                        canvasCtx.drawImage(img,10,10);
+                    break;
+                    case 4:
+                       {
+                        var strDataURI = canvasArea.toDataURL();
+                        alert(strDataURI);
+                       }
+                    break;
+                    case 5:
+                        canvasCtx.clearRect(0,0,canvasArea.width,canvasArea.height); 
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>

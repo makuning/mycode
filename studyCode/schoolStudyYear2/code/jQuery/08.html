@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        *{
+            padding:0px;
+            margin:0px;
+        }
+        #bg{
+            width:200px;
+            background-color:rgb(192, 192, 192);
+            border-top:10px solid rgb(192, 192, 192);
+            border-left:3px solid rgb(192, 192, 192);
+            border-right:3px solid rgb(192, 192, 192);
+            border-bottom:10px solid rgb(192, 192, 192);
+            margin:50px auto;
+        }
+        #content{
+            list-style:none;
+        }
+        .title{
+            font-size:15px;
+            height:40px;
+            width:200px;
+            background: #0077ff;
+            color:#fff;
+            line-height: 40px;
+            text-align:center;
+            cursor:pointer;
+            border-bottom:1px solid rgb(192, 192, 192);
+        }
+        .child{
+            margin:0px auto;
+            width:180px;
+            list-style:none;
+            display: none;
+        }
+        .child li{
+            height:30px;
+            padding:5px;
+            line-height:30px;
+            background: #eee;
+            border-bottom:1px solid #ccc;
+        }
+        .current{
+            background-color: #6af;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            // $(".child").hide(100);
+            // $(".title:eq(0)").addClass("current");''
+            // $(".child").eq(0).show(100);
+            // $(".title").click(function(){
+            //     $(".title").removeClass("current");
+            //     $(this).addClass("current");
+            //     $(".child").hide(300);
+            //     $(this).next().show(300);
+            // });
+
+            $(".title").click(function(){
+                var titleIndex = $(".title").index(this);
+                if($(".child:eq(" + titleIndex + ")").is(":animated") == false){
+                    $(".child:eq(" + titleIndex + ")").toggle(300);
+                }
+            });
+        });
+    </script>
+    
+    <div id="bg">
+        <ul id="content">
+            <li>
+                <h3 class="title">项目1</h3>
+                <ul class="child">
+                    <li>子项目1</li>
+                    <li>子项目2</li>
+                    <li>子项目3</li>
+                    <li>子项目4</li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="title">项目2</h3>
+                <ul class="child">
+                    <li>子项目1</li>
+                    <li>子项目2</li>
+                    <li>子项目3</li>
+                    <li>子项目4</li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="title">项目3</h3>
+                <ul class="child">
+                    <li>子项目1</li>
+                    <li>子项目2</li>
+                    <li>子项目3</li>
+                    <li>子项目4</li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="title">项目3</h3>
+                <ul class="child">
+                    <li>子项目1</li>
+                    <li>子项目2</li>
+                    <li>子项目3</li>
+                    <li>子项目4</li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="title">项目3</h3>
+                <ul class="child">
+                    <li>子项目1</li>
+                    <li>子项目2</li>
+                    <li>子项目3</li>
+                    <li>子项目4</li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="title">项目3</h3>
+                <ul class="child">
+                    <li>子项目1</li>
+                    <li>子项目2</li>
+                    <li>子项目3</li>
+                    <li>子项目4</li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="title">项目3</h3>
+                <ul class="child">
+                    <li>子项目1</li>
+                    <li>子项目2</li>
+                    <li>子项目3</li>
+                    <li>子项目4</li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="title">项目3</h3>
+                <ul class="child">
+                    <li>子项目1</li>
+                    <li>子项目2</li>
+                    <li>子项目3</li>
+                    <li>子项目4</li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="title">项目3</h3>
+                <ul class="child">
+                    <li>子项目1</li>
+                    <li>子项目2</li>
+                    <li>子项目3</li>
+                    <li>子项目4</li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="title">项目3</h3>
+                <ul class="child">
+                    <li>子项目1</li>
+                    <li>子项目2</li>
+                    <li>子项目3</li>
+                    <li>子项目4</li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="title">项目3</h3>
+                <ul class="child">
+                    <li>子项目1</li>
+                    <li>子项目2</li>
+                    <li>子项目3</li>
+                    <li>子项目4</li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="title">项目3</h3>
+                <ul class="child">
+                    <li>子项目1</li>
+                    <li>子项目2</li>
+                    <li>子项目3</li>
+                    <li>子项目4</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

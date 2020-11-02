@@ -1,0 +1,168 @@
+package com.scitc;
+
+import java.awt.BorderLayout;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferStrategy;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JToolBar;
+
+public class NoteEdit extends JFrame implements ActionListener{
+	private JPanel mainPanel;
+	private JMenuBar menuBar;
+	private JMenu menuFile,menuEdit,menuHelp;
+	private JMenuItem newItem,openItem,saveItem,exitItem,copyItem,
+					  cutItem,pasteItem,fontItem,colorItem,aboutItem;
+	private JToolBar toolBar;
+	private JButton btnNew,btnOpen,btnSave,btnCut,btnCopy,btnPaste,btnFont,btnColor;
+	private JTextArea txtArea;
+	private JScrollPane scrollPane;
+	private String fileName="新文件";
+	private static int count=0;
+	public NoteEdit(){
+		//实例化控件
+		mainPanel=new JPanel(new BorderLayout());//采用边界布局
+		menuBar=new JMenuBar();
+		menuFile=new JMenu("文件");
+		menuEdit=new JMenu("编辑");
+		menuHelp=new JMenu("帮助");
+		
+		newItem=new JMenuItem("新建");
+		openItem=new JMenuItem("打开");
+		
+		saveItem=new JMenuItem("保存");
+		exitItem=new JMenuItem("退出");
+		cutItem=new JMenuItem("剪切");
+		copyItem=new JMenuItem("复制");
+		pasteItem=new JMenuItem("粘贴");
+		fontItem=new JMenuItem("字体");
+		colorItem=new JMenuItem("颜色");
+		aboutItem=new JMenuItem("关于");
+		toolBar=new JToolBar();
+		btnColor=new JButton("颜色");
+		btnCopy=new JButton("复制");
+		btnCut=new JButton("剪切");
+		btnFont=new JButton("字体");
+		
+		ImageIcon newIcon=new ImageIcon(NoteEdit.class.getClassLoader().getResource("image//new.gif"));
+		btnNew=new JButton(newIcon);
+		ImageIcon openIcon=new ImageIcon(NoteEdit.class.getClassLoader().getResource("image//open.gif"));
+		btnOpen=new JButton(openIcon);
+		
+		btnPaste=new JButton("粘贴");
+		btnSave=new JButton("保存");
+		txtArea=new JTextArea();
+		scrollPane=new JScrollPane(txtArea);
+		//将控件放入容器
+		setContentPane(mainPanel);
+		menuFile.add(newItem);
+		menuFile.add(openItem);
+		menuFile.addSeparator();
+		menuFile.add(saveItem);
+		menuFile.addSeparator();
+		menuFile.add(exitItem);
+		menuEdit.add(cutItem);
+		menuEdit.add(copyItem);
+		menuEdit.add(pasteItem);
+		menuEdit.addSeparator();
+		menuEdit.add(fontItem);
+		menuEdit.add(colorItem);
+		menuHelp.add(aboutItem);
+		menuBar.add(menuFile);
+		menuBar.add(menuEdit);
+		menuBar.add(menuHelp);
+		setJMenuBar(menuBar);
+		toolBar.add(btnNew);
+		toolBar.add(btnOpen);
+		toolBar.add(btnSave);
+		toolBar.addSeparator();
+		toolBar.add(btnCut);
+		toolBar.add(btnCopy);
+		toolBar.add(btnPaste);
+		toolBar.addSeparator();
+		toolBar.add(btnFont);
+		toolBar.add(btnColor);
+		mainPanel.add(toolBar,"North");
+		mainPanel.add(scrollPane,"Center");
+		//监听
+		newItem.addActionListener(this);
+		openItem.addActionListener(this);
+		saveItem.addActionListener(this);
+		exitItem.addActionListener(this);
+		cutItem.addActionListener(this);
+		copyItem.addActionListener(this);
+		pasteItem.addActionListener(this);
+		fontItem.addActionListener(this);
+		colorItem.addActionListener(this);
+		aboutItem.addActionListener(this);
+		btnNew.addActionListener(this);
+		btnOpen.addActionListener(this);
+		btnSave.addActionListener(this);
+		btnCut.addActionListener(this);
+		btnCopy.addActionListener(this);
+		btnPaste.addActionListener(this);
+		btnFont.addActionListener(this);
+		btnColor.addActionListener(this);
+		//设置窗口属性
+		setTitle(fileName);
+		setVisible(true);
+		setBounds(100,100,500,400);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	public static void main(String[] args) {
+		new NoteEdit();
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource().equals(exitItem)){
+			System.exit(0);
+		}
+		if(e.getSource().equals(newItem)||e.getSource().equals(btnNew)){
+			txtArea.setText("");
+			count++;
+			setTitle(fileName+count);
+		}
+		if(e.getSource().equals(openItem)||e.getSource().equals(btnOpen)){
+			try {
+				open();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+	private void open() throws IOException {
+		JFileChooser fc=new JFileChooser("c:\\");
+		int n=fc.showOpenDialog(this);
+		setTitle(fc.getSelectedFile().getName());
+		if(n==0){
+			File file=fc.getSelectedFile();
+			FileReader fr=new FileReader(file);
+			BufferedReader br=new BufferedReader(fr);
+			StringBuffer sb=new StringBuffer();
+			int n1=0;
+			char[]cs=new char[1024];
+			while((n1=br.read(cs))!=-1){
+				sb.append(new String(cs,0,n1));
+			}
+			txtArea.setText(sb.toString());
+			br.close();
+			fr.close();
+		}
+	}
+}
