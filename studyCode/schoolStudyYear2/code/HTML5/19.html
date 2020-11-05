@@ -167,6 +167,13 @@
             $("#countEnterArea input[type='text']").attr("disabled",false);
             //更改提示信息
             $("#countEnterArea > span").text("You can enter the students' count:");
+            //更改提示信息字体颜色
+            $("#contentInfor").css("color","black");
+            $("#userCnt").css("color","red");
+            //更改提示信息
+            $("#contentInfor").html("Please enter the information about the <span id='userCnt'>1</span> student...");
+            //计数器清零
+            writeInCnt = 0;
         }
 
         //点击显示表格按钮执行的函数，显示表格
