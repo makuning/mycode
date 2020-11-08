@@ -1,0 +1,26 @@
+*002文件夹是学习包的知识
+*package
+*import
+*javac -d . 类名
+	解释：
+		-d ：编译时自动加包名
+		.    ：在当前文件夹编译
+*java 完整类名
+	例：
+	java com.makun.first.HelloWorld
+-------------------------------------------
+/*
+	自我理解：
+	package这个关键字有两个功能
+	1.给这个Java源文件下所有的类的类名加上前缀（包名+类名）
+	2.编译源文件时，将编译后的.class文件放入class声明的源文件规定的包内
+		即实现某个功能的类放在同一个文件夹中，方便管理（老师说可以有子包。我还没试过）
+		Java源文件是自己找地方放，编译的时候，编译生成的.class文件会自动生成在包名
+		规定的文件夹里，如果没有在指定目录找到规定的包，会自动生成文件夹，
+		运行.class文件时，必须输入类文件的完整类名，即加上包名，并且必须在包的根目录下
+		运行：
+			例：有个HelloWorld.java，package com.makun.first;在当前目录下编译生成
+			.class文件，这时在当前目录下会产生一个文件夹com，com里有makun，makun
+			里有first，first里放的就是HelloWorld.class文件，并且这个类只能在com文件夹所在的目录
+			运行，使用命令java com.makun.first.HelloWorld即可运行。
+*/

@@ -1,0 +1,40 @@
+开放型题目:
+设计一一个笔记本电脑类，属性随意，并且进行属性私有化，对外提供公开的set和get方法。
+设计-一个可插拔的接口: InsertDrawable, 该接口有什么方法自行定义。
+设计一一个鼠标类，实现InsertDrawable接口， 并实现方法。
+设计-一个键盘类，实现InsertDrawable接口， 并实现方法。
+设计一一个显示器类，实现InsertDrawable接口，并实现方法。
+设计-一个打印机类，实现InsertDrawable接口，并实现方法。
+在笔记本电脑类"中有一个InsertDrawable接口属性，可以让笔记本
+电脑可插拔鼠标、键盘、显示器、打印机等。
+编写测试程序，创建多个对象，演示接口的作用。
+
+
+这个案例是一个不错的包案例，对我来说，对包的理解更深了！！！哈哈
+/*
+    表示这个源文件产生的.class都放在com.makun.computer.module这个包中，com文件夹下的makun文件夹下的computer文件夹下的module文件夹中
+    并且产生的.class文件的类名会在前面加上包名，即类名改为了（包名.类名），编译和运行时也要写（包名+类名）
+    即  javac （包名+类名）.java
+            便捷编译 ：     javac -d . 类名.java
+                            javac -d . *.java  :表示带包名编译当前目录所有的.java文件
+        java（包名+类名）:并且必须在包的根目录下才能运行这条命令
+*/
+package com.makun.computer.module;
+
+
+
+/*
+    引入类
+    com.makun.computer.module：这个表示需要引入的类所在的包
+    Mouse：表示需要引入的类的类名
+        类名可以用*代替
+    引入几个类就需要写几个import
+        例外：如果一个包中有多个类，则可以用 import 包名.*; 就可引入这个包所有的类，例如本实例的 import com.makun.computer.module.*;
+*/
+import com.makun.computer.module.Mouse;
+
+
+
+java源文件写在同一个文件夹中，生成的class文件不在同一个文件夹中，在他们定义的包中
+联系在一起的java源文件需要同时编译，否则会出错
+不管是自己创建包目录，还是不创，都没有影响，javac编译时，如果没有发现目录，会自己创建，有目录也不会多创建
