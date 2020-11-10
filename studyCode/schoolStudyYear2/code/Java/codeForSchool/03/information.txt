@@ -1,0 +1,19 @@
+JDBC :Java DataBase Connection
+java 数据库连接
+
+
+mysql建库命令：
+create database soft1901
+use soft1901
+create table student(
+	stuId nvarchar(10) primary key,
+	stuName nvarchar(10),
+	stuSex nchar(1),
+	stuAge int
+)
+insert into student values('001','张三','男',20)
+insert into student values('002','李四','女',19)
+insert into student values('003','王五','男',21)
+insert into student values('004','赵六','男',18)
+
+select * from student

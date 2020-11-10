@@ -30,48 +30,50 @@
         <button>画圆</button>
         <button>填充矩形</button>
         <button>图片移植</button>
-        <button>保存画布</button>
         <button>清空画布</button>
+        <a href="#" id="downLoadLink" download="canvas.png">下载画布</a>
     </div>
 
     <script>
 
-        $(document).ready(function(){
-            var canvasArea = document.getElementById("canvasArea");
-            var canvasCtx = canvasArea.getContext("2d");
+        var canvasArea = document.getElementById("canvasArea");
+        var canvasCtx = canvasArea.getContext("2d");
+        var downLoadLink = document.getElementById("downLoadLink");
 
-            $("button").click(function(){
-                btnIndex = $("button").index(this);
-                switch(btnIndex){
-                    case 0:
-                        canvasCtx.moveTo(0,0);
-                        canvasCtx.lineTo(200,100);
-                        canvasCtx.stroke();
-                    break;
-                    case 1:
-                        canvasCtx.beginPath();
-                        canvasCtx.arc(95,50,40,0,2*Math.PI);
-                        canvasCtx.stroke();
-                    break;
-                    case 2:
-                        canvasCtx.fillStyle="#FF0000";
-                        canvasCtx.fillRect(0,0,150,75);
-                    break;
-                    case 3:
-                        var img=document.getElementById("img");
-                        canvasCtx.drawImage(img,10,10);
-                    break;
-                    case 4:
-                       {
-                        var strDataURI = canvasArea.toDataURL();
-                        alert(strDataURI);
-                       }
-                    break;
-                    case 5:
-                        canvasCtx.clearRect(0,0,canvasArea.width,canvasArea.height); 
-                }
-            });
+        $("button").click(function(){
+            btnIndex = $("button").index(this);
+            switch(btnIndex){
+                case 0:
+                    canvasCtx.moveTo(0,0);
+                    canvasCtx.lineTo(200,100);
+                    canvasCtx.stroke();
+                break;
+                case 1:
+                    canvasCtx.beginPath();
+                    canvasCtx.arc(95,50,40,0,2*Math.PI);
+                    canvasCtx.stroke();
+                break;
+                case 2:
+                    canvasCtx.fillStyle="#FF0000";
+                    canvasCtx.fillRect(0,0,150,75);
+                break;
+                case 3:
+                    var img=document.getElementById("img");
+                    canvasCtx.drawImage(img,10,10);
+                break;
+                case 4:
+                    canvasCtx.clearRect(0,0,canvasArea.width,canvasArea.height); 
+                    
+                break;                 
+            }
         });
+
+        downLoadLink.onclick = function download(){
+            var tempSrc = canvasArea.toDataURL();
+            
+            // downLoadLink.href=tempSrc;
+            alert(tempSrc);
+        }
         
     </script>
 </body>

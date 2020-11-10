@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage实例</title>
+    <style>
+        #div1 {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid darkgoldenrod;
+            border-collapse: collapse;
+        }
+
+        table tr th {
+            border: 1px solid darkgoldenrod;
+            font-weight: bolder;
+            text-align: center;
+            height: 35px;
+            font-size: 15px;
+        }
+
+        table tr td {
+            border: 1px solid darkgoldenrod;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            font-size: 13px;
+        }
+    </style>
+    
+    <script>
+        (function init() {
+            let data = [
+                {id: 100,name: "MaKun",mobile: "19960796404",address: "四川眉山"},
+                {id: 200,name: "马昆",mobile: "19960796404",address: "四川眉山"},
+                {id: 300,name: "马",mobile: "19960796404",address: "四川眉山"},
+                {id: 400,name: "昆",mobile: "19960796404",address: "四川眉山"}
+            ];
+
+            // 序列化，把对象变成String
+            let str = JSON.stringify(data);
+            localStorage.setItem("data",str);
+        })();
+
+        function btnclick() {
+            let div = document.querySelector("#div1");
+            div.innerHTML = "";
+
+            let h1 = document.createElement("h1");
+            h1.innerText = "xxx表格";
+            div.appendChild(h1);
+
+            //插表头
+            let table = document.createElement("table");
+            let tr = document.createElement("tr");
+
+            let th = document.createElement("th");
+            th.innerText = "编号";
+            tr.appendChild(th);
+
+            th = document.createElement("th");
+            th.innerText = "姓名";
+            tr.appendChild(th);
+
+            th = document.createElement("th");
+            th.innerText = "手机号";
+            tr.appendChild(th);
+
+            th = document.createElement("th");
+            th.innerText = "地址";
+            tr.appendChild(th);
+
+            table.appendChild(tr);
+            div.appendChild(table);
+
+            // 循环加数据
+            let str = localStorage.getItem("data");
+            let data = JSON.parse(str);
+
+            console.log(str);
+            console.log(data);
+
+            for (let row of data) {
+                
+                tr = document.createElement("tr");
+
+                let td = document.createElement("td");
+                td.innerText = row.id;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerText = row.name;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerText = row.mobile;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerText = row.address;
+                tr.appendChild(td);
+
+                table.appendChild(tr);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="btnclick()">读数据</button>
+    <div id="div1"></div>
+</body>
+</html>

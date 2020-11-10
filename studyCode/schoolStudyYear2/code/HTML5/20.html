@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        #layer {
+            width: 150px;
+            height: 300px;
+        }   
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <br />
+    <a href="" download="canvas.png" id="save_href">下载</a>
+</body>
+</html>
+<script type="text/javascript">
+    var c=document.getElementById("canvas");
+    function drawLove(canvas){
+        let ctx = canvas.getContext("2d");
+        ctx.fillStyle="#E992B9";
+        ctx.fillRect(0,0,150,75);
+    }
+    drawLove(c); 
+     
+    var butSave = document.getElementById("save_href");
+    butSave.onclick=function(){
+        /*
+         * 传入对应想要保存的图片格式的mime类型
+         * 常见：image/png，image/gif,image/jpg,image/jpeg
+         */
+        var tempSrc = canvas.toDataURL("image/png");
+        // butSave.href=tempSrc; 
+        alert(tempSrc);
+    }; 
+</script>
