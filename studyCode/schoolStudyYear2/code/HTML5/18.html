@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>canvas 画布</title>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <style>
         body{
@@ -31,7 +31,7 @@
         <button>填充矩形</button>
         <button>图片移植</button>
         <button>清空画布</button>
-        <a href="#" id="downLoadLink" download="canvas.png">下载画布</a>
+        <a href="" id="downLoadLink" download="canvas.png">下载画布</a>
     </div>
 
     <script>
@@ -62,17 +62,14 @@
                     canvasCtx.drawImage(img,10,10);
                 break;
                 case 4:
-                    canvasCtx.clearRect(0,0,canvasArea.width,canvasArea.height); 
-                    
-                break;                 
+                    canvasCtx.clearRect(0,0,canvasArea.width,canvasArea.height);                 
             }
         });
 
         downLoadLink.onclick = function download(){
-            var tempSrc = canvasArea.toDataURL();
+            var tempSrc = canvasArea.toDataURL("image/png");
             
-            // downLoadLink.href=tempSrc;
-            alert(tempSrc);
+            downLoadLink.href=tempSrc;
         }
         
     </script>

@@ -7,17 +7,21 @@
     <style>
         #div1 {
             width: 800px;
+            /*让显示表格的div在页面水平居中*/
             margin: 0 auto;
         }
 
         table {
+            /*因为他的父辈是div1，div1的宽度为800px，所以table的宽度也是800px*/
             width: 100%;
             border: 1px solid darkgoldenrod;
+            /*让表格的边框合到一起*/
             border-collapse: collapse;
         }
 
         table tr th {
             border: 1px solid darkgoldenrod;
+            /*设置表头的字体加粗*/
             font-weight: bolder;
             text-align: center;
             height: 35px;
@@ -34,7 +38,15 @@
     </style>
     
     <script>
+        /*
+            // 先自定义一个数据
+            这种格式的函数会直接执行
+                (function(){
+
+                })();
+        */
         (function init() {
+            // 定义了一个对象数组，用data变量来装
             let data = [
                 {id: 100,name: "MaKun",mobile: "19960796404",address: "四川眉山"},
                 {id: 200,name: "马昆",mobile: "19960796404",address: "四川眉山"},
@@ -42,58 +54,81 @@
                 {id: 400,name: "昆",mobile: "19960796404",address: "四川眉山"}
             ];
 
-            // 序列化，把对象变成String
+            // 序列化，把对象变成String（JSON格式的string）
             let str = JSON.stringify(data);
+            // 将这个JSON格式的数组装在本地存储localstorage中，索引名为data
             localStorage.setItem("data",str);
         })();
 
+        // 读数据按钮点击后触发的函数，将localstorage中的数据以表格的形式显示出来
         function btnclick() {
+            // 获取到显示表格内容的div，并将其清空
             let div = document.querySelector("#div1");
             div.innerHTML = "";
 
+            // 定义一个变量来装和h1标签，并给他装上文本，然后加在表格div的儿子的最后一个
             let h1 = document.createElement("h1");
             h1.innerText = "xxx表格";
             div.appendChild(h1);
 
-            //插表头
+            // 插表头
+            // 新建三个变量，一个用来装table标签，一个用来装tr标签，一个用来装th标签，他们是固定的一组，作为表头
             let table = document.createElement("table");
             let tr = document.createElement("tr");
-
             let th = document.createElement("th");
+
+            // 给th装文本，并添加在tr的子节点的最后一个
             th.innerText = "编号";
             tr.appendChild(th);
 
+            // 重新创建一个th标签，并且用之前的变量th来装（节约空间），然后给th装文本，并添加在tr的子节点的最后一个
             th = document.createElement("th");
             th.innerText = "姓名";
             tr.appendChild(th);
 
+            // 重新创建一个th标签，并且用之前的变量th来装（节约空间），然后给th装文本，并添加在tr的子节点的最后一个
             th = document.createElement("th");
             th.innerText = "手机号";
             tr.appendChild(th);
 
+            // 重新创建一个th标签，并且用之前的变量th来装（节约空间），然后给th装文本，并添加在tr的子节点的最后一个
             th = document.createElement("th");
             th.innerText = "地址";
             tr.appendChild(th);
 
+            // 在这里装载，有个逻辑，先完成小部分在装载到大部分中，如果放到前面也可以，但是逻辑就是先把小部分装到大部分中再完成小部分，这样也行
+            // 将tr（一行）插入到table子节点的最后一个（因为table中没有数据，所以它作为第一个）
             table.appendChild(tr);
+            // 将table插入到div子节点的最后一个
             div.appendChild(table);
 
-            // 循环加数据
+            // 读取localstorage中索引为data的数据，并用变量str来装
             let str = localStorage.getItem("data");
+            // 将读取到的数据使用JSON格式读取出来，并用data变量来装，反序列化
             let data = JSON.parse(str);
 
+            // 在控制台查看序列化和未序列化的两个数据的区别
             console.log(str);
             console.log(data);
 
+            // 循环加数据
+            // 循环次数是data变量中装的数组的对象的个数
+            // 根据老师的代码，我猜测，这个row变量在循环运行的时候，代表的是当前循环到的对象
             for (let row of data) {
-                
+                // 创建一个tr标签，并且还是用之前的tr变量来装
                 tr = document.createElement("tr");
+                
 
+                // 创建一个td标签（因为这是第一次创建td，所以新建了一个变量td来装）
                 let td = document.createElement("td");
+                // 给这个td添加文本为当前循环对象的id属性的值
                 td.innerText = row.id;
+                // 将这个td添加到tr子节点的最后一个
                 tr.appendChild(td);
 
+                // 创建一个td标签，使用之前定义的变量td来装
                 td = document.createElement("td");
+                // 给这个td添加文本为当前循环对象的name属性的值
                 td.innerText = row.name;
                 tr.appendChild(td);
 
@@ -105,6 +140,7 @@
                 td.innerText = row.address;
                 tr.appendChild(td);
 
+                // 将这行添加到表格子节点的最后一个
                 table.appendChild(tr);
             }
         }

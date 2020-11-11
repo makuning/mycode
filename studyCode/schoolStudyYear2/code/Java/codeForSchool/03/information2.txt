@@ -1,0 +1,6 @@
+1.MVC设计模式
+    Model模型 POJO
+    View 视图（界面）
+    Controller
+2.三层模型
+    视图层

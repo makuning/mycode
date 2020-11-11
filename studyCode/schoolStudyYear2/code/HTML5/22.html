@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .enterInfor {
+            width: 80px;
+            display: inline-block;
+        }
+
+        #showArea {
+            width: 800px;
+            /*让显示表格的div在页面水平居中*/
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid darkgoldenrod;
+            /*让表格的边框合到一起*/
+            border-collapse: collapse;
+        }
+
+        table tr th {
+            border: 1px solid darkgoldenrod;
+            /*设置表头的字体加粗*/
+            font-weight: bolder;
+            text-align: center;
+            height: 35px;
+            font-size: 15px;
+        }
+
+        table tr td {
+            border: 1px solid darkgoldenrod;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            font-size: 13px;
+        }
+    </style>
+    <script>
+        // (function init () {
+        //     let data = [
+        //         {id: "1111",name: "马昆",phone: "19960796404",address: "四川眉山"}
+        //     ];
+
+        //     let str = JSON.stringify(data);
+        //     localStorage.setItem("data",str);
+        // })();
+
+        function readOut () {
+            let div = document.querySelector("#showArea");
+            div.innerHTML = "";
+
+            let h1 = document.createElement("h1");
+            h1.innerText = "个人信息表";
+            div.appendChild(h1);
+
+            let table = document.createElement("table");
+            div.appendChild(table);
+            let tr = document.createElement("tr");
+            table.appendChild(tr);
+
+            let th = document.createElement("th");
+            th.innerText = "ID";
+            tr.appendChild(th);
+
+            th = document.createElement("th");
+            th.innerText = "NAME";
+            tr.appendChild(th);
+
+            th = document.createElement("th");
+            th.innerText = "PHONE";
+            tr.appendChild(th);
+
+            th = document.createElement("th");
+            th.innerText = "ADDRESS";
+            tr.appendChild(th);
+
+            let str = localStorage.getItem("data");
+            let data = JSON.parse(str);
+
+            for (let rowData of data) {
+                tr = document.createElement("tr");
+                table.appendChild(tr);
+
+                let td = document.createElement("td");
+                td.innerText = rowData.id;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerText = rowData.name;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerText = rowData.phone;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerText = rowData.address;
+                tr.appendChild(td);
+            }
+        }
+
+        function writeIn () {
+            let enterInputs = document.getElementsByClassName("enterInput");
+            let idVal = enterInputs[0].value;
+            let nameVal = enterInputs[1].value;
+            let phoneVal = enterInputs[2].value;
+            let addressVal = enterInputs[3].value;
+
+            if (idVal.length == 0 || nameVal.length == 0) {
+                alert("ID or NAME can't be null !");
+                return;
+            }else{
+
+                if (localStorage.getItem("data").length == 0) {
+
+                    let data = [
+                        {
+                            id:idVal,
+                            name:nameVal,
+                            phone:phoneVal,
+                            address:addressVal
+                        }
+                    ]
+
+                    str = JSON.stringify(data);
+                    localStorage.setItem("data",str);
+                    readOut();
+                } else {
+                    let str = localStorage.getItem("data");
+                    let data = JSON.parse(str);
+
+                    data[data.length] = {
+                        id:idVal,
+                        name:nameVal,
+                        phone:phoneVal,
+                        address:addressVal
+                    };
+
+                    str = JSON.stringify(data);
+                    localStorage.setItem("data",str);
+
+                    // let str = localStorage.getItem("data") + '{' + 
+                    //     '"id":'     + '"' + idVal       + '"' + ',' +
+                    //     '"name":'   + '"' + nameVal     + '"' + ',' +
+                    //     '"phone":'  + '"' + phoneVal    + '"' + ',' +
+                    //     '"address":'+ '"' + addressVal  + '"'
+                    // + '}';
+                    // localStorage.setItem("data",str);
+
+                    readOut();
+                }
+            }
+                
+            
+        }
+        
+        function removeData () {
+            // let data = [
+            //     {id:"",name:"",phone:"",address:""}
+            // ];
+            // let str = JSON.stringify(data);
+            // localStorage.setItem("data",str);
+
+            
+            localStorage.setItem("data","");
+            readOut();
+        }
+    </script>
+</head>
+<body>
+    <div id="enterArea">
+        <div class="enterInfor">ID:</div><input class="enterInput" type="text"/><br />
+        <div class="enterInfor">NAME:</div><input class="enterInput" type="text"/><br />
+        <div class="enterInfor">PHONE:</div><input class="enterInput" type="text"/><br />
+        <div class="enterInfor">ADDRESS:</div><input class="enterInput" type="text"/><br />
+        <button onclick="writeIn()">输入数据</button>
+    </div>
+    <hr />
+    <button onclick="readOut()">读取数据</button>
+    <button onclick="removeData()">删除数据</button>
+    <div id="showArea"></div>
+</body>
+</html>

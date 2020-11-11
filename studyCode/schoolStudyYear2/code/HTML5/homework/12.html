@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas Demo</title>
+    <style>
+        #canvasArea {
+            height: 400px;
+            width: 800px;
+            border: 1px solid;
+        }
+        #imgForDemo {
+            height: 300px;
+            width: 200px;
+        }
+    </style>
+    <script>
+        var canvasArea;
+        var canvasCtx;
+
+        function lineFunc () {
+            canvasArea = document.getElementById("canvasArea");
+            canvasCtx = canvasArea.getContext("2d");
+
+            canvasCtx.moveTo(0,0);
+            canvasCtx.lineTo(100,200);
+            canvasCtx.stroke();
+        }
+
+        function circleFunc () {
+            canvasArea = document.getElementById("canvasArea");
+            canvasCtx = canvasArea.getContext("2d");
+            canvasCtx.beginPath();
+            canvasCtx.arc(95,50,40,0,2*Math.PI);
+            canvasCtx.stroke();
+        }
+
+        function rectangleFunc () {
+            canvasArea = document.getElementById("canvasArea");
+            canvasCtx = canvasArea.getContext("2d");
+            canvasCtx.fillStyle="#FF0000";
+            canvasCtx.fillRect(0,0,150,75);
+        }
+
+        function imageFunc () {
+            var imgForDemo = document.getElementById("imgForDemo");
+            canvasArea = document.getElementById("canvasArea");
+            canvasCtx = canvasArea.getContext("2d");
+            canvasCtx.drawImage(imgForDemo,100,100);
+
+        }
+
+        function clearFunc () {
+            canvasArea = document.getElementById("canvasArea");
+            canvasCtx = canvasArea.getContext("2d");
+            canvasCtx.clearRect(0,0,canvasArea.width,canvasArea.height);
+        }
+
+        function downLoadFunc () {
+            var downLoadLink = document.getElementById("downLoadLink");
+            canvasArea = document.getElementById("canvasArea");
+            var tempSrc = canvasArea.toDataURL("image/png");
+            downLoadLink.href = tempSrc;
+        }
+    </script>
+</head>
+<body>
+    <h6>在页面放置一个画布和若干个按钮，每个按钮点击之后实现各自不同的功能如：画直线，画圆，填充矩形，清空画布，图片保存等等。录视频上传。</h6>
+    <div id="canvasDiv">
+        <canvas id="canvasArea"></canvas>
+        <img src="../images/canvas01.jpg" id="imgForDemo"/>
+    </div>
+    <div id="butArea">
+        <button onclick="lineFunc()">画直线</button>
+        <button onclick="circleFunc()">画园</button>
+        <button onclick="rectangleFunc()">填充矩形</button>
+        <button onclick="imageFunc()">图片移植</button>
+        <button onclick="clearFunc()">清空画布</button>
+        <a href="" id="downLoadLink" onclick="downLoadFunc()" download="canvas.png">下载画布</a>
+    </div>
+</body>
+</html>
