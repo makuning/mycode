@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <!--
+        基本表格
+        .table
+
+        斑马表格
+        .table 加上 .table-striped
+
+        带框线
+        .table-bordered
+
+        鼠标悬停改变当前背景颜色
+        .table-hover
+
+        小号表格
+        .table-sm
+
+        状态类，给行或者单元格应用
+        .table-light 浅灰色
+        .table-dark 
+        .table-danger 红色
+        .table-primary 蓝色
+        .table-info 浅绿
+        .table-warning
+        .table-success
+        .table-active
+        .table-secondary
+
+        响应式表格(在什么时候加滚动条，左右的)
+        .table-responsive-*   sm、md、lg、xl
+    -->
+    <div class="container">
+        <table class="table">
+            <h1>基本样式表格</h1>
+            <tr>
+                <th>序号</th>
+                <th>分数</th>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>98</td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>95</td>
+            </tr>
+            <tr>
+                <td>004</td>
+                <td>88</td>
+            </tr>
+            <tr>
+                <td>005</td>
+                <td>85</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="container">
+        <table class="table table-striped">
+            <h1>斑马表格</h1>
+            <tr>
+                <th>序号</th>
+                <th>分数</th>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>98</td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>95</td>
+            </tr>
+            <tr>
+                <td>004</td>
+                <td>88</td>
+            </tr>
+            <tr>
+                <td>005</td>
+                <td>85</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="container">
+        <table class="table table-striped table-bordered table-hover table-sm table-responsive-sm">
+            <h1>多样式表格</h1>
+            <tr class="table-light">
+                <th>序号</th>
+                <th>分数</th>
+                <th>序号</th>
+                <th>分数</th>
+                <th>序号</th>
+                <th>分数</th>
+                <th>序号</th>
+                <th>分数</th>
+                <th>序号</th>
+                <th>分数</th>
+                <th>序号</th>
+                <th>分数</th>
+                <th>序号</th>
+                <th>分数</th>
+                <th>序号</th>
+                <th>分数</th>
+                <th>序号</th>
+                <th>分数</th>
+                <th>序号</th>
+                <th>分数</th>
+                <th>序号</th>
+                <th>分数</th>
+                <th>序号</th>
+                <th>分数</th>
+                <th>序号</th>
+                <th>分数</th>
+                <th>序号</th>
+                <th>分数</th>
+            </tr>
+            <tr class="table-dark ">
+                <td>001</td>
+                <td>100</td>
+            </tr>
+            <tr class="table-danger">
+                <td>002</td>
+                <td>98</td>
+            </tr>
+            <tr class="table-primary">
+                <td>003</td>
+                <td>95</td>
+            </tr>
+            <tr class="table-info">
+                <td>004</td>
+                <td>88</td>
+            </tr>
+            <tr class="table-warning">
+                <td>005</td>
+                <td>85</td>
+            </tr>
+            <tr class="table-success">
+                <td>005</td>
+                <td>85</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

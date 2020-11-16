@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按钮</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <!--
+        没有添加外框线的按钮
+
+        基本按钮 
+        .btn
+
+        主要按钮 
+        .btn-primary
+
+        次要按钮 
+        .btn-secondary
+
+        成功 
+        .btn-success
+
+        信息 
+        .btn-info
+
+        警告 
+        .btn-warning
+
+        危险
+        .btn-danger
+
+        黑色
+        .btn-dark
+
+        浅色
+        .btn-light
+
+        链接
+        .btn-link
+
+        添加了外框线的按钮（除了link，都有）,北京颜色在鼠标放上去才显示
+        btn-outline-*
+
+        <button>和<input/>是一样的样式
+        <a>也能用，但是文字颜色不同
+
+        按钮尺寸
+        .btn-lg :large大号
+        .btn-sm :small小号
+
+        块级按钮（占父亲的100%）
+        .btn-block
+
+        按钮激活状态
+        .active 相当于鼠标移动到按钮上
+        .disabled 禁用状态
+
+
+
+
+
+        允许在<a>，<button>，<input>使用，但不建议，a必须加.btn
+    -->
+    <div class="container">
+        <h1>按钮的使用</h1>
+        <div class="row">
+            <div class="col-3 m-3 p-1 bg-warning">
+                <button class="btn .active">基本按钮</button>
+            </div>
+            <div class="col-9 m-3 p-1 bg-warning">
+                <button class="btn-outline-primary disabled">主要按钮</button>
+                <button class="btn-secondary btn-block">次要按钮</button>
+            </div>
+            <div class="col-3 m-3 p-1 bg-warning">
+                <button class="btn-success">成功</button>
+                <button class="btn-info btn-sm">信息</button>
+                <button class="btn-warning">警告</button>
+                <button class="btn-danger">危险</button>
+            </div>
+            <div class="col-8 m-3 p-1 bg-warning">
+                <button class="btn-dark">黑色</button>
+                <button class="btn-light">浅色</button>
+                <button class="btn-link">链接</button>
+                <a class="btn btn-outline-primary" href="#">a标签</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
