@@ -1,0 +1,79 @@
+日期类（Date）
+// 这是日期类，不要重写它的toString();
+    import java.util.Date;
+
+// 这是专门用来格式化date的一个类
+    import java.text.SimpleDateFormat;
+
+    格式除了y M d H m s S 这些字符之外，剩下的格式可以随便写
+    yyyy 年
+    MM 月
+    dd 日
+    HH 时
+    mm 分
+    ss 秒
+    SSS 毫秒
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS");
+    给这个对象的format()方法传入一个时间对象，会按之前指定的格式返回一个字符串；
+    String time = sdf.format(new Date());
+
+
+// 无参数的构造方法，其他有参数的构造方法都过时了
+    new Date();
+    // 通过毫秒创建一个日期类（从1970年1月1日 00:00:00 000 开始加）
+    new Date(毫秒值);
+
+
+// 字符串转换成Date类型
+    String time = "2020-11-20 17:50:34 123";
+    // 按这个String的格式new一个SimpleDateFormat对象
+    SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd HH:mm:ss SSS");
+    // parse方法返回一个Date对象
+    Date dateTime = sdf.parse(time);
+
+// 获取 1970年1月1日 00:00:00 000 到当前系统时间的毫秒数
+// 可以用来统计一个程序耗费的时间
+    System.currentTimeMillis();
+
+// 数字格式化，还是java.text包中的类
+    DecimalFormat
+
+    // 创建一个格式对象
+    DecimalFormat df = new DecimalFormat("###,###.00");
+    // 使用format方法格式化一个数据
+    df.format(double类型的数据);
+    数字格式：
+        # 代表任意数字
+        , 代表千分位
+        . 代表小数点
+        0 代表位数不够用0补齐
+
+
+// 高精度数字（用于商务系统）
+    BigDecimal
+
+    // 构造方法
+    new BigDecimal(数值);
+
+    // 必须使用它的运算方法
+    BigDecimal v1 = new BigDecimal(100);// 精度极高的100
+    BigDecimal v2 = new BigDecimal(200);// 精度极高的200
+    // 使用加运算方法
+    v1.add(v2);
+
+
+// 随机数
+    // 在java.util包中
+    Random类
+
+    // 构造方法
+    new Random();
+
+    // 使用举例
+    Random random = new Random();
+    // nextInt()方法随机产生一个int类取值范围内的数字
+    int num1 = random.nextInt();
+    // 产生【0 ~（”边界“-1）】的一个随机数，nextInt翻译为下一个int类型，所以不包括”边界“
+    int num2 = random.nextInt(边界);
+
+    // 训练：生成5个不同的随机数，装到数组中

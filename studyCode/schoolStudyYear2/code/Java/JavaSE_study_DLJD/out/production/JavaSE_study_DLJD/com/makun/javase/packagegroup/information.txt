@@ -1,0 +1,36 @@
+一、这是学习包装类的包
+    基本数据类型      包装数据类型
+    byte            java.lang.Byte
+    sort            java.lang.Sort
+    int             java.lang.Integer
+    long            java.lang.Long
+    float           java.lang.Float
+    double          java.lang.Double
+    boolean         java.lang.Boolean
+    char            java.lang.Character
+
+装箱和拆箱
+例子：
+Integer i = new Integer(12);
+int i2 = i.intValue();
+float i3 = i.floatValue();
+.
+.
+.
+
+现在是自动拆箱和装箱
+例子：
+Integer i = 12;
+int i2 = i;
+
+
+二、转换练习
+int String Integer之间的相互转换
+主要方法有:
+    类名.valueOf(数据);
+
+    类名.parseInt(数据);
+    类名.parseFloat(数据);
+    .
+    .
+    .
