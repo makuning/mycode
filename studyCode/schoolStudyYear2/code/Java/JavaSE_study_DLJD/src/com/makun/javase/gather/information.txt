@@ -1,0 +1,164 @@
+非常非常重要！！！！（建议全文背诵）
+
+
+集合？
+    集合就是一个容器，数组就是一种集合
+    集合实际上就是一个容器，可以用来容纳其他类型的数据
+    集合是一个载体，可以一次容纳多个对象
+    例如：在实际开发中，数据库有10条数据封装成10个Java对象，然后将10个Java对象放到
+    某一个集合当中，将集合传到前端，然后遍历集合，将一个数据一个数据展现出来
+
+// 集合不能直接存储基本数据类型，集合也不能直接存储Java对象，集合当中存储的都是java对象的内存地址
+    集合在Java中本身是一个Java对象
+
+// 集合里面可以存储集合，集合当中都是存储的对象的地址
+
+// Java中每一个不同的集合，底层都会对应不同的数据结构，往不同的集合中存储数据，等于将数据放到了不同的数据结构当中。
+
+// 所有的集合类和集合接口都在java.util包下
+
+// 集合的继承结构图
+
+/*
+    接口Collection -（的父接口）-> Iterable（表示可迭代的，可遍历的）
+    接口Collection -（的子接口）-> List , Set
+
+    // List \ Set
+        List ： 有序可重复
+            有序：存进去是这个顺序，取出来还是这个数据，储存的元素有下标【从0起标】
+            可重复：可以存多个相同的地址
+
+        Set : 无序不可重复
+            无序：存进去的顺序和取出来顺序不一样
+            不可重复：元素没有下标，不可重复
+
+        // List下就是实现类了重点有（ArrayList LinkedList Vector）
+            ArrayList：
+                底层采用了数组这种数据结构（非线程安全的）
+
+            LinkedList：
+                底层采用了双向链表数据结构
+
+            Vector：
+                底层采用了数组这种数据结构（线程安全的）
+                它所有的方法都有synchronized关键字修饰，所以是线程安全的（但是效率较低，使用较少）
+
+
+        // Set下也是实现类，重点有（HashSet TreeSet）
+            HashSet：
+                实际上，HashSet在new的时候，底层实际上new了一个HashMap集合。
+                向HashSet集合中存储元素，实际上存储到了HashMap集合中了
+                HashMap集合是一个哈希表数据结构
+
+            TreeSet：
+                SortedSet 的父接口是 Set。
+                    SortedSet由于继承了Set集合，所以他的特点也是无序不可重复
+                    但是放在SortedSet中的元素可以自动排序，称为可排序集合
+
+                TreeSet 是SortedSet的实现类
+                TreeSet集合底层实际上是TreeMap
+                new这个TreeSet集合，底层实际上new了一个TreeMap集合
+                向TreeSet集合中放数据的时候，实际上存储到了TreeMap集合中了
+                TreeMap集合底层是二叉树结构
+
+
+    // 迭代的含义
+        迭代是重复反馈过程的活动,其目的通常是为了逼近所需目标或结果。
+        每一次对过程的重复称为一次“迭代”
+        而每一次迭代得到的结果会作为下一次迭代的初始值
+
+    // 泛化的含义
+        由具体的、个别的扩大为一般的
+        比如：“先生”也用于称呼女性，战场也用于称呼考场、赛场，就是词义泛化。
+
+
+    Iterable：
+        超级父接口，所有集合的接口，表示所有的集合都是可迭代的
+        iterator(); // 返回一个Iterator接口（实例对象）
+
+    Iterator：
+        迭代器（集合的迭代器对象）
+        hasNext();
+        next();
+        remove();
+
+    Java中结合分为两大类
+        一类是单个方式存储元素：
+            单个方式存储元素：这一类的超级父接口：java.util.Collection;
+        一类是以键值对的方式存储元素
+            以键值对的方式存储的元素：这一类集合中的超级父类接口：java.util.Map;
+*/
+
+
+/*
+    Map接口
+
+    1、Map集合和Collection集合没有关系
+    2、Map集合以key和value的这种键值对的方式存储元素
+    3、key和value都是存储Java对象的内存地址
+    4、所有Map集合的key是无序不可重复的，Map集合的key和Set集合存储元素特点相同
+
+    Map重要的实现类（HashMap Hashtable）
+        HashMap：
+            （非线程安全的）
+            HashMap底层是哈希表数据结构
+
+        Hashtable：
+            使用比较少，效率比较低
+            （线程安全的）
+            Hashtable底层也是哈希表数据结构
+            现在使用少了，因为它所有的方法都带有synchronized关键字，
+            效率较低，控制线程安全有其他更好的方案
+
+            它的子类（Properties UIDefaults）
+                Properties：
+                    属性类
+                    Properties是线程安全的，因为继承Hashtable
+                    另外：Properties存储元素的时候也是采用key和value的形式存储，
+                    并且key和value只支持String类型，不支持其他类型
+
+    Map重要的子接口（SortedMap）
+        SortedMap：
+            它的实现类有：TreeMap
+                TreeMap：
+                    TreeMap底层的数据结构是一个二叉树。
+            SortedMap的key存储元素的特点？
+                无序不可重复
+                放在SortedMap集合 的 key部分的元素会自动按照大小顺序排序
+                称为可排序的集合
+
+
+*/
+
+
+/*
+    小总结（总结所有的实现类）：
+        ArrayList：底层是数组
+        LinkedList：底层是双向链表
+        Vector：底层是数组，线程安全的，效率较低，使用较少
+        HashSet：底层是HashMap，放到HashSet集合中的元素等同于放到HashMap集合key部分了
+        TreeSet：底层是TreeMap，放到TreeSet集合中的元素等同于放到了TreeMap集合key部分了
+        HashMap：底层是哈希表数据结构
+        Hashtable：底层也是哈希表，只不过线程是安全的，效率较低，使用较少了
+        Properties：是线程安全的，并且key和value只能存储字符串String
+        TreeMap；底层是二叉树，TreeMap集合的key可以自动按照大小顺序排序
+
+    List集合存储元素的特点
+        有序可重复
+        有序：存进去的顺序和取出的顺序相同，每一个元素都有下标
+        可重复：存进去1可以再存储一个1
+
+    Set（Map）集合存储元素的特点
+        无序不可重复
+        无序：存进去的顺序和取出的顺序不一定相同，另外Set集合中元素没有下标
+        不可重复：存进去1，不能再存储1了
+    SortedSet集合存储元素的特点
+
+        首先是无序不可重复的，但是SortedSet集合中的元素是可排序的
+        无序：存进去的顺序和取出的顺序不一定相同，另外Set集合中元素没有下标
+        可重复：存进去1可以再存储一个1
+        可排序：可以按照大小顺序排列Map
+
+    Map集合的key，就是一个Set集合
+    往Set集合中放数据，实际上放到了Map集合的key部分
+*/

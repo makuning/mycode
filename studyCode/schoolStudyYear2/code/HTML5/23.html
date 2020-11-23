@@ -3,20 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>获取定位</title>
     <script>
         var x = document.getElementById("demo");
         getLocation();
         
         function getLocation() {
             if (navigator.geolocation) {
+                // 获取定位成功就执行小括号中的函数（执行时自动传入一个参数，这个参数就是位置信息）
+                // navigator: 翻译为 导航器
+                // CurrentPosition:翻译为 当前
+                // 意思就是，导航器对象的获取定位的获取当前位置信息方法，执行这个方法的时候会有回调函数，给这个回调函数传入获取到的位置信息
                 navigator.geolocation.getCurrentPosition(showPosition);
             } else {
+                // 未获取到地址，则输出错误提示信息
                 x.innerHTML = "Geolocation is not supported by this browser.";
             }
         }
 
         function showPosition (position) {
+            // 经度：latitude   纬度：longitude
+            // coords包括以下属性：
+            // 　　1. coords.latitude：估计纬度
+            // 　　2. coords.longitude：估计经度
+            // 　　3. coords.altitude：估计高度
+            // 　　4. coords.accuracy：所提供的以米为单位的经度和纬度估计的精确度
+            // 　　5. coords.altitudeAccuracy：所提供的以米为单位的高度估计的精确度
+            // 　　6. coords.heading： 宿主设备当前移动的角度方向，相对于正北方向顺时针计算
+            // 　　7. coords.speed：以米每秒为单位的设备的当前对地速度
             x.innerHTML = "Latitude:" + position.coords.latitude + "<br />Longitude:" + positon.coords.longitude;
         }
     </script>
