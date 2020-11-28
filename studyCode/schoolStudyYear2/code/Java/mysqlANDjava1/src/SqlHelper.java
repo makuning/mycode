@@ -12,8 +12,7 @@ public class SqlHelper {
 
         // 2.创建一个连接
         // url
-		String url="jdbc:mysql://localhost:3306/soft1901?useSSL=FALSE&serverTimezone=UTC&" +
-                "useUnicode=true&characterEncoding=UTF-8";
+		String url="jdbc:mysql://localhost:3306/soft1901?useSSL=FALSE&serverTimezone=UTC&useUnicode=true";
 		// user
         String user = "root";
         // password
