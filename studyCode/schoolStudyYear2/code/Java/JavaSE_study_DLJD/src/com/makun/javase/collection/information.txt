@@ -331,4 +331,581 @@ Vector集合
     1、底层也是一个数组
     2、初始化容量：10
     3、怎么扩容的？
+        扩容后是原容量的二倍
+    4、Vector中所有的方法都是线程同步的，都带由synchronized关键字，是线程安全的，效率较低，使用较少了
 */
+
+/*
+怎么将一个线程不安全的ArrayList集合转换成线程安全的呢？
+    使用集合工具类：
+        java.util.Collections;// 集合工具类
+        java.util.Collection;// 集合
+
+
+    使用方法：
+        // 新建一个ArrayList集合
+        List myList = new ArrayList();
+        // 使用集合工具类中的静态方法，传入ArrayList集合，将它转换为线程安全的
+        Collections.synchronizedList(myList);
+*/
+
+
+/*
+泛型（generic）：
+    1、泛型是JDK1.5之后的机制
+
+    2、用泛型来指定集合中存储的数据类型（集合元素的类型更加统一）
+    例：
+        // 使用泛型 List(Animal) 之后，表示List集合中只允许存储Animal类型的数据
+        List<Animal> myList = new ArrayList<Animal>();
+        // 使用的迭代器也要使用泛型
+        Iterator<Animal> it = myList.iterator();
+
+    3、源代码中有 <E> 就表示支持泛型
+
+    4、泛型这种语法机制，只在程序编译阶段起作用，只是给编译器参考的。（运行阶段，泛型没用）
+
+    5、从集合中取出来的元素类型是泛型指定的类型，不需要进行大量的“向下转型”。
+
+    6、泛型导致集合中存储的元素缺乏多样性
+*/
+
+
+/*
+自动类型推断机制。（又称为钻石表达式）
+    1、JDK8之后才允许
+        例：
+        // 后面的构造方法，自动类型判断，钻石表达式
+        List<Animal> myList = new ArrayList<>();
+
+    2、自定义泛型
+        // 定义一个支持泛型的类，这个任意标识符一般写E或者T
+        public class Test <任意标识符> {
+
+            // 使用泛型作为形参的方法
+            public static void doSome (任意标识符 e) {
+
+            }
+
+            // 使用泛型作为返回值的方法
+            public static 任意标识符 doOther () {
+
+            }
+        }
+
+    3、不使用泛型创建有泛型的类，这个类中使用了泛型的方法 会将泛型 默认变成Object
+
+*/
+
+/*
+增强for循环，或者叫做foreach
+    1、JDK1.5之后
+        for (元素类型 变量名 : 数组或集合) {
+            System.out.println(arr[i]);
+        }
+
+    2、例：
+        // 定义一个数组
+        int[] arr = {1,2,3,4,5,6};
+        for (int data : arr) {
+            // data就是数组中的元素（数组中的每个元素）
+            System.out.println(data);
+        }
+
+    3、有个缺点：没有下标
+        在需要使用下标的循环中，不建议使用增强for
+
+    4、集合使用增强for
+        // 创建List集合
+            List<String> strList = new ArrayList<>();
+
+        // 添加元素
+            strList.add("hello1");
+            strList.add("hello2");
+            strList.add("hello3");
+
+        // 遍历，使用迭代器方式
+            Iterator<String> it = strList.iterator();
+            while(it.hasNext()){
+                String s = it.next();
+                System.out.println(s);
+            }
+
+        // 使用下标方式
+            for (int i = 0; i < strList.size(); i++) {
+                System.out.println(strList.get(i));
+            }
+
+        // 使用foreach
+            for (String s : strList) {
+                System.out.println(s);
+            }
+
+*/
+
+/*
+HashSet和TreeSet集合
+
+    都是建立在Map集合上的
+        实际上是放到Map集合的key部分了
+
+    同样也可以使用泛型
+
+    HashSet集合
+        无序不可重复
+        没有下标
+        存进去的顺序和取出的顺序不同
+        存进去的数据不能重复
+
+    TreeSet集合
+        无序不可重复，但是存储的元素可以自动按照大小顺序排序，称为可排序集合、
+        存进去的顺序和取出的顺序不同
+        存进去的数据不能重复
+*/
+
+
+
+/*
+Map集合
+java.util.Map接口
+    1、Map和Collection没有继承关系
+
+    2、Map集合以key和value的方式存储数据：键值对
+        key和value都是引用数据类型
+        key和value都是存储对象的内存地址
+        key起到主导的地位，value是key的一个附属品
+
+    3、java.util.Map接口中常用的方法
+        Map<Integer,String> map = new HashMap<>();
+
+        V put(K key,V value);
+            // 向Map集合中添加键值对
+            例：
+                map.put(1,"zhangsan");
+
+
+        V get(Object key);
+            // 通过key获取value
+            例：
+                map.get(1);
+
+        V remove(Object key);
+            // 删除键值对
+            // 通过key删除键值对
+            例：
+                map.remove(1);
+
+        int size();
+            // 获取Map集合中键值对的个数
+            例：
+                map.size();
+
+
+        // contains方法底层都是调用的equals方法，所以集合中的元素需要重写equals方法
+        boolean containsKey(Object key);
+            // 判断Map中是否包含某个key
+            例：
+                map.containsKey(1);
+
+        boolean containsValue(Object value);
+            // 判断Map中是否包含某个value
+            例：
+                map.containsValue("zhangsan");
+
+        boolean isEmpty();
+            // 判断集合是否为空，判断Map集合中元素个数是否为0
+            例：
+                map.isEmpty();
+
+        void clear();
+            // 清空Map集合
+            例：
+                map.clear();
+
+        Collection<v> values();
+            // 获取Map集合中所有的value，返回一个Collection集合
+            例：
+                Collection<String> values =  map.values();
+
+
+        Set<K> keySet();
+            // 获取Map集合所有的key
+            // 返回一个Set集合
+
+        Set<Map.Entry<K,V>> entrySet();
+            // 将Map集合转换成Set集合
+            /*
+            假设现在有一个Map集合，如下所示：
+                Map集合对象map1
+                    key                 value
+                    -------------------------
+                    1                   zhangsan
+                    2                   lisi
+                    3                   wangwu
+                    4                   zhaoliu
+
+
+                    [注意：Map集合通过entrySet()方法转换成的这个Set集合，Set集合，Set集合中元素的类型是Map.Entry<k,v>]
+                    [Map.Entry和String一样，都是一种类型的名字，只不过：Map.Entry是静态内部类，是Map中的静态内部类]
+
+                    Set set = map1.entrySet();
+
+                    这个Set集合对象如下所示：
+                    1=zhangsan
+                    2=lisi
+                    3=wangwu
+                    4=zhaoliu
+            */
+
+    创建Map集合对象
+        Map<Integer,String> map = new HashMap<>();
+
+
+
+    *********************Map集合的遍历（非常重要！！！）*********************
+
+    Map<Integer,String> map = new HashMap<>();
+    map.put(1,"zhangsan");
+    map.put(2,"lisi");
+    map.put(3,"wangwu");
+
+        一、获取所有的key，通过遍历key，来遍历value
+            // 先获取所有的key，所有的key是一个Set集合
+            Set<Integer> keys = map.keySet();
+            // 遍历key，通过key获取value
+            // 1.迭代器可以
+            Iterator<Integer> it = keys.iterator();
+            while(it.hasNext()) {
+                // 取出其中一个key
+                Integer key = it.next();
+                // 通过key获取value
+                String value = map.get(key);
+                System.out.println(key + "=" + value);
+            }
+            // 2.foreach也可以
+            for(Integer key : keys) {
+                System.out.println(key + "=" + map.get(key));
+            }
+
+        二、Set<Map.Entry<K,V>> entrySet();（这种效率高于上面方法的效率，比较适合于大数据量）
+        /*
+        这个方法是把Map集合直接全部转换成Set集合。
+        Set集合中元素的类型是：Map.Entry
+        */
+        Set<Map.Entry<Integer,String>> set = map.entrySet();
+        // 遍历Set集合，每一次取出一个Node
+
+        // 1.迭代器
+        Iterator<Map.Entry<Integer,String>> it2 = set.iterator();
+        while(it2.hasNext()) {
+            // 取出迭代器每次迭代的对象，对象的类型是Map.Entry<Integer,String>
+            Map.Entry<Integer,String> node = it2.next();
+            // 获取这个对象的key和value
+            Integer key = node.getKey();
+            String value = node.getValue();
+            // 输出
+            System.out.println(key + "=" + value);
+        }
+
+        // 2.foreach
+        for(Map.Entry<Integer,String> node : set) {
+            System.out.println(node.getKey() + "=" + node.getValue());
+        }
+
+*/
+
+
+/*
+HasMap集合底层是：哈希表（散列表）数据结构
+
+    1、哈希表是数组、单向链表的结合体
+        数组：查询方面效率较很高，随机增删方面效率很低
+        单向链表：在随机增删方面效率较高，在查询方面效率很低
+        哈希表将以上两种数据结构融合在一起，充分发挥他们各自的优点。
+
+    2、HashMap集合底层的源代码
+        public class HashMap {
+            // HashMap底层实际上就是一个数组。（一维数组）
+            Node<K,V>[] table;
+
+            // 静态内部类HashMap.Node
+            static class Node<K,V> {
+                final int hash; // 哈希值（哈希值是key的hashCode()方法的执行结果。hsh值通过哈希函数/算法，可以转换存储成数组的下标。）
+                final K key;    // 存储到Map集合中的那个key
+                V value;        // 存储到Map集合中的那个value
+                Node<K,V> next; // 下一个节点的内存地址
+            }
+
+        }
+        // 哈希表/散列表：一维数组，这个数组中每一个元素是一个单向链表。（数组和链表的结合体）
+
+    3、必须掌握的是
+        map.put(k,v)
+        v = map.get(k)
+        // 这两个方法的实现原理，是必须掌握的
+
+        1、map.put(k,v)实现原理:
+            第一步:先将k,v封装到Node对象当中。
+
+            第二步:底层会调用k的hashCode0方法得出hash值,然后通过哈希函数/哈希算法,将hash值转换成数组的
+                下标，下标位置上如果没有任何元素,就把Node添加到这个位置上了。如果说下标对应的位置上有链表,
+                此时会拿着k和链表上每一个节点中的k进行equals ,如果所有的equals方法返回都是false ,
+                那么这个新节点将会被添加到链表的末尾。如果其中有一个equals返回了true，
+                那么这个节点的value将会被覆盖。
+
+
+        2、V = map.get(k)实现原理:
+            先调用k的hashCode0方法得出哈希值,通过哈希算法转换成数组下标,通过数组下标快速定位到某个位置
+            上,如果这个位置上什么也没有,返回null。如果这个位置上有单向链表,那么会拿着参数k和单向链表上的
+            每个节点中的k进行equals ,如果所有equals方法返回false ,那么get方法返回null ,
+            只要其中有一个节点的k和参数k equals的时候返回true ,那么此时这个节点的value就是我们要找的value ,
+            get方法最终返回这个要找的value。
+
+        同一个单向链表上所有系欸但的hash相同，因为他们的数组下标是一样的。
+        但同一个单向链表上k和k的equals方法肯定返回的是false。
+
+        重点:
+        通过讲解可以得出HashMap集合的key，会先后调用两个方法,一个方法是hashCode() ,
+        一个方法是equals() ,那么这两个方法都需要重写。
+
+
+
+    4、HashMap集合的key部分特点:
+        无序,不可重复。
+        为什么无序?因为不- -定挂到哪个单向链表上。
+        不可重复是怎么保证的? equals 方法来保证HashMap集合的key不可重复。
+        如果key重复了, value会覆盖。
+        放在HashMap.集合key部分的元素其实就是放到HashSet集合中了。
+        所以HashSet集合中的元素也需要同时重写hashCode()+equals()方法。
+
+    5、哈希表HashMap 使用不当时无法发挥性能!
+        假设将所有的hashCode()方法返回值固定为某个值，那么会导致底层哈希表变成了
+        纯单向链表。这种情况我们成为:散列分布不均匀。
+        什么是散列分布均勻?
+        假设有100个元素, 10个单向链表,那么每个单向链表上有10个节点,这是最好的，
+        是散列分布均匀的。
+        假设将所有的hashCode()方法返回值都设定为不一样的值，可以吗，有什么问题?
+        不行，因为这样的话导致底层哈希表就成为-维数组 了,没有链表的概念了。
+        也是散列分布不均匀。
+        散列分布均匀需要你重写hashCode()方法时有- -定的技巧。
+
+    6、重点:放在HashMap集合key部分的元素，以及放在HashSet.集合中的元素，需要同时重导hashCode equals方法。
+
+    7、HashMap集合的默认初始化容量是16 ,默认加载因子是0.75|
+        这个默认加载因子是当HashMap集合底层数组的容量达到75%的时候,数组开始扩容。
+
+        重点，记住: HashMap集合初始化容量必须是2的倍数,这也是官方推荐的
+        这是因为达到散列均匀,为了提高HashMap集合的存取效率,所必须的。
+
+*/
+
+
+/*
+1、向Map集合中存，以及从Map集合中取,都是先调用key的hashCode方法,然后再调用equals方法!
+    equals方法有可能调用，也有可能不调用。
+    拿put(k,u)举例，什么时候equals不会调用?
+    k. hashCode()方法返回哈希值,
+    哈希值经过哈希算法转换成数组下标。
+    数组下标位置上如果是null , equals不需要执行。
+    拿get(k)举例，什么时候equals不会调用?
+    k. hashCode()方法返回哈希值,
+    哈希值经过哈希算法转换成数組下标。
+    数组下标位置上如果是null , equals不需要执行。
+
+2、注意:如果一个类的equals方法重写了.那么hashCode()方注必须重写。
+    并且equal s方法返回如果是true , hashCode()方法返回的值必须一样。
+    equals方法返回true表示两个对象相同,在同一个单向链表上比较。
+    那么对于同一个单向链表上的节点来说,他们的哈希值都是相同的。
+    所以hashCode()方法的返回值也应该相同。
+
+3、hashCode()方法 和equals()方法不用研究了，直接使用IDEA工具生成，但是这两个方法需要同时生成。
+
+4.终极结论:
+    放在HashMap.集合key部分的,以及放在HashSet集合中的元素,需要同时重写hashCode方法和equals方法。
+
+5、对于哈希表数据结构来说:
+    如果o1和o2的hash值相同, - 定是放到同一个单向链表上。
+    当然如果o1和o2的hash值不同,但由于哈希算法执行结束之后转换的数组下标可能相同,此时会发生“哈希碰撞”。
+
+6、HashMap集合key部分允许null吗?
+    允许
+    但是要注意: HashMap集合的key null 值只能有-一个。
+
+7、Hashtable的key可以为null吗?
+    Hashtable,的key私value都是不能为null的。
+    HashMap集合的key和value都是可以为null的。
+
+    Hashtable方法都带有synchronized : 线程安全的。
+    线程安全有其它的方案,这个Hashtable对线程的处理
+    导致效率较低,使用较少了。
+
+    Hashtable和HashMap- -样,底层都是哈希表数据结构。
+    Hashtable的初始化容量是11 ,默认加载因子是:0.75f
+    Hashtable的扩容是:原容量*2+1
+
+*/
+
+
+/*
+目前只需要掌握properties属性类对象的相关方法即可。
+
+    Properties是一个Map集合 ,继承Hashtable , Properties的key称value都是String类型。
+    Properties被称为属性类对象。
+    Properties是线程安全的。
+
+    方法：
+    setProperty(k,v);   // 存储key和value
+    getProperty(k); // 通过key获取value
+*/
+
+
+/*
+数据库中有很多数据:
+
+userid  name    birth
+---------------------------
+1       ZS      1980-11-11
+2       ls      1980-10-11
+3       WW      1981-11-11
+4       zl      1979-11-11
+
+编写程序从数据库当中取出数据，在页面展示用户信息的时候按照生日升序或者降序。
+这个时候可以使用TreeSet集合,因为TreeSet集合放进去,拿出来就是有顺序的。
+
+*/
+
+
+/*
+*** TreeSet和TreeMap ***
+
+1、TreeSet 集合底层实际上是一个TreeMap
+
+2、TreeMap集合底层是-一个二叉树。
+
+3、放到TreeSet 集合中的元素，等同于放到reeMap集合key部分了。
+
+4、TreeSet 集合中的元素:无序不可重复,但是可以按照元素的大小顺序自动排序。
+    称为:可排序集合。
+
+
+对自定义的类型来说，TreeSet可以排序吗?
+    以下程序中对Person类型来说,无法排序。因为没有指定Person对象之间的比较规则。
+    谁大谁小并没有说明啊。
+
+    以下程序运行的时候出现了这个异常:
+        java. lang. ClassCastException: class com. bjpowernode. javase. collection. Person cannot be cast to class java. lang. Comparable
+
+        出现这个异常的原因是:Person类没有实现java. lang. Comparable接口。
+
+            放在TreeSet集合中的元素需要实现java. lang. Comparable接口。
+            并且实现compareTo方法。equals 可以不写。
+
+            所以要实现Comparable接口
+                它有一个compareTo()方法
+                需要在这个方法中编写比较的逻辑，或者说比较的规则，按照什么进行比较!
+                k. compareTo(t.key)
+                拿着参数和集合中的每- -个k进行比较,返回值可能是>θ <0 =θ
+
+                compareTo方法的返回值很重要:
+                返回0表示相同, value会覆盖。
+                返回>0，会继续在右子树上找。[10 - 9 = 1, 1 > e的说明左边这个数字比较大。所以在右子树上找。]
+                返@<θ ,会继续在左子树上找。
+
+
+*/
+
+
+/*
+********************自平衡二叉树********************
+
+1、TreeSet/TreeMap是自 平衡二二叉树。遵循左小右大原则存放。
+
+2、遍历二叉树的时候有三种方式:
+    前序遍历:根左右
+    中序遍历:左根右
+    后序遍历:左右根
+
+    注意:
+    前中后说的是"根”的位置。
+    根在前面是前序,根在中间
+    是中序,根在后面是后序。
+
+3、TreeSet集合/TreeMap集合采用的是:中序遍历方式。
+    Iterator迭代器采用的是中序遍历方式。
+    左根右。
+
+*/
+
+
+/*
+********************除了实现可比较接口，还有写比较器的方式********************
+
+// 1、单独在这里编写一个比较器
+比较器实现java. util. Comparator接口。( Comparable,是java. lang包下的。Comparator是java.util包下的。)
+class WuGuiComparator implement comparator<WuGui> {
+
+}
+
+//创建TreeSet 集合的时候,需要使用这个比较器。
+// TreeSet<WuGui> wuGuis = new TreeSet<>();//这祥不行 ,没有通过构造方法传递-一个比较器进去。
+TreeSet<WuGui> wuGuis = new TreeSet<>(new WuGuiComparator()) ;|
+
+
+
+// 2、大家可以使用匿名内部类的方式(这个类没有名字。直接new接口。)
+TreeSet<WuGui> wuGuis =
+new TreeSet<> (new Comparator<WuGui>() {
+    @Override
+    public int compare(WuGui 01, WuGui o2) {
+        return o1.age - o2.age;
+    }
+});
+
+
+TreeSet集合中元素可排序的第1 =种方式:使用比较器的方式。
+
+最终的结论:
+放到TreeSet或者TreeMap集合key部分的元素要想做到排序,包括两种方式:
+第一种:放在集合中的元素实现java. lang. Comparable接口。
+第二种:在构造TreeSet或者TreeMap集合的时候给它传- - -个比较器对象。
+
+*/
+
+
+/*
+java. util.Collection集合接口
+java.util. Collections集合工具类,方便集合的操作。
+
+Collections.sort(一个List集合)
+    // 排序
+    // 需要这个集合能够排序
+        1、实现comparable
+        2、使用comparator
+    // 对Set集合排序，可以将Set集合封装成List集合
+
+Collections.synchronizedList(一个collection集合)
+    // 变成线程安全的
+
+*/
+
+
+/*
+***************************集合总结***************************
+
+1、集合这块最主要掌握什么内容?
+    1.1、 每个集合对象的创建( new)
+    1.2、向集合中添加元素
+    1.3、从集合中取出某个元素
+    1.4、遍历集合
+    1.5、主要的集合类:
+        ArrayList
+        LinkedLi st
+        HashSet
+        TreeSet
+        HashMap （HashMap的key, 存储在HashMap集合key的元素需要同时重写hashCode + equals）
+        Properties
+        TreeMap
+
+
+*/
+

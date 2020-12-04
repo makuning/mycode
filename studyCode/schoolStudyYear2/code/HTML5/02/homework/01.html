@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡切换</title>
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            /* overflow: hidden; */
+        }
+
+        div {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            /* position: absolute; */
+            text-align: center;
+            transition: all 1s linear;
+        }
+
+        #div1 {
+            /* left: 0px; */
+            background-color: aqua;
+            transform: translate(0,0)
+        }
+
+        #div2 {
+            /* left: 100%; */
+            background-color: aquamarine;
+            transform: translate(-100%,100%)
+        }
+
+        div span {
+            position: absolute;
+            bottom: 5%;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 18pt;
+        }
+
+        #div1.move {
+            /* left: -100%; */
+
+            transform: translate(-100%,0);
+        }
+
+        #div2.move {
+            /* left: 0; */
+
+            transform: translate(0,-100%);
+        }
+
+        .hid {
+            transform: scale(0.1,0.1);
+        }
+    </style>
+    <script>
+        window.onload = init;
+        function init() {
+            divMove();
+        }
+
+        function divMove() {
+            let links = document.querySelectorAll("a");
+            for(let link of links) {
+                link.onclick = function() {
+                    event.preventDefault();
+                    let divs = document.querySelectorAll("div");
+
+                    for(let div of divs) {
+                        toggClass(div,"move");
+                        toggClass(div,"hid");
+                    }
+                    cnt++;
+                }
+            }
+        }
+
+        function toggClass(element,cls) {
+            if(element.classList.contains(cls)) {
+                element.classList.remove(cls);
+            } else {
+                element.classList.add(cls);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <span>
+            <a href="#div2">切换1</a>
+        </span>
+    </div>
+    <div id="div2" class="hid">
+        <span>
+            <a href="#div1">切换2</a>
+        </span>
+    </div>
+</body>
+</html>

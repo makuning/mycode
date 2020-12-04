@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap组件</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" 
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" 
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+<!--
+    bootstrap组件
+
+    下拉菜单
+    .dropdown
+    .dropdown-menu
+    .dropdown-toggle
+    data-toggle="dropdown"
+    .disabled
+    
+    对齐
+    .dropdown-menu-right
+    .dropdown-menu-left
+
+    标题和分割线
+    .dropdown-header
+    .dropdown-divider
+
+    基本按钮组
+    .btn-group
+    .btn-group-sm   // 尺寸 sm lg
+
+    按钮组嵌套
+    .btn-group里有.btn-group
+
+    垂直按钮组
+    .btn-group-vertical
+
+    分裂式按钮
+    与上面普通下拉不同：使用两个按钮，第二个按钮与之前相同，但在其中加了span标签，它的类为.caret
+    .caret
+
+    分裂式按钮的方向
+    .dropright
+    .dropleft
+
+    导航：
+    
+    普通导航：默认水平，蓝色字体
+    ul -> .nav
+    li -> .nav-item
+    a  -> .nav-link .active .disabled
+
+    导航样式
+    .flex-column // 垂直导航
+    .justify-content-center // 居中对齐（容器中） 
+    .justify-content-end    // 右对齐
+    .nav-justified  // 让导航变成容器的宽度
+    .nav-tabs   // 选项卡导航
+    .nav-pills  // 胶囊式导航
+    
+    导航栏
+    .navbar     // 标准导肮栏 加在nav
+    .navbar-dark // 主题
+    .navbar-expand-xl   // 大小 加在nav，响应式的类，不加就是垂直方向
+    .navbar-nav // 加在ul
+    .navbar-brand // 高亮显示，图标
+
+    折叠导航栏
+        第一部分
+            将导航套起来
+            .collapse
+            .navbar-collapse
+            #任意id
+        第二部分
+            展开按钮
+            .navbar-toggler
+            data-toggle="collapse"
+            data-target="#之前的任意id"
+
+            .navbar-toggler-icon    // 加在按钮中的span上
+
+    导航栏带下拉菜单
+        嵌套
+
+
+    导航栏放表单和按钮
+        .form-inline    // 表单内联
+        .navbar-text    // 文本
+
+    固定
+        .fixed-top  // 固定在顶部
+        .fixed-bottom  // 固定在底部
+
+    路径导航
+        ol标签
+        .breadcrumb
+
+    分页处理
+    .pagination -> ul
+        .pagination-lg // 大小
+    .page-item -> li
+        .active // 激活
+        .disabled   // 禁用
+    .page-link -> a
+
+    徽章
+    .badge
+    .badge-*    // dark之类的，添加颜色
+
+    警告框
+    .alert
+    .alert-info // 主题
+    &times;     // 小叉叉
+
+    进度条
+    .progress
+        .progress-bar
+        style="width:?%"
+        .progress-bar-striped   // 条纹效果
+        .progress-bar-animated  // 动态效果
+
+    堆叠进度条
+        一个.progress-bar的div放多个.progress-bar进度条
+-->
+<body>
+    <div class="container mt-5 pt-2">
+        <h4>下拉</h4>
+        
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                网址选择
+            </button>
+            <div class="dropdown-menu">
+                <!--标题-->
+                <span class="dropdown-header">网址</span>
+                <a href="http://www.baidu.com" class="dropdown-item">百度</a>
+                <a href="http://www.souhu.com" class="dropdown-item">搜狐</a>
+                <!--分割线-->
+                <div class="dropdown-divider"></div>
+                <a href="http://www.sougou.com" class="dropdown-item">搜狗</a>
+                <a href="" class="dropdown-item">谷歌</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <h4>按钮组</h4>
+        <div class="btn-group">
+            <button class="btn btn-primary">按钮1</button>
+            <button class="btn btn-dark">按钮2</button>
+            <button class="btn btn-light">按钮3</button>
+            <button class="btn btn-danger">按钮4</button>
+            <div class="btn-group"> <!--这个 div 不需要写-->
+                <button class="btn btn-primary">
+                    网址选择
+                </button>
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="http://www.baidu.com" class="dropdown-item">百度</a>
+                    <a href="http://www.souhu.com" class="dropdown-item">搜狐</a>
+                    <a href="http://www.sougou.com" class="dropdown-item">搜狗</a>
+                    <a href="" class="dropdown-item">谷歌</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <h4>导航</h4>
+        <ul class="nav justify-content-end nav-pills nav-justified">
+            <li class="nav-item">
+                <a class="nav-link disabled" href="">链接1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">链接2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="">链接3</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">链接4</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container mt-3">
+        <h4>导航栏</h4>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <span class="navbar-brand">高亮显示</span>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="">链接1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">链接2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="">链接3</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">链接4</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container mt-3">
+        <h4>可伸缩导航栏</h4>
+        <nav class="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
+            <span class="navbar-brand">品牌LOGO高亮显示</span>
+
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#myCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="myCollapse" class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="">链接1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">链接2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="">链接3</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">链接4</a>
+                    </li>
+                </ul>
+
+                <form class="form-inline">
+                    <input type="text" class="form-control"/>
+                    <button class="btn btn-success">搜索</button>
+                </form>
+
+                <span class="navbar-text">这个导航栏固定在了顶部</span>
+            </div>
+            
+        </nav>
+    </div>
+
+
+
+    <div class="container">
+        <h4>进度条</h4>
+
+        <div class="progress">
+            <div class="progress-bar progress-bar-animated progress-bar-striped bg-dark" style="width:80%">80%</div>
+            <div class="progress-bar progress-bar-animated progress-bar-striped bg-warning" style="width:50%">50%</div>
+            <div class="progress-bar progress-bar-animated progress-bar-striped bg-primary" style="width:30%">30%</div>
+        </div>
+    </div>
+
+
+
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</body>
+</html>
