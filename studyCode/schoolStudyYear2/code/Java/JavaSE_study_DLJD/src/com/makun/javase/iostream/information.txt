@@ -70,8 +70,8 @@
 
 6、java.io包下需要掌握的流有16个:
     文件专属:
-    java. io. FileInputStream
-    java. io. FileOutputStream
+    java. io. FileInputStream （掌握）
+    java. io. FileOutputStream （掌握）
     java. io. FileReader
     java. io. FileWriter
 
@@ -90,12 +90,12 @@
     java. io. DataOutputStream
 
     标准输出流:
-    java. io. PrintWriter
-    java. io. PrintStream
+    java. io. PrintWriter （掌握）
+    java. io. PrintStream （掌握）
 
     对象专属流:
-    java. io.ObjectInputStream
-    java. io.ObjectOutputStream
+    java. io.ObjectInputStream （掌握）
+    java. io.ObjectOutputStream （掌握）
 
 
 */
@@ -111,6 +111,479 @@ int read()
 int read(char[] char)
 int available() : 返回流当中剩余的没有读到的字节数量
 long skip(long n) :跳过几个字节不读。
+
+
+*/
+
+
+
+/*
+*********************** java. io. FileOutputStream ***************************
+
+// 示例
+public static void main(String[] args) {
+    FileOutputStream fos = null;
+
+    try {
+        // myfile文件不存在的时候会自动新建!
+        //这种方式谨慎使用,这种方式会先将原文件清空，然后重新写入。
+        fos = new FileOutputStream( name: "myfile");
+
+        //以追加的方式在文件未尾写入。不会清空原文件内容。
+        fos = new File0utputStream( name: " chapter23/src/tempfi1e3", append: true) ;
+
+
+        //开始写。
+        byte[] bytes = {97, 98, 99，100};
+
+        //将byte数组全部写出!
+        fos . write(bytes); // abcd
+        // byte数组的一部分写出!
+        fos . write(bytes,0,2) // ab
+
+        //写完之后，最后一定要刷新
+        fos.flush();
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    }catch ( IOException e){
+        e.printStackTrace();
+    } finally {
+
+    }
+}
+
+*/
+
+
+
+/*
+******************************** 文件的拷贝 ********************************
+
+使用FileInputStream + FileOutputStream 完成文件的拷贝。
+拷贝的过程应该是- -边读，- - -边写。
+使用以上的字节流拷贝文件的时候，文件类型随意,万能的。什么样的文件都能拷贝。
+
+*/
+
+/*
+*************************************** FileReader *****************************************************
+
+文件字符输入流,只能读取普通文本。
+读取文本内容时,比较方便,快捷。
+
+
+FileReader reader = nu11;
+
+try {
+    //创建文件字符输入流.
+    reader = new FileReader( fileName: tempfile");
+
+    //开始读.
+    char[] chars = new char[4]; // - 次读取4个字符
+
+    int. readCount = 0;
+    while((readCount = reader.read(chars)) != -1) {
+        System. out . print (new String(chars, offset: 0, readCount));
+    }
+} catch (FileNotFoundException e) {
+
+}
+
+*/
+
+
+/*
+****************************** FileWriter *******************************
+
+文件字符输出流。写。
+只能输出普通文本。
+
+*/
+
+
+/*
+********************************* BufferedReader **********************************
+
+带有缓冲区的字符输入流。
+使用这个流的时候不需要自定义char数组，或者说不需要自定义byte数组。自带缓冲。
+
+pub1ic class BufferedReaderTest01 {
+    public static void main(String[] args) throws Exception{
+        FileReader reader = new FileReader( fileName: "Copy02. java");
+
+        //当一个流的构造方法中需要- 个流的时候,这个被传进来的流叫做:节点流。
+        //外部负责包装的这个流,叫做:包装流,还有-一个名字叫做:处理流。
+        //像当前这个程序来说:FileReader就是一个节点流。BufferedReader就是包装流处理流。
+        BufferedReader br = new BufferedReader(reader);
+
+        //读一行
+        String firstLine = br.readLine();
+        System. out . println(firstLine);
+
+        String secondLine = br. readLine();
+        System. out. println(secondLine);
+
+        String line3 = br.readLine(); .
+        System. out. println(line3);
+
+        // br.readline()方法读取一个文本行，但不带换行符。
+        String S = nu11;
+        while((s = br.readLine()) != nu1l){
+            System. out. print(s);
+        }
+        //关闭流
+        //对于包装流来说，只需要关闭最外层流就行，里面的节点流会自动关闭。 (可以看源代码。 )
+        br.close();
+    }
+}
+*/
+
+
+/*
+****************************** 转换流 InputStreamReader ********************************
+
+public class BufferedReaderTest02 {
+    pub1ic static void main(String[] args) throws Exception{
+        //字节流
+        FileInputStream in = new FileInputStream( name: "Copy02.java") ;
+
+        //通过转换流转换( InputStreamReader将字书流转换成字符流。)
+        // in是节点流。reader是包装流。
+        InputStreamReader reader = new InputStreamReader(in) ;
+
+        //这个构造方法只能传-一个字符流。 不能传字节流。
+        // reader是节点流。br是包装流。
+        BufferedReader br = new BufferedReader(reader) ;
+    }
+}
+
+*/
+
+
+/*
+****************************** java. io. DataOutputStream ************************************
+
+java. io. DataOutputStream :数据专属的流。
+这个流可以将数据连同数据的类型-并写入文件。.
+注意:这个文件不是普通文本文档。( 这个文件使用记事本打不开。)
+
+
+public static void main(String[] args) {
+    //创建数据专属的字节输出流
+    DataOutputStream dos = new DataOutputStream(new File0utputStream( name: "data"));
+
+    //写数据
+    byte b = 100;
+    short s = 200;
+    int i = 300;
+    1ong1=400L;
+    float f = 3.0F;
+    double d = 3.14;
+    boolean sex = false;
+    charC=‘a';
+
+    //写
+    dos . writeByte(b);
+    dos . writeShort(s);
+    dos . writeInt(i);
+    dos . writeLong(l); .
+    dos . writeFloat(f);
+    dos . writeDouble(d);
+    dos . writeBoolean(sex);
+    dos . writeChar(c);|
+    //刷新
+    dos . flush();
+
+    //关闭最外层
+    dos . close();
+}
+
+
+*/
+
+
+/*
+********************** DataInputStream ******************
+
+DataInputStream :数据字节输入流。
+DataOutputStream写的文件，只能使用bataInputStream去读。并且读的时候你需要提前知道写入的顺序。
+读的顺序需要和写的顺序-致。才可以正常取出数据。
+
+public static void main(String[] args) throws Exception{
+    DataInputStream dis = new DataInputStream( new FileInputStream( name: "data"));
+    //开始读
+    byte b = dis. readByte();
+    short s = dis. readShort();
+    int i = dis. readInt();
+    long 1 = dis. readLong();|
+    float f = dis. readFloat();
+    double d = dis. readDouble( );
+    boolean sex = dis. readBoolean();
+    char C = dis. readChar();
+
+    System.out. println(b);
+    System. out . println(s);
+    System. out.println(i + 1000);
+    System. out . println(l);
+    System. out . println(f);
+    System . out. println(d);
+    System. out. println(sex);
+    System . out. println(c);
+
+    dis.close();
+}
+*/
+
+
+/*
+***************************** 标准输出流 PrintStream *****************************
+
+java. io. PrintStream :标准的字节输出流。默认输出到控制台。
+
+
+public class PrintStreamTest {
+    pub1ic static void main(String[] args) {
+        //联合起来写
+        System. out . println("he11o wor1d!");
+
+        //分开写
+        PrintStream ps = System.out;
+        ps. println("he1l1o zhangsan");
+        ps. println("he1lo lisi");
+        ps . println( "he11o wangwu") ;
+
+        //标准输出流不需要手动close()关闭。
+        //可以改变标准输出流的输出方向吗?可以
+        /*
+            //这些是之前System类使用过的方法和属性。
+            System.gc();
+            System. currentTimeMillis();
+            PrintStream ps2 = System. out;
+            System.exit(0);
+            System. arrayCop.(....);
+        */
+
+        //标准输出流不再指向控制台,指向“Log”文件。
+        PrintStream printStream = new PrintStream( new File0utputStream( name: "1og"));
+
+        //修改输出方向,将输出方向修改到"Log"文件。
+        System. setOut (printStream) ;
+
+        //再输出
+        System. out. println("he11o wor1d");
+        System. out . println("hel1o kitty");
+        System. out. println( "he11o zhangsan");
+
+    }
+}
+
+
+
+/*
+***************************** 日志工具 *******************************
+*/
+
+public class Logger {
+
+    /*
+        记录日志的方法
+    */
+    public static void 1og(String msg) {
+        try {
+            // 指向一个日志文件
+            PrintStream out = new PrintStream(new FileOutputStream( name: "1og.txt", append: true));
+
+            // 改变输出方向
+            System . setOut(out);
+
+            // 日期当前时间
+            Date nowTime = new Date() ;
+            SimpleDateFormat sdf = new SimpleDateFormat( pattern: "yyyy-MM-dd HH:mm:ss SSS");
+            String strTime = sdf. format (nowTime );
+            System. out. println(strTime + ": " + msg);
+        } catch (FileNotFoundException e) {
+            e. printStackTrace();
+        }
+    }
+}
+
+
+*/
+
+
+
+/*
+*********************** 对象流 ************************************
+
+ObjectInputStream   反序列化
+ObjectOutputStream  序列化
+
+
+序列化: Serialize java对象存储到文件中。 将java对象的状态保存下来的过程。
+反序列化: DeSerialize将硬盘 上的数据重新恢复到内存当中,恢复成java对象。
+    ObjectOutputStream oos = new ObjectOutputStream( new FileOutputStream(" students"));
+
+java. io. NotSerializableException  // 不支持序列化异常
+
+参与序列化和反序列化的对象,必须实现serializable接口。
+
+注意:通过源代码发现, Serializable接口只是一个标志接口.
+    public interface Serializable {
+
+    }
+这个接口当中什么代码都没有。
+那么它起到一个什么作用呢?
+    起到标识的作用，标志的作用, java虚拟机看到这个类实现了这个接口，可能会对这个类进行特殊待遇。
+    Serializable这个标志接口是给java虚拟机参考的, java虚拟机看到这个接口之后,会为该类自动生成
+    一个序列化版本号。
+
+一次序列化多个对象呢?
+可以，可以将对象放到集合当中,序列化集合。
+    参与序列化的ArrayList集合以及集合中的元素User都需要实现java. io. Serializable接口。
+
+public class ObjectOutputStreamTest02 {
+    public static void main(String[] args) throws Exception{
+        List<User> userList = new ArrayList<>();
+
+        userList .add(new User( no: 1, name: " zhangsan"));
+        userList.add(new User( no: 2，name: "lisi"));
+        userList .add(new User( no: 3，name: "wangwu" ));
+
+        ObjectOutputStream oos = new ObjectOutputStream( new File0utputStream( name: "users"));
+
+        //序列化一个集合,这个集合对象中放了很多其他对象。
+        oos . writeObject(userList);
+        oos . flush();
+        oos.close();
+    }
+}
+
+
+public c1ass ObjectInputStreamTest02 {
+    public static void main(String[] args) throws Exception{
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream( name: "users"));
+
+        //Object obj = ois. readObject();
+        //System. out . println(obj instanceof List);
+
+        List<User> userList = (List<User> )ois . readObject();
+
+        for(User user : userList){
+            System. out. println(user);
+        }
+
+        ois.close();
+    }
+}
+
+
+// transient关键字表示游离的，不参与序列化。
+private transient String name; // name不参序列化操作!
+
+*/
+
+
+/*
+************************************ 序列化 *************************************
+
+序列化版本号有什么用呢?
+java. io. InvalidClassException:
+com. bjpowernode . java . bean . Student;
+local class incompatible:
+stream class descSerialVersionUID = - 684255398724514298 (十年后),
+Local class serialVersionUID = -3463447116624555755 (十年前)
+
+
+// Java虚拟机看到Serializable接口之后,会自动生成一个序列化版本号。
+//这里没有手动写出来, java虚拟机会默认提供这个序列化版本号。
+//建议将序列化版本号手动的写出来。不建议自动生成
+private static final 1ong serialVersionUID = 45645654345654345L;
+
+
+//过了很久, Student这个类源代码改动了。
+//源代码改动之后,需要重新编译,编译之后生成了全新的字书码文件。
+//并且class文件再次运行的时候, java虚拟机生成的序列化版本号也会发生相应的改变。
+
+
+java语言中是采用什么机制来区分类的?
+第一:首先通过类名进行比对,如果类名不一样，肯定不是同一个类。
+第二:如果类名一样，再怎么进行类的区别?靠序列化版本号进行区分。
+
+
+小鹏编写了一个类: com. bjpowernode. java. bean. Student impl ements Serializable
+胡浪编写了-个类: com. bjpowernode. java. bean. Student implements Serial izable
+不同的人编写了同一个类，但“这两个类确实不是同-一个类”。这个时候序列化版本就起上作用了。
+对于java虚拟机来说, java虚拟机是可以区分开这两个类的,因为这两个类都实现了Serializable接口，
+都有默认的序列化版本号,他们的序列化版本号不- -样。所以区分开了。(这是自动生成序列化版本号的好处)
+
+请思考?
+    这种自动生成序列化版本号有什么缺陷?
+    这种自动生成的序列化版本号缺点是:一旦代码确定之后,不能进行后续的修改,
+    因为只要修改,必然会重新编译,此时会生成全新的序列化版本号,这个时候java
+    虚拟机会认为这是一个全新的类。( 这样就不好了! )
+
+最终结论:
+    凡是一个类实现了Serializable接口,建议给该类提供- -一个固定不变的序列化版本号。
+    这样，以后这个类即使代码修改了,但是版本号不变, java虚拟机会认为是同一个类。
+
+// IDEA工具自动生成序列化版本号。
+
+*/
+
+
+/*
+************************ I0 + Properties联合使用 **********************
+
+非常好的一个设计理念:
+    以后经常改变的数据,可以单独写到一个文件中，使用程序动态读取。
+    将来只需要修改这个文件的内容, java代码不需要改动,不需要重新
+    编译,服务器也不需要重启。就可以拿到动态的信息。
+
+类似于以上机制的这种文件被称为配置文件。
+并且当配置文件中的内容格式是:
+    key1=value
+    key2=value
+的时候,我们把这种配置文件叫做属性配置文件。
+
+java规范中有要求:属性配置文件建议以. properties结尾，但这不是必须的。
+这种以. properties结尾的文件在java中被称为:属性配置文件。
+其中Properties是专门存放属性配置文件内容的一个类。
+
+Io流:文件的读和写。
+Properties:是一个 Map集合，key和value 都是String类型。
+Properties是一个Map集合, key和value都是string类型。
+想将userinfo文件中的数据加载到Properties对象当中
+
+###在属性配置文件中井号是注释########
+username=admin
+password=123
+#属性配置文件的key重复的话, value会自动覆盖!
+password=123
+#最好不要有空格
+
+
+public class IoPropertiesTest01 {
+    public static void main(String[] args) throws Exception{
+        /*
+        Properties是一个Map 集合, key和value都是String类型。
+        想将userinfo文件中的数据加载到Properties对象当中。
+        */
+
+        //新建一个输入流对象
+        FileReader reader = new FileReader( fileName: "chapter23/userinfo");
+
+        //新建一个Map集合
+        Properties pro = new Properties();
+
+        //调用properties对象的load方法将文件 中的数据加载到Map集合中。
+        pro. load(reader); //文件中的数据顺着管道加载到Map集合中,其中等号=左边做key ,右边做value
+
+        //通过key来获取value呢?
+        String username = pro. getProperty("username");
+        System. out . println(username) ;
+
+    }
+}
 
 
 */

@@ -1,0 +1,49 @@
+拷贝目录:
+将D: \course拷贝到c盘根下
+....
+
+需要使用到:
+    FileInputStream
+    FileOutputStream
+    File
+
+可能需要使用到递归。你尝试实现一-下!
+
+
+
+/*
+*************************** 老师评讲 ****************************
+
+public class CopyAll {
+    public static void main(String[] args) {
+        //拷贝源
+        File srcFile = new File( pathname: "D: \\course\\02-JavaSE\\document") ;
+
+        //拷贝目标.
+        File destFile = new File( pathname: "C:\\");
+
+        //调用方法拷贝
+        copyDir(srcFile, destFile);
+    }
+
+    /**
+    *拷贝目录
+    * @param srcFile 拷贝源
+    * @param destFile 拷贝目标
+    */
+    private static void copyDir(File srcFile, File destFile) {
+        if(srcFile.isFile()) {
+            // srcFile如果是一个文件的话,递归结束。
+            return;
+        }
+
+        //获取源下面的子目录
+        File[] files = srcFile.listFiles();
+        for(File file : files){
+            //递归调用
+            copyDir(file, destFile);
+        }
+
+    }
+}
+*/
