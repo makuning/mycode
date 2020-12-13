@@ -1,0 +1,16 @@
+类名：com.makun.javase.reflection.reflectclass.Me
+它当中的方法有：{
+	public java.lang.StringgetName() {};
+	public java.lang.StringtoString() {};
+	public voidsetName(java.lang.String arg1) {};
+	public intsum(int arg1,int arg2) {};
+	public static voidbreath() {};
+	public voideat() {};
+	public java.lang.Stringmemory(java.lang.String arg1,java.lang.String arg2) {};
+	public java.lang.StringgetTelephone() {};
+	public voidsetTelephone(java.lang.String arg1) {};
+	public static java.lang.StringgetHOME() {};
+	public intgetAge() {};
+	public static java.lang.StringgetTYPE() {};
+	public voidsetAge(int arg1) {};
+}

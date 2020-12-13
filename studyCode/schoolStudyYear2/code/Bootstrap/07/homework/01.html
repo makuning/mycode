@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+        <style>
+            #div2 {
+                display: none;
+            }
+
+            #div3 {
+                display: none;
+            }
+
+            #div4 {
+                display: none;
+            }
+
+            img {
+                height: 330px;
+            }
+        </style>
+        <script>
+            window.onload = init;
+            function init() {
+                doSome();
+            }
+
+            function doSome() {
+                let links = document.getElementsByClassName("links");
+            
+                for(let link of links) {
+                    link.onmouseover = function() {
+                        let div1 = document.querySelector(link.attributes["href"].nodeValue);
+                        div1.style.display = "block";
+
+                        for(let lk of links) {
+                            let div2 = document.querySelector(lk.attributes["href"].nodeValue);
+                            if(lk == link) {
+                                continue;
+                            }
+                            div2.style.display = "none";
+                        }
+                    }
+                }
+            }
+        </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>最新技术</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <ul class="navbar-nav nav-tabs">
+                        <li class="nav-item">
+                            <a href="#div1" class="nav-link h5 links">人工智能</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#div2" class="nav-link h5 links">深度学习</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#div3" class="nav-link h5 links">区块链</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#div4" class="nav-link h5 links">Hadoop</a>
+                        </li>
+                    </ul>
+                </nav>   
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="div1" class="media">
+                <div class="row">
+                    <div class="col-md-7 p-2">
+                        <h2>人工智能介绍</h2>
+                        <span>
+                            人工智能是计算机科学的一个分支,它企图了解智能的实质，并生产出- -种新的能以人类智能相似的方式做出反应的智能
+                            机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。<br/><br/>
+                            人工智能(Arificial Intelligence)， 英文缩写为Al。它是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术
+                            及应用系统的一-门新的技术科学。<br/><br/>
+                            人工智能是-一门极富挑战性的科学,从事这项工作的人必须懂得计算机知识,心理学和哲学。人工智能是包括十分广泛的
+                            科学，它由不同的领域组成,如机器学习,计算机视觉等。2017年12月， 人工智能入选“2017年度中国媒体十大流行语”。
+                        </span><br/><br/>
+                        <button class="btn btn-success">详细了解</button>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="test1.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="div2" class="media">
+                <div class="row">
+                    <div class="col-md-7 p-2">
+                        <h2>深度学习</h2>
+                        <span>
+                            人工智能是计算机科学的一个分支,它企图了解智能的实质，并生产出- -种新的能以人类智能相似的方式做出反应的智能
+                            机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。<br/><br/>
+                            人工智能是-一门极富挑战性的科学,从事这项工作的人必须懂得计算机知识,心理学和哲学。人工智能是包括十分广泛的
+                            科学，它由不同的领域组成,如机器学习,计算机视觉等。2017年12月， 人工智能入选“2017年度中国媒体十大流行语”。<br/><br/>
+                            人工智能(Arificial Intelligence)， 英文缩写为Al。它是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术
+                            及应用系统的一-门新的技术科学。
+                        </span><br/><br/>
+                        <button class="btn btn-success">详细了解</button>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="test1.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="div3" class="media">
+                <div class="row">
+                    <div class="col-md-7 p-2">
+                        <h2>区块链</h2>
+                        <span>
+                            人工智能(Arificial Intelligence)， 英文缩写为Al。它是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术
+                            及应用系统的一-门新的技术科学。<br/><br/>
+                            人工智能是-一门极富挑战性的科学,从事这项工作的人必须懂得计算机知识,心理学和哲学。人工智能是包括十分广泛的
+                            科学，它由不同的领域组成,如机器学习,计算机视觉等。2017年12月， 人工智能入选“2017年度中国媒体十大流行语”。<br/><br/>
+                            人工智能是计算机科学的一个分支,它企图了解智能的实质，并生产出- -种新的能以人类智能相似的方式做出反应的智能
+                            机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。
+                        </span><br/><br/>
+                        <button class="btn btn-success">详细了解</button>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="test1.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+
+        <div class="row">
+            <div id="div4" class="media">
+                <div class="row">
+                    <div class="col-md-7 p-2">
+                        <h2>Hadoop</h2>
+                        <span>
+                            人工智能是-一门极富挑战性的科学,从事这项工作的人必须懂得计算机知识,心理学和哲学。人工智能是包括十分广泛的
+                            科学，它由不同的领域组成,如机器学习,计算机视觉等。2017年12月， 人工智能入选“2017年度中国媒体十大流行语”。<br/><br/>
+                            人工智能(Arificial Intelligence)， 英文缩写为Al。它是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术
+                            及应用系统的一-门新的技术科学。<br/><br/>
+                            人工智能是计算机科学的一个分支,它企图了解智能的实质，并生产出- -种新的能以人类智能相似的方式做出反应的智能
+                            机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。
+                        </span><br/><br/>
+                        <button class="btn btn-success">详细了解</button>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="test1.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+           
+    </div>
+</body>
+</html>

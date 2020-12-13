@@ -1,0 +1,117 @@
+public final class String {
+	private final class [B value;
+	private final byte coder;
+	private int hash;
+	private boolean hashIsZero;
+	private static final long serialVersionUID;
+	static final boolean COMPACT_STRINGS;
+	private static final class [Ljava.io.ObjectStreamField; serialPersistentFields;
+	public static final interface java.util.Comparator CASE_INSENSITIVE_ORDER;
+	static final byte LATIN1;
+	static final byte UTF16;
+
+	byte[] value() {}
+	public boolean equals(Object argument1) {}
+	public int length() {}
+	public String toString() {}
+	public int hashCode() {}
+	public void getChars(int argument1,int argument2,char[] argument3,int argument4) {}
+	public volatile int compareTo(Object argument1) {}
+	public int compareTo(String argument1) {}
+	public int indexOf(int argument1,int argument2) {}
+	public int indexOf(String argument1) {}
+	public int indexOf(String argument1,int argument2) {}
+	public int indexOf(int argument1) {}
+	static int indexOf(byte[] argument1,byte argument2,int argument3,String argument4,int argument5) {}
+	static void checkIndex(int argument1,int argument2) {}
+	public static String valueOf(char[] argument1) {}
+	public static String valueOf(Object argument1) {}
+	public static String valueOf(long argument1) {}
+	public static String valueOf(char[] argument1,int argument2,int argument3) {}
+	public static String valueOf(int argument1) {}
+	public static String valueOf(char argument1) {}
+	public static String valueOf(double argument1) {}
+	public static String valueOf(float argument1) {}
+	public static String valueOf(boolean argument1) {}
+	byte coder() {}
+	private static Void rangeCheck(char[] argument1,int argument2,int argument3) {}
+	static void checkBoundsOffCount(int argument1,int argument2,int argument3) {}
+	boolean isLatin1() {}
+	public char charAt(int argument1) {}
+	public int codePointAt(int argument1) {}
+	public int codePointBefore(int argument1) {}
+	public int codePointCount(int argument1,int argument2) {}
+	public int offsetByCodePoints(int argument1,int argument2) {}
+	static void checkBoundsBeginEnd(int argument1,int argument2,int argument3) {}
+	public byte[] getBytes(String argument1) {}
+	void getBytes(byte[] argument1,int argument2,byte argument3) {}
+	public byte[] getBytes() {}
+	public void getBytes(int argument1,int argument2,byte[] argument3,int argument4) {}
+	public byte[] getBytes(Charset argument1) {}
+	public boolean contentEquals(StringBuffer argument1) {}
+	public boolean contentEquals(CharSequence argument1) {}
+	private boolean nonSyncContentEquals(AbstractStringBuilder argument1) {}
+	public boolean regionMatches(int argument1,String argument2,int argument3,int argument4) {}
+	public boolean regionMatches(boolean argument1,int argument2,String argument3,int argument4,int argument5) {}
+	public boolean startsWith(String argument1,int argument2) {}
+	public boolean startsWith(String argument1) {}
+	public int lastIndexOf(String argument1) {}
+	public int lastIndexOf(int argument1) {}
+	static int lastIndexOf(byte[] argument1,byte argument2,int argument3,String argument4,int argument5) {}
+	public int lastIndexOf(int argument1,int argument2) {}
+	public int lastIndexOf(String argument1,int argument2) {}
+	public String substring(int argument1,int argument2) {}
+	public String substring(int argument1) {}
+	public boolean isEmpty() {}
+	public String replace(char argument1,char argument2) {}
+	public String replace(CharSequence argument1,CharSequence argument2) {}
+	public boolean matches(String argument1) {}
+	public String replaceFirst(String argument1,String argument2) {}
+	public String replaceAll(String argument1,String argument2) {}
+	public String[] split(String argument1,int argument2) {}
+	public String[] split(String argument1) {}
+	public String toLowerCase() {}
+	public String toLowerCase(Locale argument1) {}
+	public String toUpperCase() {}
+	public String toUpperCase(Locale argument1) {}
+	public String trim() {}
+	public String strip() {}
+	public String stripLeading() {}
+	public String stripTrailing() {}
+	private int indexOfNonWhitespace() {}
+	public Stream lines() {}
+	public String repeat(int argument1) {}
+	private int lastIndexOfNonWhitespace() {}
+	private static int outdent(List argument1) {}
+	public boolean isBlank() {}
+	public char[] toCharArray() {}
+	public static transient String format(Locale argument1,String argument2,Object[] argument3) {}
+	public static transient String format(String argument1,Object[] argument2) {}
+	public String resolveConstantDesc(Lookup argument1) {}
+	public volatile Object resolveConstantDesc(Lookup argument1) {}
+	public IntStream codePoints() {}
+	public boolean equalsIgnoreCase(String argument1) {}
+	public int compareToIgnoreCase(String argument1) {}
+	public boolean endsWith(String argument1) {}
+	public CharSequence subSequence(int argument1,int argument2) {}
+	public String concat(String argument1) {}
+	public boolean contains(CharSequence argument1) {}
+	public static transient String join(CharSequence argument1,CharSequence[] argument2) {}
+	public static String join(CharSequence argument1,Iterable argument2) {}
+	public String indent(int argument1) {}
+	public String stripIndent() {}
+	public String translateEscapes() {}
+	public IntStream chars() {}
+	public Object transform(Function argument1) {}
+	public transient String formatted(Object[] argument1) {}
+	public static String copyValueOf(char[] argument1,int argument2,int argument3) {}
+	public static String copyValueOf(char[] argument1) {}
+	public native String intern() {}
+	static void checkOffset(int argument1,int argument2) {}
+	static String valueOfCodePoint(int argument1) {}
+	public Optional describeConstable() {}
+	private static String lambda$stripIndent$3(int argument1,String argument2) {}
+	private static String lambda$indent$2(int argument1,String argument2) {}
+	private static String lambda$indent$1(String argument1) {}
+	private static String lambda$indent$0(String argument1,String argument2) {}
+}

@@ -1,0 +1,12 @@
+类的名字：java.lang.String{
+	private final class [B value;
+	private final byte coder;
+	private int hash;
+	private boolean hashIsZero;
+	private static final long serialVersionUID;
+	static final boolean COMPACT_STRINGS;
+	private static final class [Ljava.io.ObjectStreamField; serialPersistentFields;
+	public static final interface java.util.Comparator CASE_INSENSITIVE_ORDER;
+	static final byte LATIN1;
+	static final byte UTF16;
+}

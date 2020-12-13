@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡切换</title>
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        div {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            text-align: center;
+        }
+
+        #div1 {
+            left: 0px;
+            background-color: aqua;
+            animation: myMove1 3s infinite;
+            animation-direction: alternate;
+        }
+
+        #div2 {
+            left: 100%;
+            bottom: 100%;
+            background-color: aquamarine;
+            animation: myMove2 3s infinite;
+            animation-direction: alternate;
+        }
+        
+        @keyframes myMove1 {
+            from {left: 0;}
+            to {left: -100%;}
+        }
+
+        @keyframes myMove2 {
+            from {left: 100%;bottom: 100%;}
+            to {left: 0;bottom: 100%;}
+        }
+
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <span>这是第一张</span>
+    </div>
+    <div id="div2">
+        <span>这是第二张</span>
+    </div>
+</body>
+</html>

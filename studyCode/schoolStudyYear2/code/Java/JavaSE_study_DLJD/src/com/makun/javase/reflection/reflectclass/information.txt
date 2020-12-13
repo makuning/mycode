@@ -1,0 +1,411 @@
+/*
+//反射属性Field
+public class Student {
+    // Field翻译为字段，其实就是属性/成员
+    // 4个Field，分别采用了不同的访问控制权限修饰符
+    private String name; // Field对象
+    protected int age; // Field对象
+    boolean sex;
+    public int no;
+    public static final double MATH_ _PI = 3. 1415926;
+}
+
+public class ReflectTest05 {
+    public static void main(String[] args) throws Exception{
+        //获取整个类
+        Class studentClass = Class . forName ("com . bjpowernode . java . bean . Student");
+        String className = studentClass.getClassName();
+        System. out. println("完整类名:”+ className);
+        String simpleName = studentClass . getSimpleName();
+        System . out. println("简类名:”+ simp1eName);
+
+        //获取类中所有的public修饰的Field
+        Field[] fields = studentClass.getFields();
+        System. out. println(fields.1ength); //测试数组中只有1个元素
+        //取出这个Field
+        Field f = fields[0];
+        //取出这个Field 它的名字
+        String fieldName = f. getName();
+        System. out . println(fieldName);
+
+        //获取所有的Field
+        Field[] fs = studentClass . getDeclaredFields();
+        System . out. println(fs.1ength); // 4
+        System. out . print1n("===============================");
+
+        //遍历
+        for(Field field : fs){
+            //获取属性的修饰符列表
+            int i = field. getModifiers(); //返回的修饰符是-一个数字,每个数字是修饰符的代号! ! !
+            System. out. println(i);
+            //可以将这个“代号”数字转换成“字符串”吗?
+            String modifierString = Modifier . toString(i);
+            System. out . println(modifierString);
+
+            //获取属性的类型
+            Class fieldType = field. getType();
+            //String fName = fieldType. getName();
+            String fName = fieldType. getSimpleName( );
+            System. out. print1n( fName);
+
+
+            System. out. println(field. getName());
+        }
+
+    }
+}
+*/
+
+/*
+//通过反射机制,反编译- -个类的属性Field
+
+public static void main(String[] args) {
+    //创建这个是为了拼接字符串。
+    StringBuilder s = new StringBuilder();
+
+    //Class studentClass = Class. forName( "com. bjipowernode . java . bean. Student ");
+    Class studentClass = Class .forName ( "java. lang. Int中ger");
+    s. append (Modifier . toString(studentClass. getModifiers()) + " class ”+ studentClass. getSimpleName() + "\n")
+    Field[] fields = studentClass. getDeclaredFields();
+
+    for(Field field : fields){
+        s. append("\t");
+        s. append(Modifier . toString(field. getModifiers()));
+        s. append(" ");
+        s. append(field. getType(). getSimpleName());
+        s. append(" ");
+        s. append(field. getName());
+        s. append(";\n");
+    }
+
+    s.append("}");
+    System. out . print1n(s);
+}
+*/
+
+
+/*
+必须掌握:
+    怎么通过反射机制访问-个java对象的属性?
+    给属性赋值set
+    获取属性的值get
+
+
+public static void main(String[] args) {
+    //我们不使用反射机制,怎么去访问一个对象的属性呢?
+    Student s = new Student();
+    //给属性赋值
+    s.no = 1111;
+                //三要素:给s对象的no属性赋值1111
+                //要素1 :对象s
+                //要素2 : no属性
+                //要素3 : 1111
+    //读属性值
+    System. out . println(s.no);
+
+    //使用反射机制,怎么去访问一个对象的属性。(set get )
+    Class studentClass = Class .forName(" com. bjpowernode . java . bean. Student" );
+    object obj = studentClass .newInstance(); // obj就是Student对象。( 底层调用无参数构造方法)
+
+    //获取no属性(根据属性的名称来获取Field )
+    Field noFiled = studentClass. getDeclaredField( name: "no");
+
+    /*
+        虽然使用了反射机制,但是三要素还是缺一不可:
+        要素1 :obj对象
+        要素2 :no属性
+        要素3 :2222值
+        注意:反射机制让代码复杂了，但是为了一个“灵活,这也是值得的。
+    */
+
+    //给obj对象(Student对象)的no属性赋值
+    noFiled .set(obj, 22222); //给obj对象的no属性赋值2222
+
+    //读取属性的值
+    //两个要素:获取obj对象的no属性的值。
+    System. out . println(noFiled.get(obj));
+
+    //可以访问私有的属性吗?
+    Field nameField = studentClass . getDeclaredField( name: "name");
+    //打破封装(反射机制的缺点:打破封装，可能会给不法分子留下机会!!! )
+    //这样设置完之后，在外部也是可以访间private的。
+    nameField.setAccessible(true);
+    //给name属性赋值
+    nameField.set(obj, "jackson");
+    //获取name属性的值
+    System . out . println(nameField.get(obj));
+
+}
+
+*/
+
+/*
+********************************** 可变长度参数 *******************************
+
+int... args这就是可变长度参数
+语法是:类型... ( 注意:一定是3个点。)
+    1、可变长度参数 要求的参数个数是: 0~N个。.
+    2、可变长度参数在参数列表中必须在最后-一个位置上， 而且可变长度参数只能有1个。.
+    3、可变长度参数可以当做一个数组来看待
+
+
+
+public class ArgsTest {
+    public static void main(String[] args) {
+        m();
+        m(10);
+        m(10,20);
+
+        //编译报错
+        //m("abc");
+
+        m2( a: 100);
+        m2( a: 200，..rgs1: "abc");
+        m2( a: 200，..args1: "abc", "def");
+        m2( a: 200，..rg1: "abc", "def", "xyz");
+
+        m3( ..args: ”ab","de","kk"，'ff");
+        String[] strs = {"a","b","c"};
+        //也可以传1 个数组
+        m3(strs);
+        //直接传1个数组
+        m3(new String[]{"我"， "是", "中"，"国"，"人"});
+
+
+    }
+
+    pub1ic static void m(int... args){
+        System. out. println("m方法执行了! ");
+    }
+
+    pub1ic static void m2(it a, String... args1){
+
+    }
+
+    public static void 中(String... args){
+        //args有length属挫,说明args是-一个数组!
+        for(int i = 0; i < args.1ength; i++){
+        System. out. println(args[i]);
+    }
+
+
+}
+*/
+
+/*
+************************ 反射Method ************************
+
+
+    /**
+    * 登录方法
+    * @param name 用户名
+    * @param password密码
+    * @return true表示登录成功, false表示登录失败4|
+    */
+
+    pub1ic boolean login(String name , String password){
+        if( " admin" .equals(name) && "123" . equals(password)){
+            return true;
+        }
+
+        return false;
+    }
+
+
+    /**
+    *退出系统的方法;
+    */
+    public void logout(){
+        System. out . println("系统已经安全退出! ");
+    }
+
+
+// 返回Method
+    public static void main(String[] args) {
+        //获取类了
+        Class userServiceClass = Class. forName( " com. bj powernode. java . service .UserService");
+        //获取所有的Method (包括私有的! )
+        Method[] methods = userServiceClass. getDeclaredMethods( ) ;
+        //System. out . println(methods . length); // 2
+
+        //遍历Method
+        for(Method method : methods ){
+            //获取修饰符列表
+            System. out . println(Modifier . toString(method. getModifiers()));
+
+            //获取方法的返回值类型
+            System. out. println( method . getReturnType(). getSimpleName());
+
+            //获取方法名
+            System. out. println(method . getName()) ;
+
+            //方法的型参列表(一个方法的参数可能会有多个。 )
+            Class[] parameterTypes = method. getParameterTypes();
+            for(Class parameterType : parameterTypes){
+                System. out . println(parameterType . getSimpleName());
+            }
+        }
+    }
+*/
+
+/*
+******************* 反编译部分代码 ********************
+
+
+public static void main(String[] args) {
+    StringBuilder s = new StringBuilder();
+    Class userServiceClass = Class . forName(" com. bjpowernode.java. service .UserService");
+    s. append(Modifier . toString(userServiceClass . getModifiers()) +” class " +userServiceClass. getSimpleName() + "{\n");
+
+    Method[] methods = userServiceClass. getDeclaredMethods();
+    for (Method method : methods){
+        //public boolean login(String nome, String password){}
+        s. append("\t");
+        s . append(Modifier . toString(method. getModifiers()));
+        s. append(" ");
+        s . append(method . getReturnType(). getSimpleName());
+        s. append(" ");
+        s. append(method . getName());
+        s. append("(");
+
+        //参数列表
+        Class[] parameterTypes = method. getParameterTypes();
+        for(Class parameterType : parameterTypes){
+            s . append( parameterType. getSimpleName());
+            s. append(",");
+        }
+        s.deleteCharAt(s.length() - 1);
+
+        s. append("){}\n");
+    }
+
+    s. append("}");
+    System . out . println(s);
+}
+*/
+
+/*
+************************ 重点:必须掌握,通过反射机制怎么调用一个对象的方法? **************************
+
+反射机制，让代码很具有通用性，可变化的内容都是写到配置文件当中
+将来修改配置文件之后，创建的对象不-样了，调用的方法也不同了，
+但是java代码不需要做任何改动。这就是反射机制的魅力。
+
+public static void main(String[] args) {
+    //不使用反射机制,怎么调用方法
+    //创建对象
+    UserService userService = new UserService();
+    //调用方法.
+            要素分析:
+            要素1 :对象userService
+            要素2 :login方法名
+            要素3 :实参列表
+            要素4 :返回值
+    boolean loginSuccess = userService. login( name: " admin", password: "123");
+    //System. out . println(loginSuccess);
+    System. out . println(loginSuccess ?” 登录成功" : "登录失败");
+
+    //使用反射机制来调用一个对象的方法该怎么做?
+    Class userServiceClass = Class .forName("com. bjpowernode. java.service .UserService");
+    //创建对象
+    Object obj = userServiceClass . nevInstance();
+    //获取Method
+    Method loginMethod = userServiceClass . getDeclaredMethod( name: "1ogin", String . class, String. class);
+    //调用方法
+    //调用方法有几个要素?也需要4 要素。
+    //反射机制中最最最最最重要的一个方法,必须记住。
+    //四要素:
+    /*
+        loginMethod 方法
+        obj 对象
+        "admin", "123"实参
+        retValue 返回值.
+    */
+    Object retValue = loginMethod . invoke(obj, ..r.. ”admin"，”123");
+    System. out . println( retValue) ;
+}
+*/
+
+/*
+************************** 反编译一个类的Constructor构造方法。 **************************
+
+public static void main(String[] args) {
+    StringBuilder s = new StringBuilder();
+    Class vipClass = Class. forName ("com. bjpowernode . java. bean.Vip");
+    s. append(Modifier . toString(vipClass . getModifiers()));
+    s. append(" class ");
+    s. append(vipClass . getSimpleName());
+    s.append("{\n");
+    //拼接构造方法
+    Constructor[ ] constructors = vipClass. getDeclaredConstructors( );
+    for(Constructor constructor : constructors){
+        //public Vip(int no, String name, String birth, boolean sex) {
+        s. append("\t");
+        s. append (Modifier . toString( constructor . getModifiers()));
+        s. append(" ");
+        s. append(vipClass. getSimpleName());
+
+        s.append("(");
+        //拼接参数
+        Class[] parameterTypes = constructor. getParameterTypes();
+        for(Class parameterType : parameterTypes){
+        s . append(parameter Type . getSimpleName());
+        s. append(",");
+        }
+        //删除最后下标位置上的字符
+        if(parameterTypes.length > 0){
+            s. deleteCharAt(s.length() - 1);
+        }
+        s. append("){}\n");
+
+    }
+    s. append("}");
+    System. out . println(s);
+
+}
+*/
+
+public static void main() {
+    //不使用反射机制怎么创建对象
+    Vip v1 = new Vip();
+    Vip v2 = new Vip( no: 110,name: "zhangsan",birth: "2001-10-11" ,sex: true) ;
+
+    //使用反射机制怎么创建对象呢?
+    Class C = Class .forName (" com. bjpowernode . java. bean.Vip");
+    //调用无参数构造方法
+    Object obj = C. newInstance();
+
+    //调用有参数的构造方法怎么办?
+    //第一步:先获取到这个有参数的构造方法
+    Constructor con = c.getDeclaredConstructor(int.c1ass, String. c1ass, String. class , boolean. class);
+
+    //第二步:调用构造方法new对象
+    Object new0bj = con. newInstance( ..initargs. 110, "jackson", "1990-10-11", true) ;
+    System. out. println(new0bj);
+
+    //获取无参数构造方法
+    Constructor con2 = C. getDeclaredConstructor();
+    Object newObj2 = con2. newInstance();
+    System. out . println(new0bj2);
+
+}
+*/
+
+/*
+**************************** 给你一个类,怎么获取这个类的父类,已经实现了哪些接口? ***************************
+
+public static void main(String[] args) {
+    // String举例
+    Class stringClass = Class. forName("java. lang.String");
+
+    //获取String的父类
+    Class superClass = stringClass . getSuperclass();
+    System. out . println(superClass. getName());
+
+    //获取String类实现的所有接口(一个类可以实现多个接口。)
+    Class[] interfaces = stringClass . getInterfaces();
+    for(Class in : interfaces){
+        System. out. println(in. getName());
+    }
+}
+*/

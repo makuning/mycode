@@ -1,0 +1,159 @@
+/*
+*********************** 获取Class能干什么？ ***********************
+获取到Class ,能于什么?
+    通过Class的newInstance()方法来实例化对象。
+    注意:newInstance()方法内部实际上调用了无参数构造方法，必须保证无参构造存在才可以。
+
+
+public static void main(String[] args) {
+    //这是不使用反射机制，创建对象
+    User user = new User( );
+
+    System. out . println(user);
+
+    //下面这 段代码是以反射机制的方式创建对象。
+    try {
+        //通过反射机制，获取CLass，通过class来实例化对象
+        Class C = Class .forName(”com . bjpowernode . java . bean .User"); // c代表User类型。
+
+        // newInstance() 这个方法会调用user这个类的无参数构造方法，完成对象的创建。
+        //重点是:newInstance()调用的是无参构造，必须保证无参构造是存在的!
+        object obj = c.newInstance();
+        System.out. . println(obj); // com. bjpowernode . java . bean. User@10f87f48
+    } catch (ClassNotFoundException e) {
+        e. printStackTrace();
+    } catch (IllegalAccessException e) {
+        e. printStackTrace();
+    } catch (InstantiationException e) {
+        e. printStackTrace();
+    }
+}
+*/
+
+/*
+******************************* 验证反射机制的灵活性。 ****************************
+java代码写-遍,在不改变java源代码的基础之.上，可以做到不同对象的实例化。
+非常之灵活。( 符合0CP开闭原则:对扩展开放,对修改关闭。)
+
+后期你们要学习的是高级框架,而工作过程中，也都是使用高级框架,
+    包括: ssh ssm
+    Spring SpringMVC MyBatis
+    Spring Struts Hibernate
+    这些高级框架底层实现原理:都采用了反射机制。所以反射机制还是重要的。
+    学会了反射机制有利于你理解剖析框架底层的源代码。
+
+public static void main(String[] args) {
+    //这种方式代码就写死了。只能创建-个User类型的对象
+    //User user = new User();
+
+    //以下代码是灵活的，代码不需要改动，可以修改配置文件，配置文件修改之后，可以创建出不同的实例对象。
+
+    //通过Io流读取class info. properties文件
+    FileReader reader = new FileReader( fileName: " chapter25/ classinfo. properties" );
+
+    //创建属性类对象Map
+    Properties pro = new Properties(); // key value 都是String
+
+    //加载
+    pro. load(reader) ;
+
+    //关闭流
+    reader.close();
+
+    //通过key获取value
+    String className = pro. getProperty("c1assName");
+    //System. out . println(className);
+
+    //通过反射机制实例化对象
+    Class c = Class .forName( className) ;
+    object obj = C. newInstance( );
+    System. out. println(obj);
+}
+*/
+
+/*
+研究一下:Class. forName().发生了什么?
+    记住,重点:
+        如果你只是希望一个类的静态代码块执行,其它代码-律不执行,
+        你可以使用:
+        Class. forName("完整类名");
+        这个方法的执行会导致类加载,类加载时,静态代码块执行。
+
+        提示:
+            后面JDBC技术的时候我们还需要。
+
+
+class MyClass {
+    //静态代码块在类加载时执行,并且只执行一次。
+    static {
+        System. out . println("MyClass类的静态代码块执行了! ");
+    }
+}
+
+public class ReflectTest04 {
+    public static void main(String[] args) {
+        try {
+            Class . forName(”com . bj powernode . java . reflect . MyClass");
+        } catch (ClassNotFoundException e) {
+            e. printStackTrace();
+        }
+    }
+}
+*/
+
+/*
+研究一下文件路径的问题。
+怎么获取一个文件的绝对路径。以下讲解的这种方式是通用的。但前提是:文件需要在类路径下。才能用这种方式。
+
+
+// 接下来说一-种比较通用的一种路径。即使代码换位置了,这样编写仍然是通用
+// 注意: 使用以下通用方式的前提是:这个文件必须在类路径 下。.
+// 什么类路径下?方式在src下的都是类路径下。[记住它]
+// src 是类的根路径。
+/*
+解释:
+    Thread. currentThread()当前线程对象
+    getContextClassLoader()是线程对象的方法，可以获取到当前线程的类加载器对象。
+    getResource() [获取资源] 这是类加载器对象的方法，当前线程的类加载器默认从类的根路径下加载资源。
+*/
+String path = Thread.current Thread().getContextClassLoader().getResource("lassinfo2.properties").getPath();
+// 采用以上的代码可以拿到一个文件的绝对路径。
+// /C:/Users/Administrator/IdeaProjects/javase/out/production/chapter25/.lassinfo2.properties
+System. out . println(path);
+
+*/
+
+/*
+public class IoPropertiesTest {
+    public static void main(String[] args) throws Exception{
+        //获取一个文件的绝对路径了! ! ! 4|!
+        /*String path = Thread.currentThread().getContextClassLoader().getResource( "cLassinfo2.properties"). getPath();
+        FileReader reader = new FileReader(path);*/
+
+        //直接以流的形式返回。
+        InputStream reader = Thread.currentThread().getContextClassLoader().getResourceAsStream("classinfo2. properties" );
+        Properties pro = new Properties();
+        pro.load(reader);
+        reader.close();
+
+        //通过key获取value
+        String className = pro. getProperty("className");
+        System. out. println(className);
+    }
+*/
+
+/*
+// java.util包下提供了一个资源绑定器，便于获取属性配置文件中的内容。
+// 使用以下这种方式的时候,属性配置文件xxx.properties必须放到类路径下。
+
+public class ResourceBundleTest {
+    public static void main(String[] args) {
+        //资源绑定器，只能绑定xx. properties文件。 并且这个文件必须在类路径下。文件打展名也必须是properties
+        //并且在写路径的时候,路径后面的扩展名不能写
+        ResourceBundle bundle = ResourceBundle.getBundle("com/bjpowernode/java/bean/db");
+        ResourceBundle bundle = ResourceBundle.getBundle("classinfo2");
+        String className = bundle.getString( key: "className");
+        System.out.println(className);
+    }
+}
+*/
