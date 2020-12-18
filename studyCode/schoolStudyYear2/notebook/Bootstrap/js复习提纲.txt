@@ -1,0 +1,42 @@
+一、jquery：
+
+1.	 Jquery的描述
+2.	 Jquery与js的关系
+3.	 jquery简写形式
+4.	Jquery选择器
+5.	Jquery遍历方法
+6.	Jquery的隐藏、显示、淡入、淡出、上滑、下滑
+7.	Jquery 操作样式
+8.	Jquery读取文本、匹配文本、获取文本框内容等的方法
+9.	Jquery追加元素的四个方法
+10.	Jquery动画处理（添加动画、 检查是否处于动画状态、停止动画）
+11.	Jquery事件的写法（与JS的不同），分类（鼠标事件、键盘事件、表单事件）
+12.	Jquery ajax 发送请求的方法
+13.	Jquery阻止默认事件、阻止冒泡
+
+二、bootstrap
+1.	HTML5 标准代码
+2.	与jquery的关系
+3.	网格系统，几个类：container、container-fluid、row、col
+col-sm-、col-md-、col-lg-、col-xl-；
+每行的列的数量问题
+4.	颜色类：背景颜色、文字颜色、按钮颜色，总结规律
+5.	图片设置相关类（bootstrap3、 bootstrap4）
+6.	表单设置类、表单项设置类
+7.	导航菜单（包含折叠设置、下拉设置、固定定位）
+8.	bootstrap辅助类
+9.	按钮相关类，尺寸设置、禁用状态、按钮组等
+10.	媒体查询的知识点
+11.	Tab标签页设置，注意几个类的应用
+12.	徽章、卡片、表格
+13.	折叠菜单
+
+三、jQuery Mobile
+
+1.	data-role的用途，几个常用的值
+2.	“头”、“脚” 固定定位
+3.	jQuery Mobile的描述、概念
+4.	常见的页面过渡设置
+5.	弹窗
+
+

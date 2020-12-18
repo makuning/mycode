@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- meta使用viewport以确保页面可自由缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 引入 jQuery Mobile 样式 -->
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <!-- 引入 jQuery 库 -->
+    <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- 引入 jQuery Mobile 库 -->
+    <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<!-- 
+    页面
+    <div>
+    data-role="page"
+        <div>   // 头部
+        data-role="header"
+        <div>   // 身体
+        data-role="main"
+        <div>   // 底部
+        data-role="footer"
+
+    跳转页面（默认，淡入淡出）
+    <div>
+    id="pageOne"    // 定义id方便跳转
+    data-role="page"
+    data-dialog     // 以对话框的效果跳转
+        <div>   // 头部
+        data-role="header"
+        <div>   // 身体
+        data-role="content"
+            <a> // 跳转Two 
+            data-transition="*" // 跳转效果
+                // 各种效果（填在上面的 * 部分）
+                fade	    默认。淡入到下一页
+                flip	    从后向前翻转到下一页
+                flow	    抛出当前页，进入下一页
+                pop	        像弹出窗口那样转到下一页。
+                slide	    从右向左滑动到下一页。
+                slidefade	从右向左滑动并淡入到下一页。
+                slideup	    从下到上滑动到下一页。
+                slidedown	从上到下滑动到下一页
+                turn	    转向下一页。
+                none	    无过渡效果。
+            href="#pageTwo" // 跳转到pageTwo
+            
+            <button>    // 按钮
+            <a>
+            data-role="button"
+        <div>   // 底部
+        data-role="footer"
+
+    
+    内联按钮
+        data-inline="true"
+
+    按钮组
+        <div>
+        data-role="controlgroup"
+        data-type="horizontal"  // 水平方向：（默认垂直放向）
+            <button>
+            <button>
+
+    后退按钮
+
+                
+    按钮图标
+            
+
+    工具栏和定位（头部，尾部）
+    头部：（logo或者一两个按钮）
+    <div>
+    data-role="header"
+    data-position="fixed"   // 固定在底部
+        <button>
+
+    
+    导航栏
+        主题：（用在header上）
+        data--theme="a" // 浅色主题
+        data--theme="b" // 深色主题
+
+        // 导航按钮
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#" data-icon="home">主页</a></li>
+                <li><a href="#" data-icon="arrow-r">第二页</a></li>
+                <li><a href="#" data-icon="search">搜索</a></li>
+            </ul>
+        </div>
+ -->
+<body>
+    <!-- 页面 -->
+    <div id="pageOne" data-role="page" data-dialog="true">
+        <div data-role="header">
+            <h1>欢迎学习jQuery Mobile</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <p>这是第一个页面</p>
+            <a href="#pageTwo">跳转到第二个页面</a>
+        </div>
+        <div data-role="footer">
+            <h1>这是底部</h1>
+        </div>
+    </div>
+
+    <!-- 对话框跳转 -->
+    <div id="pageTwo" data-role="page" data-dialog="true">
+        <div data-role="header">
+            <h1>欢迎学习jQuery Mobile</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <p>这是第二个页面</p>
+            <a href="#pageOne">跳转到第一个页面</a>
+        </div>
+        <div data-role="footer">
+            <h1>这是底部</h1>
+        </div>
+    </div>
+</body>
+</html>

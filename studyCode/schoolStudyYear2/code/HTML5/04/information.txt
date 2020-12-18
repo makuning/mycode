@@ -1,0 +1,33 @@
+复习汇总
+html5整理出来的考点：
+    1.img, 
+    2.list图标
+    3.链接四种样式
+    4.背景平铺
+    5.display
+    6.块级元素
+    7.行内元素
+    8.注解
+    9.链接
+    10.过滤
+    11.转换
+    12.视频/音频
+    13.DTD
+    14.字符体html4, html5
+    15.多种列表
+    16.table新特性
+    17.文档结构的元素
+    18.下拉列表
+    19.palcehoder
+    20.autocomplete
+    21.pattern
+    22.css3新选择器
+    23.text-overflow
+    24.animation
+    25.localStorage/sessionStorage
+    26.svg
+    27.html5新元素
+    28.验证
+    29.圈角
+    30.阴影
+    31.时间元素

@@ -1,0 +1,16 @@
+************************************* MySQL的学习 **************************
+
+数据库(数据库管理系统:简单的sql语句)
+
+objectoutputstream --> Java对象(张三20 ...) --→序列化到文件当中。反序列化
+new java对象readobject ()writeobject
+
+常见的有哪些数据库管理系统呢?
+    工BM -->eclipse
+    Oracle甲骨文(SUN:太阳)oracle做数据库起家的。oracle --> MysQLAB公司
+    oracle MysQI DB2 sybase "Ms sqlserver支持标准sql的数据库管理系统"
+
+
+/*
+
+*/

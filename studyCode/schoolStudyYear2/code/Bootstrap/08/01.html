@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+    crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+    <style>
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<!-- 
+    折叠
+        按钮
+            data-toggle="collapse"
+            data-target="#id"
+
+        div
+            id="id"
+            .collapse
+            .border
+            .show   // 默认展开
+
+    手风琴
+        <div>
+        id="box"
+            <div>
+            .card
+                <div>
+                .card-header
+                    <a>
+                    .card-link 
+                    href="#id"
+                    data-toggle="collapse"
+                <div>
+                id="id"
+                .collapse
+                data-parent="#box"
+                    <div>
+                    .card-body
+                        内容
+
+    轮播
+        <div>
+        id="demo"
+        .carousel // 整个轮播的区域
+        .slide // 动画效果
+        data-ride="carousel"    // 自动轮播
+            <ul>                // 计数器 指示符
+            .carousel-indicators
+                <li>            // 几张图片就放几个li
+                data-target="#demo"
+                data-slide-to="数字"
+                .active         // 默认显示的部分
+            <div>       // 轮播的图片部分
+            .carousel-inner
+                <div>
+                .carousel-item
+                .active
+                    <img/>
+                    src="图片地址"
+                    <div>       // 图片上的文字
+                    .carousel-caption>
+            // 左右切换的按钮
+            <a>   // 上一张
+            href="#demo"
+            .carousel-control-prev
+            data-slide="prev"
+            <a>  // 下一张
+            href="#demo"
+            .carousel-control-next
+            data-slide="next"
+ -->
+<body>
+    <!-- 轮播 -->
+    <div class="container carousel slide" id="demo" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-slide-to="0" data-target="#demo" class="active"></li>
+            <li data-slide-to="1"  data-target="#demo"></li>
+            <li data-slide-to="2"  data-target="#demo"></li>
+            <li data-slide-to="3"  data-target="#demo"></li>
+        </ul>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="image/auto.jpg"/>
+            </div>
+            <div class="carousel-item">
+                <img src="image/nba.jpg"/>
+            </div>
+            <div class="carousel-item">
+                <img src="image/stock.jpg"/>
+            </div>
+            <div class="carousel-item">
+                <img src="image/yuetu.jpg"/>
+            </div>
+        </div>
+        <a href="#demo" class="carousel-control-prev" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a href="#demo" class="carousel-control-next" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+
+
+    <!-- 折叠 -->
+    <button class="btn btn-primary" data-toggle="collapse" data-target="#div">展开</button>
+    <div id="div" class="collapse border show">
+        <p>这是一段文字</p>
+    </div>
+
+    <!-- 手风琴(折叠卡片的body内容) -->
+    <div id="box" class="container">
+        <div class="card">
+            <div class="card-header">
+                <a href="#div2" class="card-link" data-toggle="collapse">选项1</a>
+            </div>
+        </div>
+        <div id="div2" class="collapse" data-parent="#box">
+            <div class="card-body">
+                <p>这是一段话</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <a href="#div3" class="card-link" data-toggle="collapse">选项1</a>
+            </div>
+        </div>
+        <div id="div3" class="collapse" data-parent="#box">
+            <div class="card-body">
+                <p>这是一段话</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a href="#div4" class="card-link" data-toggle="collapse">选项1</a>
+            </div>
+        </div>
+        <div id="div4" class="collapse" data-parent="#box">
+            <div class="card-body">
+                <p>这是一段话</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

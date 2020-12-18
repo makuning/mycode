@@ -1,0 +1,56 @@
+swing组件主要可分为三个部分，后面会详细介绍
+
+（1）顶层容器:：常用有JFrame，JDialog
+
+（2）中间容器：JPanel，JOptionPane，JScrollPane，JLayeredPane 等，主要以panel结尾。
+
+（3）基本组件：JLabel，JButton，JTextField，JPasswordField，JRadioButton 等。
+
+
+
+2.1顶层容器介绍
+#   组件              描述
+-----------------------------------------------------------------------
+1   JFrame      一个普通的窗口（绝大多数 Swing 图形界面程序使用 JFrame 作为顶层容器）
+2   JDialog     对话框
+
+2.2中间容器
+#   组件              描述
+---------------------------------------------------------------
+1   JPanel        (相当于div) 一般轻量级面板容器组件(作为JFrame中间容器)
+2   JScrollPane   带滚动条的，可以水平和垂直滚动的面板组件
+3   JSplitPane    分隔面板
+4   JTabbedPane   选项卡面板
+5   JLayeredPane  层级面板
+
+2.3基本组件
+#   组件             描述
+-------------------------
+1   JLabel          标签
+2   JButton         按钮
+3   JRadioButton    单选按钮
+4   JCheckBox       复选框
+5   JToggleButton   开关按钮
+6   JTextField      文本框
+7   JPasswordField  密码框
+8   JTextArea       文本区域
+9   JComboBox       下拉列表框
+10  JList           列表
+11  JProgressBar    进度条
+12  JSlider         滑块
+
+
+概念解析：
+    JFrame – java的GUI程序的基本思路是以JFrame为基础，它是屏幕上window的对象，能够最大化、最小化、关闭。
+
+    JPanel – Java图形用户界面(GUI)工具包swing中的面板容器类，包含在javax.swing 包中，可以进行嵌套，
+            功能是对窗体中具有相同逻辑功能的组件进行组合，是一种轻量级容器，可以加入到JFrame窗体中。。
+
+    JLabel – JLabel 对象可以显示文本、图像或同时显示二者。可以通过设置垂直和水平对齐方式，指定标签显示区中标签内容在何处对齐。
+            默认情况下，标签在其显示区内垂直居中对齐。默认情况下，只显示文本的标签是开始边对齐；而只显示图像的标签则水平居中对齐。
+
+    JTextField –一个轻量级组件，它允许编辑单行文本。
+
+    JPasswordField – 允许我们输入了一行字像输入框，但隐藏星号(*) 或点创建密码(密码)
+
+    JButton – JButton 类的实例。用于创建按钮类似实例中的 "Login"。
